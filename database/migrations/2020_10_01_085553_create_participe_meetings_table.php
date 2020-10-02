@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateParticipeMeetingsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('participe_meetings', function (Blueprint $table) {
+            $table->integer("user_id");
+            $table->integer("meeting_id");
+            $table->timestamps();
+            $table->primary(["user_id", "meeting_id"]);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('participe_meetings');
+    }
+}
