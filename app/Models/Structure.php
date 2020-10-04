@@ -11,4 +11,7 @@ class Structure extends Model
     public function compte(){
         return $this->belongsTo('App\Models\Compte');
     }
+    public function grille(){
+        return $this->belongsTo('App\Models\grille');
+    }
 }
