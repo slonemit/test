@@ -16,18 +16,29 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+Route::group(['middleware' => 'auth'], function () {
+    Route::resources([
+        'structures' =>StructuresController::class,
+        'agent' => \admin\agent::class,
+        'quartier' => \admin\QuartierController::class,
+        'zone' => \admin\zoneControler::class,
+        'section' => \admin\sectionControler::class,
+        'grille' => \admin\grilleControler::class,
+        'zonet' => \admin\zonetControler::class,
+        'ets' => \identification\etsControler::class,
+        'voiture' => \identification\voitureControler::class,
+        'activite' => \identification\activite::class,
+    ]);
+});
+
+
 
 Route::resource('structures', 'StructuresController');
 Route::get('/structures/create/{id}', 'StructuresController@create');
 Route::resource('salons', 'SalonsController');
 Route::resource('typecomptes', 'TypeComptesController');
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/advanced-ui-kits-image-crop', function () {
-    return view('advanced-ui-kits-image-crop');
-});
+
 Route::get('/advanced-ui-kits-jquery-confirm', function () {
     return view('advanced-ui-kits-jquery-confirm');
 });
