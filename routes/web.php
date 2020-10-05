@@ -16,8 +16,24 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+Route::group(['middleware' => 'auth'], function () {
+    Route::resources([
+        'structures' =>StructureController::class,
+        'agent' => \admin\agent::class,
+        'quartier' => \admin\QuartierController::class,
+        'zone' => \admin\zoneControler::class,
+        'section' => \admin\sectionControler::class,
+        'grille' => \admin\grilleControler::class,
+        'zonet' => \admin\zonetControler::class,
+        'ets' => \identification\etsControler::class,
+        'voiture' => \identification\voitureControler::class,
+        'activite' => \identification\activite::class,
+    ]);
+});
 
-Route::resource('structures', 'StructureController');
+
+Route::resource('',
+'StructureController');
 
 Route::get('/', function () {
     return view('index');
