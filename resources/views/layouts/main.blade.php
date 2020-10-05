@@ -11,7 +11,7 @@
         <title> @yield('title') </title>
         <!-- Fevicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
-        <!-- Start CSS -->   
+        <!-- Start CSS -->
         @yield('style')
         <link href="{{ asset('assets/plugins/switchery/switchery.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -32,10 +32,10 @@
                         <a class="nav-link active" id="pills-messages-tab" data-toggle="pill" href="#pills-messages" role="tab" aria-controls="pills-messages" aria-selected="true">Messages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-emails-tab" data-toggle="pill" href="#pills-emails" role="tab" aria-controls="pills-emails" aria-selected="false">Emails</a>
+                        <a class="nav-link" id="pills-emails-tab" data-toggle="pill" href="#pills-emails" role="tab" aria-controls="pills-emails" aria-selected="false">Invitation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-actions-tab" data-toggle="pill" href="#pills-actions" role="tab" aria-controls="pills-actions" aria-selected="false">Actions</a>
+                        <a class="nav-link" id="pills-actions-tab" data-toggle="pill" href="#pills-actions" role="tab" aria-controls="pills-actions" aria-selected="false">Salon</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="infobar-pills-tabContent">
@@ -110,7 +110,7 @@
                                 <div class="media-body">
                                     <h5 class="action-title">Payment Success !!!</h5>
                                     <p class="my-3">We have received your payment toward ad Account : 9876543210. Your Ad is Running.</p>
-                                    <p><span class="badge badge-danger-inverse">INFO</span><span class="badge badge-info-inverse">STATUS</span><span class="timing">Today, 09:39 PM</span></p>                            
+                                    <p><span class="badge badge-danger-inverse">INFO</span><span class="badge badge-info-inverse">STATUS</span><span class="timing">Today, 09:39 PM</span></p>
                                 </div>
                             </li>
                             <li class="media">
@@ -118,7 +118,7 @@
                                 <div class="media-body">
                                     <h5 class="action-title">Nobita Applied for Leave.</h5>
                                     <p class="my-3">Nobita applied for leave due to personal reasons on 22nd Feb.</p>
-                                    <p><span class="badge badge-success">APPROVE</span><span class="badge badge-danger">REJECT</span><span class="timing">Yesterday, 05:25 PM</span></p>                            
+                                    <p><span class="badge badge-success">APPROVE</span><span class="badge badge-danger">REJECT</span><span class="timing">Yesterday, 05:25 PM</span></p>
                                 </div>
                             </li>
                             <li class="media">
@@ -126,7 +126,7 @@
                                 <div class="media-body">
                                     <h5 class="action-title">Alert</h5>
                                     <p class="my-3">There has been new Log in fron your account at Melbourne. Mark it safe or report.</p>
-                                    <p><i class="feather icon-check text-success mr-3"></i><a href="#" class="text-muted">Report Now</a><span class="timing">5 Jan 2019, 02:13 PM</span></p>                            
+                                    <p><i class="feather icon-check text-success mr-3"></i><a href="#" class="text-muted">Report Now</a><span class="timing">5 Jan 2019, 02:13 PM</span></p>
                                 </div>
                             </li>
                             <li class="media">
@@ -213,7 +213,7 @@
                                 <img src="assets/images/users/boy.svg" class="img-fluid" alt="user">
                                 <h5>Shourya</h5>
                                 <p>CEO</p>
-                            </div>                        
+                            </div>
                         </div>
                         <div class="col-6">
                             <div class="account-box">
@@ -227,7 +227,7 @@
                                 <img src="assets/images/users/men.svg" class="img-fluid" alt="user">
                                 <h5>John</h5>
                                 <p>MD</p>
-                            </div>                        
+                            </div>
                         </div>
                         <div class="col-6">
                             <div class="account-box">
@@ -245,23 +245,23 @@
         <!-- Start Containerbar -->
         <div id="containerbar" class="container-fluid">
             <!-- Start Rightbar -->
-            @include('layouts.rightbar')          
+            @include('layouts.rightbar')
             @yield('content')
-            <!-- End Rightbar --> 
+            <!-- End Rightbar -->
         </div>
         <!-- End Containerbar -->
-        <!-- Start JS -->        
+        <!-- Start JS -->
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
         <script src="{{ asset('assets/js/detect.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
-        <script src="{{ asset('assets/js/horizontal-menu.js') }}"></script> 
-        <script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}"></script> 
+        <script src="{{ asset('assets/js/horizontal-menu.js') }}"></script>
+        <script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}"></script>
         @yield('script')
         <!-- Core JS -->
         <script src="{{ asset('assets/js/core.js') }}"></script>
         <!-- End JS -->
     </body>
-</html>    
+</html>

@@ -31,9 +31,12 @@
                         <div class="auth-box-left">
                             <div class="card">
                                 <div class="card-body">
+                                    <h4>Votre Communauté Vous Attend.</h4>
                                     <div class="auth-box-icon">
-                                        <img src="assets/images/logo.png" class="img-fluid" alt="auth-box-icon">
-                                        <h4 class="text-primary mb-4 d-lg-inline-flex">SFAR-IT</h4>
+                                        <img src="assets/images/authentication/auth-box-icon.svg" class="img-fluid" alt="auth-box-icon">
+                                    </div>
+                                    <div class="auth-box-logo">
+                                        <img src="assets/images/logo.svg" class="img-fluid " alt="logo">
                                     </div>
                                 </div>
                             </div>
@@ -47,28 +50,30 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form action="#">
-                                        <h4 class="text-primary mb-4">Se connecter !</h4>
+                                        <h4 class="text-primary mb-4">Connexion </h4>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="username" placeholder="Enter Username here" required>
+                                            <input type="text" class="form-control" id="username" placeholder="Entrez votre Compte" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="password" placeholder="Enter Password here" required>
+                                            <input type="password" class="form-control" id="password" placeholder="Entrez Votre Mot de Passe" required>
                                         </div>
                                         <div class="form-row mb-3">
                                             <div class="col-sm-6">
                                                 <div class="custom-control custom-checkbox">
                                                   <input type="checkbox" class="custom-control-input" id="rememberme">
                                                   <label class="custom-control-label font-14" for="rememberme">Remember Me</label>
-                                                </div>                                
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
-                                              <div class="forgot-psw"> 
-                                                <a id="forgot-psw" href="{{url('/user-forgotpsw')}}" class="font-14">Mot de passe oublie?</a>
+                                              <div class="forgot-psw">
+                                                <a id="forgot-psw" href="{{url('/user-forgotpsw')}}" class="font-14">Mot de passe Oublié?</a>
                                               </div>
                                             </div>
-                                        </div>                          
-                                      <button type="submit" class="btn btn-success btn-lg btn-block font-18">Connexion</button>
+                                        </div>
+                                      <button type="submit" class="btn btn-success btn-lg btn-block font-18">Log in Now</button>
                                     </form>
+
+                                    <p class="mb-0 mt-3">Vous n'avez pas de compte? <a href="{{url('/user-register')}}">Creer</a></p>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +87,7 @@
         <!-- End Container -->
     </div>
     <!-- End Containerbar -->
-    <!-- Start JS -->        
+    <!-- Start JS -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

@@ -344,6 +344,9 @@ Route::get('/user-login', function () {
 Route::get('/user-register', function () {
     return view('user-register');
 });
+Route::get('/choise', function () {
+    return view('account-choise');
+});
 Route::get('/widgets', function () {
     return view('widgets');
 });

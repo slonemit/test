@@ -15,7 +15,13 @@ class CreateStructuresTable extends Migration
     {
         Schema::create('structures', function (Blueprint $table) {
             $table->id();
-            $table->string("nom");
+            $table->string("form_jurid");
+            $table->string("objet_social");
+            $table->string("raison_social");
+            $table->string("adresse");
+            $table->string("tel");
+            $table->string("email");
+            $table->string("grille_id");
             $table->integer("compte_id");
             $table->timestamps();
         });
