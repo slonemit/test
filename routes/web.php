@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
-Route::resource('structures', 'StructureController');
+Route::resource('structures', 'StructuresController');
+Route::resource('salons', 'SalonsController');
 
 Route::get('/', function () {
     return view('index');

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compte;
+use App\Models\Salon;
 use App\Models\Structure;
 use Illuminate\Http\Request;
 
-class StructureController extends Controller
+class StructuresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,6 +41,7 @@ class StructureController extends Controller
         $nom = $request->input('nom');
         $compte_lib = $request->input('compte_lib');
         $montant = 0;
+
         if($compte_lib == "Basique"){
             $montant = 50000;
         }elseif($compte_lib == "Prenium"){
@@ -52,14 +54,18 @@ class StructureController extends Controller
 
 
         $structure = Structure::create([
-            'nom'      => $nom
+            'nom'      => $nom,
+            'compte_id' => 0
         ]);
 
         $compte = Compte::create([
             'structure_id'      => $structure->id,
             'compteLib'        => $compte_lib,
-            'montantCcotis'     => $montant
+            'montantCotis'     => $montant
         ]);
+
+        $structure->compte_id = $compte->id;
+        $structure->save();
 
         return redirect()->route("structures.show", $compte->id);
     }
@@ -72,7 +78,10 @@ class StructureController extends Controller
      */
     public function show($id)
     {
-        //
+        $structure = Structure::find($id);
+        $salons = Salon::where("structure_id", $id)->get();
+
+        return view('structures.show', compact('structure', 'salons'));
     }
 
     /**

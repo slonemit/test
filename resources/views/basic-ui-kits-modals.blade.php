@@ -140,7 +140,7 @@ Theta - Modals
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p class="text-muted">Woohoo, you're reading this text in a modal!</p>
+                                    <p class="text-muted">Woohoo, you're ok ok ok reading this text in a modal!</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
