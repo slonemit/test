@@ -19,21 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
     Route::resources([
         'structures' =>StructuresController::class,
-        'agent' => \admin\agent::class,
-        'quartier' => \admin\QuartierController::class,
-        'zone' => \admin\zoneControler::class,
-        'section' => \admin\sectionControler::class,
-        'grille' => \admin\grilleControler::class,
-        'zonet' => \admin\zonetControler::class,
-        'ets' => \identification\etsControler::class,
-        'voiture' => \identification\voitureControler::class,
-        'activite' => \identification\activite::class,
+        'annonce' => \vente\Annonce::class,
+
     ]);
 });
 
 
 
 Route::resource('structures', 'StructuresController');
+
 Route::resource('salons', 'SalonsController');
 
 
