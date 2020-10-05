@@ -15,16 +15,16 @@ class CreatePersonnesTable extends Migration
     {
         Schema::create('personnes', function (Blueprint $table) {
             $table->id();
-            $table->integer("structure_id");
-            $table->integer("user_id");
+            $table->integer("structure_id")->nullable();
+            $table->integer("user_id")->nullable();
             $table->string("nom", 100);
-            $table->string("prenom", 100);
+            $table->string("prenom", 100)->nullable();
             $table->date("datenaiss");
-            $table->string("lieunaiss", 100);
-            $table->string("tel", 100);
+            $table->string("lieunaiss", 100)->nullable();
+            $table->string("tel", 100)->nullable();
             $table->string("email", 100);
-            $table->string("cq", 100);
-            $table->string("ville", 100);
+            $table->string("cq", 100)->nullable();
+            $table->string("ville", 100)->nullable();
             $table->string("photo", 100)->nullable();
             $table->timestamps();
         });

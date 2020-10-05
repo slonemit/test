@@ -53,35 +53,38 @@
                         <div class="auth-box-right">
                             <div class="card">
                                 <div class="card-body">
-                                    <form method="post" action="{{ route('structures.store') }}">
+                                    <form method="post" action="{{ route('personnes.store') }}">
                                         @csrf
                                         <input type="hidden" name="typecompte_id" value="{{ $type_id }}"/>
                                         <h4 class="text-primary mb-4">Création Compte!</h4>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre Nom" required>
+                                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="form_jurid" name="form_jurid" placeholder="Form jurique" required>
+                                            <input type="text" class="form-control" id="nom" name="prenom" placeholder="Prenom" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="objet_social" name="objet_social" placeholder="Objet social" required>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <input type="date" class="form-control" id="nom" name="datenaiss" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" id="nom" name="lieunaiss" placeholder="Lieu" required>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="raison_social" name="raison_social" placeholder="Raison sociale" required>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" id="nom" name="ville"  placeholder="Ville" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" id="nom" name="cq" placeholder="CQ" required>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <select name="grille_id" class="form-control">
-                                                <option selected>Activité...</option>
-                                                @foreach($grilles as $grille)
-                                                <option value="{{ $grille->id }}">{{ $grille->activite }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" id="email" type="email" name="email" placeholder="plb2b@ring.com" required>
+                                            <input class="form-control" id="email" type="email" name="email" placeholder="Email" required>
                                         </div>
                                         <div class="form-group">
                                             <input class="form-control" id="tel" type="tel"  placeholder="+242 0X XXX XX XX" name="tel" required>
@@ -90,7 +93,7 @@
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Mot de Passe" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="re-password" placeholder="Re-Tapez le Mot de Passe" required>
+                                            <input type="password" class="form-control" id="re-password" placeholder="Confirmer le Mot de Passe" required>
                                         </div>
                                         <div class="form-row mb-3">
                                             <div class="col-sm-12">
