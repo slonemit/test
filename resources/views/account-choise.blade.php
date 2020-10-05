@@ -8,7 +8,7 @@
     <meta name="author" content="Themesbox">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Theta - Lock Screen</title>
+    <title>Theta - Register</title>
     <!-- Fevicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <!-- Start CSS -->
@@ -23,17 +23,17 @@
     <div id="containerbar" class="containerbar authenticate-bg">
         <!-- Start Container -->
         <div class="container">
-            <div class="auth-box lock-screen-box">
+            <div class="auth-box register-box">
                 <!-- Start row -->
-                <div class="row no-gutters align-items-center justify-content-center">                    
+                <div class="row no-gutters align-items-center justify-content-center">
                     <!-- Start col -->
-                    <div class="col-md-6 col-lg-5">
+                    <div class="col-md-4 col-lg-5">
                         <div class="auth-box-left">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4>Welcome Aboard</h4>
+                                    <h4>Allez y. C'est Gratuit !</h4>
                                     <div class="auth-box-icon">
-                                        <img src="assets/images/authentication/auth-box-icon-lock.svg" class="img-fluid" alt="auth-box-icon">
+                                        <img src="assets/images/authentication/auth-box-icon.svg" class="img-fluid" alt="auth-box-icon">
                                     </div>
                                     <div class="auth-box-logo">
                                         <img src="assets/images/logo.svg" class="img-fluid " alt="logo">
@@ -44,23 +44,24 @@
                     </div>
                     <!-- Start end -->
                     <!-- Start col -->
-                    <div class="col-md-6 col-lg-5">
+                    <div class="col-md-8 col-lg-5">
                         <!-- Start Auth Box -->
                         <div class="auth-box-right">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="#">
-                                        <h4 class="text-primary mb-4">Lock Screen !</h4>
-                                        <p class="mb-4">Enter password to access the profile.</p>
-                                        <div class="user-logo mb-4">
-                                            <img src="assets/images/users/boy.svg" class="rounded-circle img-fluid" alt="user-img">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-4">
+                                            <div class="thankyou-content text-center my-5">
+                                                <img src="assets/images/ecommerce/thankyou.svg" class="img-fluid mb-5" alt="thankyou">
+
+                                                <p class="my-4">Choississez Votre Type</p>
+                                                <div class="button-list">
+                                                    <a href="{{url('/user-register')}}">  <button type="button" class="btn btn-primary-rgba font-16"><i class="feather icon-map-pin mr-2"></i>Personnel</button></a>
+                                                    <button type="button" class="btn btn-success font-16"><i class="feather icon-file-text mr-2"></i>Entreprise</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" id="password" placeholder="Password" required>
-                                        </div>                          
-                                      <button type="submit" class="btn btn-success btn-lg btn-block font-18">Sign in Now</button>
-                                    </form>
-                                    <p class="mb-0 mt-3">Not You? Go to <a href="{{url('/user-login')}}">Log in</a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +75,7 @@
         <!-- End Container -->
     </div>
     <!-- End Containerbar -->
-    <!-- Start JS -->        
+    <!-- Start JS -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
