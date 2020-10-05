@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::resource('structures', 'StructuresController');
+Route::get('/structures/create/{id}', 'StructuresController@create');
 Route::resource('salons', 'SalonsController');
+Route::resource('typecomptes', 'TypeComptesController');
 
 Route::get('/', function () {
     return view('index');

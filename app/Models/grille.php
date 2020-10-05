@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class grille extends Model
+class Grille extends Model
 {
     protected $guarded = [];
     //

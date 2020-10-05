@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Compte;
-use App\Models\Grille;
-use App\Models\Salon;
-use App\Models\Structure;
 use App\Models\Typecompte;
 use Illuminate\Http\Request;
 
-class StructuresController extends Controller
+class TypeComptesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +14,9 @@ class StructuresController extends Controller
      */
     public function index()
     {
-        $structures = Structure::all();
-        return view("structures.index", compact('structures'));
+        $types = Typecompte::all();
+
+        return view("typecomptes.index", compact('types'));
     }
 
     /**
@@ -27,12 +24,9 @@ class StructuresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $grilles = Grille::all();
-        $type = Typecompte::find($id);
-        $type_id = $type->id;
-        return view('structures.create', compact('type_id', 'grilles'));
+        //
     }
 
     /**
@@ -43,24 +37,7 @@ class StructuresController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-
-
-        /*$structure = Structure::create([
-            'nom'      => $nom,
-            'compte_id' => 0
-        ]);
-
-        $compte = Compte::create([
-            'structure_id'      => $structure->id,
-            'compteLib'        => $compte_lib,
-            'montantCotis'     => $montant
-        ]);
-
-        $structure->compte_id = $compte->id;
-        $structure->save();*/
-
-        /*return redirect()->route("structures.show", $compte->id);*/
+        //
     }
 
     /**
@@ -71,10 +48,7 @@ class StructuresController extends Controller
      */
     public function show($id)
     {
-        $structure = Structure::find($id);
-        $salons = Salon::where("structure_id", $id)->get();
-
-        return view('structures.show', compact('structure', 'salons'));
+        //
     }
 
     /**
