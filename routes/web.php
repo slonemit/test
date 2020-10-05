@@ -33,6 +33,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
+Route::resource('structures', 'StructuresController');
+Route::resource('salons', 'SalonsController');
+
+
 Route::get('/advanced-ui-kits-jquery-confirm', function () {
     return view('advanced-ui-kits-jquery-confirm');
 });
