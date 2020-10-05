@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 });*/
 Route::group(['middleware' => 'auth'], function () {
     Route::resources([
-        'structures' =>StructureController::class,
+        'structures' =>StructuresController::class,
         'agent' => \admin\agent::class,
         'quartier' => \admin\QuartierController::class,
         'zone' => \admin\zoneControler::class,
@@ -32,15 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-Route::resource('',
-'StructureController');
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/advanced-ui-kits-image-crop', function () {
-    return view('advanced-ui-kits-image-crop');
-});
 Route::get('/advanced-ui-kits-jquery-confirm', function () {
     return view('advanced-ui-kits-jquery-confirm');
 });
