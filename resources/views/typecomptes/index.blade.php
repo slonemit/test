@@ -1,32 +1,29 @@
-@section('title')
-PLATEFORM B2B - comptes
-@endsection
-@extends('layouts.main')
-@section('style')
 
-@endsection
-@section('rightbar-content')
-<!-- Start Breadcrumbbar -->
-<div class="breadcrumbbar">
-    <div class="row align-items-center">
-        <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">Pricing</h4>
-            <div class="breadcrumb-list">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Basic Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Pricing</li>
-                </ol>
-            </div>
-        </div>
-        <div class="col-md-4 col-lg-4">
-            <div class="widgetbar">
-                <button class="btn btn-primary">Add Widget</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Breadcrumbbar -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Theta is a premium responsive admin dashboard template with great features.">
+    <meta name="keywords" content="responsive, admin template, dashboard template, bootstrap 4, laravel, ui kits, ecommerce, web app, crm, cms, html, sass support, scss">
+    <meta name="author" content="Themesbox">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Theta - Login</title>
+    <!-- Fevicon -->
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <!-- Start CSS -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
+    <!-- End CSS -->
+</head>
+<body class="vertical-layout">
+    <!-- Start Containerbar -->
+    <div id="containerbar" class="containerbar authenticate-bg">
+        <!-- Start Container -->
+        <div class="container">
 <!-- Start Contentbar -->
 <div class="contentbar">
     <!-- Start row -->
@@ -67,7 +64,17 @@ PLATEFORM B2B - comptes
     <!-- End row -->
 </div>
 <!-- End Contentbar -->
-@endsection
-@section('script')
-
-@endsection
+        </div>
+        <!-- End Container -->
+    </div>
+    <!-- End Containerbar -->
+    <!-- Start JS -->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+    <script src="{{ asset('assets/js/detect.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+    <!-- End js -->
+</body>
+</html>
