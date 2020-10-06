@@ -87,7 +87,9 @@
                                                     <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/images/svg-icon/user.svg" class="img-fluid" alt="user"></a></li>
                                                     <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/images/svg-icon/email.svg" class="img-fluid" alt="email"></a></li>
                                                     <li class="list-inline-item">
-                                                        <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><img src="assets/images/svg-icon/logout.svg" class="img-fluid" alt="logout"></a>
+                                                        <a class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                            <img src="{{ asset("assets/images/svg-icon/logout.svg") }}" class="img-fluid" alt="logout">
+                                                        </a>
                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                             @csrf
                                                         </form>
@@ -125,15 +127,15 @@
             <nav class="horizontal-nav mobile-navbar fixed-navbar">
                 <div class="collapse navbar-collapse" id="navbar-menu">
                   <ul class="horizontal-menu">
-                    <li class="scroll dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/dashboard.svg" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
+                    <li>
+                        <a href="{{ route("home") }}" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/dashboard.svg" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
 
                     </li>
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>Vente</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{url('../light-vertical')}}"><i class="mdi mdi-circle"></i>Catalogue Produit</a></li>
-                            <li><a href="{{ route('annonce.index')  }}"><i class="mdi mdi-circle"></i>Vendre Un Produit </a></li>
+                            <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Vendre Un Produit </a></li>
 
                         </ul>
                     </li>
@@ -153,10 +155,6 @@
                                 <a href="javaScript:void();" class="mdi mdi-circle" data-toggle="dropdown"><span>Publicite</span></a>
 
                             </li>
-
-
-
-
                         </ul>
                     </li>
                     <li class="dropdown">

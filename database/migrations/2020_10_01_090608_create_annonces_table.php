@@ -16,8 +16,8 @@ class CreateAnnoncesTable extends Migration
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
             $table->integer("user_id");
-            $table->integer("fichier_id");
-            $table->string("image");
+            $table->integer("fichier_id")->nullable();
+            $table->string("image")->nullable();
             $table->text("description");
             $table->dateTime("date_pub");
             $table->integer("cout");
