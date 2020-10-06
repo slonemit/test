@@ -17,15 +17,8 @@ Route::get('/', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function () {
     Route::resources([
         'structures' =>StructuresController::class,
-        'agent' => \admin\agent::class,
-        'quartier' => \admin\QuartierController::class,
-        'zone' => \admin\zoneControler::class,
-        'section' => \admin\sectionControler::class,
-        'grille' => \admin\grilleControler::class,
-        'zonet' => \admin\zonetControler::class,
-        'ets' => \identification\etsControler::class,
-        'voiture' => \identification\voitureControler::class,
-        'activite' => \identification\activite::class,
+        'annonce' => \vente\Annonce::class,
+
     ]);
 });
 
@@ -36,6 +29,7 @@ Route::resource('structures', 'StructuresController');
 Route::resource('produits', 'ProduitsController');
 Route::resource('personnes', 'PersonnesController');
 Route::get('/structures/create/{id}', 'StructuresController@create');
+
 Route::resource('salons', 'SalonsController');
 Route::resource('typecomptes', 'TypeComptesController');
 

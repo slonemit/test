@@ -1,36 +1,32 @@
-@section('title') 
+@section('title')
 Theta - Product Detail
-@endsection 
+@endsection
 @extends('layouts.main')
 @section('style')
 <!-- Summernote css -->
 <link href="{{ asset('assets/plugins/summernote/summernote-bs4.css') }}" rel="stylesheet" type="text/css" />
 <!-- Dropzone css -->
 <link href="{{ asset('assets/plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css" />
-@endsection 
+@endsection
 @section('rightbar-content')
-<!-- Start Breadcrumbbar -->                    
+<!-- Start Breadcrumbbar -->
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
             <h4 class="page-title">Product Detail</h4>
             <div class="breadcrumb-list">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">eCommerce</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
-                </ol>
+
             </div>
         </div>
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
-                <button class="btn btn-primary">Publish</button>
-            </div>                        
+                <button class="btn btn-primary">Publier</button>
+            </div>
         </div>
-    </div>          
+    </div>
 </div>
 <!-- End Breadcrumbbar -->
-<!-- Start Contentbar -->    
+<!-- Start Contentbar -->
 <div class="contentbar">
     <!-- Start row -->
     <div class="row">
@@ -38,20 +34,20 @@ Theta - Product Detail
         <div class="col-lg-8 col-xl-9">
             <div class="card m-b-30">
                 <div class="card-header">
-                    <h5 class="card-title">Product Detail</h5>
+                    <h5 class="card-title">Annonces Detaill</h5>
                 </div>
                 <div class="card-body">
                     <form>
                         <div class="form-group row">
-                            <label for="productTitle" class="col-sm-12 col-form-label">Product Title</label>
+                            <label for="productTitle" class="col-sm-12 col-form-label">Titre</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control font-20" id="productTitle" placeholder="Title">
+                                <input type="text" class="form-control font-20" id="productTitle" placeholder="Titre">
                             </div>
-                        </div>                                     
+                        </div>
                         <div class="form-group row">
                             <label class="col-sm-12 col-form-label">Description</label>
                             <div class="col-sm-12">
-                                <div class="summernote">This is demo product.</div>
+                                <div class="summernote"></div>
                             </div>
                         </div>
                     </form>
@@ -59,7 +55,7 @@ Theta - Product Detail
             </div>
             <div class="card m-b-30">
                 <div class="card-header">
-                    <h5 class="card-title">Other Detail</h5>
+                    <h5 class="card-title">Autres  Detail</h5>
                 </div>
             </div>
             <div class="row">
@@ -69,8 +65,8 @@ Theta - Product Detail
                             <div class="nav flex-column nav-pills" id="v-pills-product-tab" role="tablist" aria-orientation="vertical">
                                 <a class="nav-link mb-2 active" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="true"><i class="feather icon-feather mr-2"></i>General</a>
                                 <a class="nav-link mb-2" id="v-pills-stock-tab" data-toggle="pill" href="#v-pills-stock" role="tab" aria-controls="v-pills-stock" aria-selected="false"><i class="feather icon-box mr-2"></i>Stock</a>
-                                <a class="nav-link mb-2" id="v-pills-shipping-tab" data-toggle="pill" href="#v-pills-shipping" role="tab" aria-controls="v-pills-shipping" aria-selected="false"><i class="feather icon-truck mr-2"></i>Shipping</a>
-                                <a class="nav-link mb-2" id="v-pills-advanced-tab" data-toggle="pill" href="#v-pills-advanced" role="tab" aria-controls="v-pills-advanced" aria-selected="false"><i class="feather icon-settings mr-2"></i>Advanced</a>
+                                <a class="nav-link mb-2" id="v-pills-shipping-tab" data-toggle="pill" href="#v-pills-shipping" role="tab" aria-controls="v-pills-shipping" aria-selected="false"><i class="feather icon-truck mr-2"></i>Remise</a>
+                                <a class="nav-link mb-2" id="v-pills-advanced-tab" data-toggle="pill" href="#v-pills-advanced" role="tab" aria-controls="v-pills-advanced" aria-selected="false"><i class="feather icon-settings mr-2"></i>Plus</a>
                             </div>
                         </div>
                     </div>
@@ -82,17 +78,12 @@ Theta - Product Detail
                                 <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
                                     <form>
                                         <div class="form-group row">
-                                            <label for="regularPrice" class="col-sm-4 col-form-label">Price($)</label>
+                                            <label for="regularPrice" class="col-sm-4 col-form-label">Prix</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="regularPrice" placeholder="100">
+                                                <input type="text" class="form-control" name="cout" id="regularPrice" placeholder="">
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-0">
-                                            <label for="salePrice" class="col-sm-4 col-form-label">Sale Price($)</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="salePrice" placeholder="50">
-                                            </div>
-                                        </div>
+
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-stock" role="tabpanel" aria-labelledby="v-pills-stock-tab">
@@ -154,7 +145,7 @@ Theta - Product Detail
                         </div>
                     </div>
                 </div>
-            </div>                  
+            </div>
         </div>
         <!-- End col -->
         <!-- Start col -->
@@ -238,7 +229,7 @@ Theta - Product Detail
                         <span class="badge badge-secondary-inverse">Trending</span>
                         <span class="badge badge-secondary-inverse">Popular</span>
                         <span class="badge badge-secondary-inverse">Sale</span>
-                    </div>                                
+                    </div>
                 </div>
                 <div class="card-footer">
                     <div class="add-product-tags">
@@ -259,7 +250,7 @@ Theta - Product Detail
                 </div>
                 <div class="card-body">
                     <div class="ecommerce-upload">
-                        <form action="#" class="dropzone dz-clickable">                                    
+                        <form action="#" class="dropzone dz-clickable">
                             <div class="dz-default dz-message">
                                 <p class="dash-analytic-icon"><i class="feather icon-plus primary-rgba text-primary"></i></p>
                                 <span>Upload Product Featured Image</span>
@@ -282,7 +273,7 @@ Theta - Product Detail
                     </div>
                     <div class="d-inline-block mb-1">
                         <img src="assets/images/ecommerce/product_gallery_03.jpg" alt="Rounded Image" class="img-fluid rounded">
-                    </div>                                
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button type="button" class="btn btn-primary-rgba btn-lg btn-block">Add Gallery</button>
@@ -294,7 +285,7 @@ Theta - Product Detail
     <!-- End row -->
 </div>
 <!-- End Contentbar -->
-@endsection 
+@endsection
 @section('script')
 <!-- Summernote js -->
 <script src="{{ asset('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
@@ -302,4 +293,4 @@ Theta - Product Detail
 <script src="{{ asset('assets/plugins/dropzone/dist/dropzone.js') }}"></script>
 <!-- eCommerce Page js -->
 <script src="{{ asset('assets/js/custom/custom-ecommerce-product-detail-page.js') }}"></script>
-@endsection 
+@endsection
