@@ -6,7 +6,7 @@ use App\Models\Salon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Annonce extends Controller
+class AnnoncesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class Annonce extends Controller
      */
     public function index()
     {
-        return view("vente/Annonce"); //
+        return view("ventes/Annonce"); //
     }
 
     /**
