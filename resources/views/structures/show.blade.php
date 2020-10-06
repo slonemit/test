@@ -431,6 +431,39 @@
                             </form>
                         </div>
                     </div>
+                    <div class="card m-b-30">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Mes produits</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                @foreach($produits as $produit)
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="address-box">
+                                        <div class="card border m-b-30">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">{{ $produit->name }}</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-7"><p>{{ $produit->description }}</p></div>
+                                                    <div class="col-md-3"><img src="{{ asset("assets/images/ui-images/image-circle.jpg") }}" alt="Rounded Image" class="rounded-circle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="button-list">
+                                                    <button type="button" class="btn btn-round btn-success-rgba mb-1"><i class="feather icon-edit-2"></i></button>
+                                                    <button type="button" class="btn btn-round btn-danger-rgba mb-1"><i class="feather icon-trash"></i></button>
+                                                    <a href="{{ route("produits.show", $produit->id) }}" class="btn btn-primary-rgba font-16 mb-0">Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- My Profile End -->
                 <!-- My Logout Start -->

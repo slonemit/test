@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Compte;
 use App\Models\Grille;
 use App\Models\Personne;
+use App\Models\Produit;
 use App\Models\Salon;
 use App\Models\Structure;
 use App\Models\Typecompte;
@@ -110,8 +111,9 @@ class StructuresController extends Controller
     {
         $structure = Structure::find($id);
         $salons = Salon::where("structure_id", $id)->get();
+        $produits = Produit::where("structure_id", $id)->get();
 
-        return view('structures.show', compact('structure', 'salons'));
+        return view('structures.show', compact('structure', 'salons', 'produits'));
     }
 
     /**
