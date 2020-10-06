@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Personne;
-use App\Models\User;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class PersonnesController extends Controller
@@ -56,7 +57,7 @@ class PersonnesController extends Controller
                 'name'              => $personne->nom. ' '. $personne->prenom,
                 'login'             => $personne->nom. ' '. $personne->prenom,
                 'email'             => $personne->email,
-                'password'          => $request->input('password'),
+                'password'          => Hash::make($request->input('password')),
                 'statut_user'       => 0
             ]);
 

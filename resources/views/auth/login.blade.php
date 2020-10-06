@@ -8,7 +8,7 @@
     <meta name="author" content="Themesbox">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Theta - Login</title>
+    <title>PLATEFORM B2B - Connexion</title>
     <!-- Fevicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <!-- Start CSS -->
@@ -49,18 +49,24 @@
                         <div class="auth-box-right">
                             <div class="card">
                                 <div class="card-body">
+                                    <h3 class="text-primary mb-4">Connexion </h3>
                                     <form method="POST" action="{{ route('login') }}">
-                                        <h4 class="text-primary mb-4">Connexion </h4>
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="username" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Entrez votre Compte" required>
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                            <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="username" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Entrez votre Compte" required>
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="password" placeholder="Entrez Votre Mot de Passe" required>
+                                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Entrez Votre Mot de Passe" required>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-row mb-3">
                                             <div class="col-sm-6">

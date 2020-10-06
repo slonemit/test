@@ -9,7 +9,8 @@ use App\Models\Produit;
 use App\Models\Salon;
 use App\Models\Structure;
 use App\Models\Typecompte;
-use App\Models\User;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class StructuresController extends Controller
@@ -88,7 +89,7 @@ class StructuresController extends Controller
                     'name'              => $personne->nom,
                     'login'             => $personne->nom,
                     'email'             => $personne->email,
-                    'password'          => $request->input('password'),
+                    'password'          => Hash::make($request->input('password')),
                     'statut_user'       => 0
                 ]);
 

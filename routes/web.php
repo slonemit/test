@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resources([
@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 
 
+Route::resource('annonces', 'vente\Annonce');
 Route::resource('structures', 'StructuresController');
 Route::resource('produits', 'ProduitsController');
 Route::resource('personnes', 'PersonnesController');
