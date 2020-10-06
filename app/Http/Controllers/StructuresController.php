@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compte;
+use App\Models\Grille;
+use App\Models\Personne;
 use App\Models\Salon;
 use App\Models\Structure;
+use App\Models\Typecompte;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StructuresController extends Controller
@@ -25,9 +29,17 @@ class StructuresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $grilles = Grille::all();
+        $type = Typecompte::find($id);
+        $type_id = $type->id;
+
+        if($type_id == 1){
+            return view('structures.create_person', compact('type_id', 'grilles'));
+        }
+
+        return view('structures.create', compact('type_id', 'grilles'));
     }
 
     /**
@@ -38,36 +50,54 @@ class StructuresController extends Controller
      */
     public function store(Request $request)
     {
-        $nom = $request->input('nom');
-        $compte_lib = $request->input('compte_lib');
-        $montant = 0;
-
-        if($compte_lib == "Basique"){
-            $montant = 50000;
-        }elseif($compte_lib == "Prenium"){
-            $montant = 100000;
-        }elseif($compte_lib == "Silver"){
-            $montant = 200000;
-        }elseif($compte_lib == "Gold"){
-            $montant = 300000;
-        }
-
 
         $structure = Structure::create([
-            'nom'      => $nom,
+            'nom'      => $request->input('nom'),
+            'form_jurid'      => $request->input('form_jurid'),
+            'objet_social'      => $request->input('objet_social'),
+            'raison_social'      => $request->input('raison_social'),
+            'adresse'      => $request->input('adresse'),
+            'tel'      => $request->input('tel'),
+            'email'      => $request->input('email'),
+            'grille_id'      => $request->input('grille_id'),
             'compte_id' => 0
         ]);
 
         $compte = Compte::create([
             'structure_id'      => $structure->id,
-            'compteLib'        => $compte_lib,
-            'montantCotis'     => $montant
+            'typecompte_id'     => $request->input('typecompte_id')
         ]);
 
         $structure->compte_id = $compte->id;
         $structure->save();
 
-        return redirect()->route("structures.show", $compte->id);
+        if($structure || $compte){
+
+            $personne = Personne::create([
+                'structure_id'          => $structure->id,
+                'nom'                   => $structure->nom,
+                'datenaiss'             => now(),
+                'email'                 => $structure->email
+            ]);
+
+            if($personne){
+
+                $user = User::create([
+                    'personne_id'       => $personne->id,
+                    'name'              => $personne->nom,
+                    'login'             => $personne->nom,
+                    'email'             => $personne->email,
+                    'password'          => $request->input('password'),
+                    'statut_user'       => 0
+                ]);
+
+                if($user){
+                    $personne->user_id = $user->id;
+
+                    return redirect()->route("structures.show", $compte->id);
+                }
+            }
+        }
     }
 
     /**

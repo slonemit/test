@@ -27,8 +27,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::resource('structures', 'StructuresController');
+Route::resource('personnes', 'PersonnesController');
+Route::get('/structures/create/{id}', 'StructuresController@create');
 
 Route::resource('salons', 'SalonsController');
+Route::resource('typecomptes', 'TypeComptesController');
 
 
 Route::get('/advanced-ui-kits-jquery-confirm', function () {

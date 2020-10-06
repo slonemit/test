@@ -1,12 +1,12 @@
-@section('title') 
-Theta - Pricing
-@endsection 
+@section('title')
+PLATEFORM B2B - comptes
+@endsection
 @extends('layouts.main')
 @section('style')
 
-@endsection 
+@endsection
 @section('rightbar-content')
-<!-- Start Breadcrumbbar -->                    
+<!-- Start Breadcrumbbar -->
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
@@ -22,50 +22,52 @@ Theta - Pricing
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
                 <button class="btn btn-primary">Add Widget</button>
-            </div>                        
+            </div>
         </div>
-    </div>          
+    </div>
 </div>
 <!-- End Breadcrumbbar -->
-<!-- Start Contentbar -->    
-<div class="contentbar">                
+<!-- Start Contentbar -->
+<div class="contentbar">
     <!-- Start row -->
     <div class="row align-items-center justify-content-center">
         <!-- Start col -->
+        @foreach($types as $type)
         <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="card m-b-30">
                 <div class="card-body p-0">
                     <div class="pricing text-center">
                         <div class="pricing-top">
-                            <h4 class="text-success mb-0">Basique</h4>
+                            <h4 class="text-success mb-0">{{ $type->nom }}</h4>
                             <img src="assets/images/pricing/pricing-basic.svg" class="img-fluid my-4" alt="basic pricing">
                             <div class="pricing-amount">
-                                <h3 class="text-success mb-0"><sup>$</sup>0</h3>
+                                <h3 class="text-success mb-0"><sup>$</sup>{{ $type->montantCotis }}</h3>
                                 <h6 class="pricing-duration">Par an</h6>
                             </div>
                         </div>
                         <div class="pricing-middle">
                             <ul class="list-group">
-                              <li class="list-group-item"><i class="feather icon-check mr-2"></i>100 GB Disk Space</li>
-                              <li class="list-group-item"><i class="feather icon-check mr-2"></i>10 Email</li>
-                              <li class="list-group-item"><i class="feather icon-check mr-2"></i>5 Domain</li>
+                              <li class="list-group-item"><i class="feather icon-check mr-2"></i>Publication des annonces</li>
+                              <li class="list-group-item"><i class="feather icon-check mr-2"></i>Organisation des salons</li>
+                              <li class="list-group-item"><i class="feather icon-check mr-2"></i>Etc..</li>
                             </ul>
                         </div>
                         <div class="pricing-bottom pricing-bottom-basic">
                             <div class="pricing-btn">
-                                <button type="button" class="btn btn-success font-16">Select<i class="feather icon-arrow-right ml-2"></i></button>
+                                <a href="{{ url("structures/create/".$type->id) }}" class="btn btn-success font-16">Select..<i class="feather icon-arrow-right ml-2"></i></a>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
+        @endforeach
         <!-- End col -->
     </div>
     <!-- End row -->
 </div>
 <!-- End Contentbar -->
-@endsection 
+@endsection
 @section('script')
 
-@endsection 
+@endsection

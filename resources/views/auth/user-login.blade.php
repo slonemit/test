@@ -49,15 +49,10 @@
                         <div class="auth-box-right">
                             <div class="card">
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('login') }}">
+                                    <form action="#">
                                         <h4 class="text-primary mb-4">Connexion </h4>
                                         <div class="form-group">
-                                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="username" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Entrez votre Compte" required>
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                            <input type="text" class="form-control" id="username" placeholder="Entrez votre Compte" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control" id="password" placeholder="Entrez Votre Mot de Passe" required>
@@ -102,12 +97,3 @@
     <!-- End js -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-

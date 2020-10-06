@@ -73,7 +73,7 @@
                                       <button type="submit" class="btn btn-success btn-lg btn-block font-18">Log in Now</button>
                                     </form>
 
-                                    <p class="mb-0 mt-3">Vous n'avez pas de compte? <a href="{{url('/user-register')}}">Creer</a></p>
+                                    <p class="mb-0 mt-3">Vous n'avez pas de compte? <a href="{{url('/page-pricing')}}">Creer</a></p>
                                 </div>
                             </div>
                         </div>
