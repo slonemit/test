@@ -12,10 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'HomeController@index');
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 Route::group(['middleware' => 'auth'], function () {
     Route::resources([
         'structures' =>StructuresController::class,
@@ -31,9 +29,11 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
 });
 
+Auth::routes();
 
 
 Route::resource('structures', 'StructuresController');
+Route::resource('produits', 'ProduitsController');
 Route::resource('personnes', 'PersonnesController');
 Route::get('/structures/create/{id}', 'StructuresController@create');
 Route::resource('salons', 'SalonsController');
@@ -364,14 +364,3 @@ Route::get('/choise', function () {
 Route::get('/widgets', function () {
     return view('widgets');
 });
-
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
