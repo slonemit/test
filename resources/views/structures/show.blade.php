@@ -42,7 +42,7 @@
                         <a class="nav-link mb-2 active" id="v-pills-dashboard-tab" data-toggle="pill" href="#v-pills-dashboard" role="tab" aria-controls="v-pills-dashboard" aria-selected="true"><i class="feather icon-grid mr-2"></i>Dashboard</a>
                         <a class="nav-link mb-2" id="v-pills-order-tab" data-toggle="pill" href="#v-pills-order" role="tab" aria-controls="v-pills-order" aria-selected="false"><i class="feather icon-package mr-2"></i>Personnes</a>
                         <a class="nav-link mb-2" id="v-pills-addresses-tab" data-toggle="pill" href="#v-pills-addresses" role="tab" aria-controls="v-pills-addresses" aria-selected="false"><i class="feather icon-map-pin mr-2"></i>Salon</a>
-                        <a class="nav-link mb-2" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="feather icon-user mr-2"></i>Invitation</a>
+                        <a class="nav-link mb-2" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="feather icon-user mr-2"></i>Produits</a>
                         <a class="nav-link mb-2" id="v-pills-notifications-tab" data-toggle="pill" href="#v-pills-notifications" role="tab" aria-controls="v-pills-notifications" aria-selected="false"><i class="feather icon-bell mr-2"></i>Notifications</a>
                         <a class="nav-link" id="v-pills-logout-tab" data-toggle="pill" href="#v-pills-logout" role="tab" aria-controls="v-pills-logout" aria-selected="false"><i class="feather icon-log-out mr-2"></i>Logout</a>
                     </div>
@@ -401,72 +401,67 @@
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <div class="card m-b-30">
                         <div class="card-header">                                
-                            <h5 class="card-title mb-0">My Profile</h5>                                       
+                            <h5 class="card-title mb-0">Création de produit</h5>
                         </div>
                         <div class="card-body">
-                            <div class="profilebox pt-4 text-center">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="#" class="btn btn-success-rgba font-18"><i class="feather icon-edit"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <img src="assets/images/users/profile.svg" class="img-fluid" alt="profile">
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#" class="btn btn-danger-rgba font-18"><i class="feather icon-trash"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <form enctype="multipart/form-data" method="post" action="{{ route('produits.store') }}">
+                                @csrf
+                                <input type="hidden" name="structure_id" value="{{ $structure->id }}"/>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="username">Nom</label>
+                                        <input type="text" class="form-control" name="name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="useremail">Prix</label>
+                                        <input type="number" class="form-control" name="price">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="usermobile">Description</label>
+                                        <textarea class="form-control" name="description" id="" cols="20" rows="5" placeholder="Description..."></textarea>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="useremail">Photo</label>
+                                        <input type="file" class="form-control" name="image">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary-rgba font-16"><i class="feather icon-save mr-2"></i>Enregistrer</button>
+                            </form>
                         </div>
                     </div>
                     <div class="card m-b-30">
-                        <div class="card-header">                                
-                            <h5 class="card-title mb-0">Edit Profile Informations</h5>                                       
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Mes produits</h5>
                         </div>
                         <div class="card-body">
-                            <form>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="username">Username</label>
-                                        <input type="text" class="form-control" id="username">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="useremail">Email</label>
-                                        <input type="email" class="form-control" id="useremail">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="usermobile">Mobile Number</label>
-                                        <input type="text" class="form-control" id="usermobile">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="userbirthdate">Date of Birth</label>
-                                        <input type="date" class="form-control" id="userbirthdate">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="userpassword">Password</label>
-                                        <input type="password" class="form-control" id="userpassword">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="userconfirmedpassword">Confirmed Password</label>
-                                        <input type="password" class="form-control" id="userconfirmedpassword">
+                            <div class="row">
+                                @foreach($produits as $produit)
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="address-box">
+                                        <div class="card border m-b-30">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">{{ $produit->name }}</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-7"><p>{{ $produit->description }}</p></div>
+                                                    <div class="col-md-3"><img src="{{ asset("assets/images/ui-images/image-circle.jpg") }}" alt="Rounded Image" class="rounded-circle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="button-list">
+                                                    <button type="button" class="btn btn-round btn-success-rgba mb-1"><i class="feather icon-edit-2"></i></button>
+                                                    <button type="button" class="btn btn-round btn-danger-rgba mb-1"><i class="feather icon-trash"></i></button>
+                                                    <a href="{{ route("produits.show", $produit->id) }}" class="btn btn-primary-rgba font-16 mb-0">Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="usermale" name="usergender" class="custom-control-input" checked>
-                                        <label class="custom-control-label" for="usermale">Male</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="userfemale" name="usergender" class="custom-control-input">
-                                        <label class="custom-control-label" for="userfemale">Female</label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary-rgba font-16"><i class="feather icon-save mr-2"></i>Update</button>
-                            </form>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
