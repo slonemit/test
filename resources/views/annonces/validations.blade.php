@@ -39,10 +39,11 @@ PLATEFORM B2B - Annonces
                 <div class="card-body">
                     <p class="card-text">{{ 'Publié le : '.$annonce->date_pub }}</p>
                     <p class="card-text">{{ $annonce->description }}</p>
+                    <p class="card-text">{{ 'Par : '.$annonce->user->name }}</p>
                     <div class="custom-control custom-switch">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="statut">
-                        <label class="custom-control-label" for="statut">Activer</label>
+                        <label class="custom-control-label" for="statut">Valider</label>
                     </div>
                     </div>
                 </div>

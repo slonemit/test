@@ -19,7 +19,7 @@ class AnnoncesController extends Controller
 
     public function validatedAnnonces()
     {
-        $annonces = Annonce::get();
+        $annonces = Annonce::get()->load('user');
 
         return view('annonces.validations', compact('annonces'));
     }
