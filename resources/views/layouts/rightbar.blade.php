@@ -68,8 +68,6 @@
                                     </a>
                                 </div>
                             </li>
-
-
                             <li class="list-inline-item">
                                 <div class="profilebar">
                                     <div class="dropdown">
@@ -128,8 +126,7 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                   <ul class="horizontal-menu">
                     <li>
-                        <a href="{{ route("home") }}" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/dashboard.svg" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
-
+                        <a href="{{ route("home") }}"><img src="assets/images/svg-icon/dashboard.svg" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
                     </li>
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>Vente</span></a>
@@ -190,6 +187,13 @@
                             <li><a href="{{url('/advanced-ui-kits-toolbar')}}"><i class="mdi mdi-circle"></i>Toolbar</a></li>
                             <li><a href="{{url('/advanced-ui-kits-tour')}}"><i class="mdi mdi-circle"></i>Tour</a></li>
                             <li><a href="{{url('/advanced-ui-kits-treeview')}}"><i class="mdi mdi-circle"></i>Tree View</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/advanced.svg" class="img-fluid" alt="advanced"><span>Validations</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route("comptes.index") }}"><i class="mdi mdi-circle"></i>Comptes</a></li>
+                            <li><a href="{{ route("annonces.validate")}}"><i class="mdi mdi-circle"></i>Annonces</a></li>
                         </ul>
                     </li>
                   </ul>

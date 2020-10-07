@@ -17,6 +17,13 @@ class AnnoncesController extends Controller
         return view("ventes/Annonce");
     }
 
+    public function validatedAnnonces()
+    {
+        $annonces = Annonce::get();
+
+        return view('annonces.validations', compact('annonces'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

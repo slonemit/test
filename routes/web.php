@@ -21,9 +21,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     ]);*/
 
+    Route::get('annonces/validate', 'AnnoncesController@validatedAnnonces')->name("annonces.validate");
     Route::resource('annonces', 'AnnoncesController');
     Route::resource('produits', 'ProduitsController');
     Route::resource('personnes', 'PersonnesController');
+    Route::resource('comptes', 'ComptesController');
     Route::resource('typecomptes', 'TypeComptesController');
     Route::resource('structures', 'StructuresController');
     Route::resource('salons', 'SalonsController');
