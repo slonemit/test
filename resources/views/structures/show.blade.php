@@ -10,7 +10,7 @@
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">My Account</h4>
+            <h4 class="page-title">Mon compte</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
@@ -35,7 +35,7 @@
         <div class="col-lg-5 col-xl-3">
             <div class="card m-b-30">
                 <div class="card-header">                                
-                    <h5 class="card-title mb-0">My Account</h5>                                       
+                    <h5 class="card-title mb-0">Mon compte</h5>
                 </div>
                 <div class="card-body">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
