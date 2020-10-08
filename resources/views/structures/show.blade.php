@@ -1,16 +1,16 @@
-@section('title') 
+@section('title')
 {{ $structure->nom }}
-@endsection 
+@endsection
 @extends('layouts.main')
 @section('style')
 
-@endsection 
+@endsection
 @section('rightbar-content')
-<!-- Start Breadcrumbbar -->                    
+<!-- Start Breadcrumbbar -->
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">My Account</h4>
+            <h4 class="page-title">Mon Compte</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
@@ -22,20 +22,20 @@
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
                 <button class="btn btn-primary">Add Widget</button>
-            </div>                        
+            </div>
         </div>
-    </div>          
+    </div>
 </div>
 <!-- End Breadcrumbbar -->
-<!-- Start Contentbar -->    
-<div class="contentbar">                
+<!-- Start Contentbar -->
+<div class="contentbar">
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->
         <div class="col-lg-5 col-xl-3">
             <div class="card m-b-30">
-                <div class="card-header">                                
-                    <h5 class="card-title mb-0">My Account</h5>                                       
+                <div class="card-header">
+                    <h5 class="card-title mb-0">My Account</h5>
                 </div>
                 <div class="card-body">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -56,8 +56,8 @@
                 <!-- Dashboard Start -->
                 <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab">
                     <div class="card m-b-30">
-                        <div class="card-header">                                
-                            <h5 class="card-title mb-0">Dashboard</h5>                                       
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Dashboard</h5>
                         </div>
                         <div class="card-body">
                             <div class="profilebox py-4 text-center">
@@ -127,15 +127,15 @@
                             </div>
                         </div>
                         <!-- End col -->
-                    </div>  
+                    </div>
                     <!-- End row -->
                 </div>
                 <!-- Dashboard End -->
                 <!-- My Orders Start -->
                 <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab">
                     <div class="card m-b-30">
-                        <div class="card-header">                                
-                            <h5 class="card-title mb-0">My Orders</h5>                                       
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">My Orders</h5>
                         </div>
                         <div class="card-body">
                             <div class="order-box">
@@ -155,7 +155,7 @@
                                             <table class="table table-borderless">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">#</th>                                              
+                                                        <th scope="col">#</th>
                                                         <th scope="col">Photo</th>
                                                         <th scope="col">Product</th>
                                                         <th scope="col">Qty</th>
@@ -213,7 +213,7 @@
                                             <table class="table table-borderless">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">#</th>                                              
+                                                        <th scope="col">#</th>
                                                         <th scope="col">Photo</th>
                                                         <th scope="col">Product</th>
                                                         <th scope="col">Qty</th>
@@ -253,7 +253,7 @@
                 <!-- My Addresses Start -->
                 <div class="tab-pane fade" id="v-pills-addresses" role="tabpanel" aria-labelledby="v-pills-addresses-tab">
                     <div class="card m-b-30">
-                        <div class="card-header">                                
+                        <div class="card-header">
                             <h5 class="card-title mb-0">Mes salons</h5>
                         </div>
                         <div class="card-body">
@@ -353,8 +353,8 @@
                 <!-- My Notifications Start -->
                 <div class="tab-pane fade" id="v-pills-notifications" role="tabpanel" aria-labelledby="v-pills-notifications-tab">
                     <div class="card m-b-30">
-                        <div class="card-header">                                
-                            <h5 class="card-title mb-0">Notifications</h5>                                       
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Notifications</h5>
                         </div>
                         <div class="card-body">
                             <div class="ecom-notification-box">
@@ -364,7 +364,7 @@
                                         <div class="media-body">
                                             <h5 class="action-title">Payment Success !!!</h5>
                                             <p class="my-3">We have received your payment toward ad Account : 9876543210. Your Ad is Running.</p>
-                                            <p><span class="badge badge-danger-inverse">INFO</span><span class="badge badge-info-inverse">STATUS</span><span class="timing">Today, 09:39 PM</span></p>                            
+                                            <p><span class="badge badge-danger-inverse">INFO</span><span class="badge badge-info-inverse">STATUS</span><span class="timing">Today, 09:39 PM</span></p>
                                         </div>
                                     </li>
                                     <li class="media">
@@ -372,7 +372,7 @@
                                         <div class="media-body">
                                             <h5 class="action-title">Nobita Applied for Leave.</h5>
                                             <p class="my-3">Nobita applied for leave due to personal reasons on 22nd Feb.</p>
-                                            <p><span class="badge badge-success">APPROVE</span><span class="badge badge-danger">REJECT</span><span class="timing">Yesterday, 05:25 PM</span></p>                            
+                                            <p><span class="badge badge-success">APPROVE</span><span class="badge badge-danger">REJECT</span><span class="timing">Yesterday, 05:25 PM</span></p>
                                         </div>
                                     </li>
                                     <li class="media">
@@ -380,7 +380,7 @@
                                         <div class="media-body">
                                             <h5 class="action-title">Alert</h5>
                                             <p class="my-3">There has been new Log in fron your account at Melbourne. Mark it safe or report.</p>
-                                            <p><i class="feather icon-check text-success mr-3"></i><a href="#" class="mr-2">Report Now</a><span class="timing">5 Jan 2019, 02:13 PM</span></p>                            
+                                            <p><i class="feather icon-check text-success mr-3"></i><a href="#" class="mr-2">Report Now</a><span class="timing">5 Jan 2019, 02:13 PM</span></p>
                                         </div>
                                     </li>
                                     <li class="media">
@@ -400,7 +400,7 @@
                 <!-- My Profile Start -->
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <div class="card m-b-30">
-                        <div class="card-header">                                
+                        <div class="card-header">
                             <h5 class="card-title mb-0">Création de produit</h5>
                         </div>
                         <div class="card-body">
@@ -469,8 +469,8 @@
                 <!-- My Logout Start -->
                 <div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab">
                     <div class="card m-b-30">
-                        <div class="card-header">                                
-                            <h5 class="card-title mb-0">Logout</h5>                                       
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Logout</h5>
                         </div>
                         <div class="card-body">
                             <div class="row justify-content-center">
@@ -489,16 +489,16 @@
                         </div>
                     </div>
                 </div>
-                <!-- My Logout End -->                            
-            </div>                        
+                <!-- My Logout End -->
+            </div>
         </div>
         <!-- End col -->
     </div>
-    <!-- End row -->                  
+    <!-- End row -->
 </div>
 <!-- End Contentbar -->
-@endsection 
+@endsection
 @section('script')
 <!-- eCommerce My Account Page js -->
 <script src="{{ asset('assets/js/custom/custom-ecommerce-myaccount.js') }}"></script>
-@endsection 
+@endsection

@@ -22,6 +22,9 @@ Route::group(['middleware' => 'auth'], function () {
     ]);*/
 
     Route::resource('annonces', 'AnnoncesController');
+    Route::resource('achat', 'Achat');
+    Route::resource('comment', 'commentaire');
+
     Route::resource('produits', 'ProduitsController');
     Route::resource('personnes', 'PersonnesController');
     Route::resource('typecomptes', 'TypeComptesController');
@@ -32,5 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 Route::get('/structures/create/{id}', 'StructuresController@create');
 Route::post('/structures', 'StructuresController@store')->name("structures.store");
+
 Route::post('/personnes', 'PersonnesController@store')->name("personnes.store");
 Route::get('/typecomptes', 'TypeComptesController@index')->name("typecomptes.index");

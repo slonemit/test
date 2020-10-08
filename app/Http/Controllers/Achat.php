@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Annonce;
 use Illuminate\Http\Request;
 
-class AnnoncesController extends Controller
+class Achat extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AnnoncesController extends Controller
      */
     public function index()
     {
-        return view("ventes/Annonce");
+        return view("ventes/achat");
     }
 
     /**
@@ -41,8 +41,7 @@ class AnnoncesController extends Controller
             $dispo = now();
         }
 
-       // dd($request->all());
-       $request->input('quantite');
+        //dd($request->all());
         $annonce = Annonce::create([
             'user_id'=> 1,
             'fichier_id'=> 1,
@@ -50,7 +49,7 @@ class AnnoncesController extends Controller
             'description'=> $request->input('description'),
             'date_pub'=> $request->input('date_pub'),
             'cout'=> $request->input('cout'),
-            'quantite'=>1,
+            'quantite'=> $request->input('quantite'),
             'disponibilite'=> $dispo,
             'statut_ann'=> 0,
         ]);
@@ -81,11 +80,8 @@ class AnnoncesController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-    public function comment(Request $request)
-    {
-       dd($request) ;//
+        $annonce = Annonce::find($id);
+        return view('ventes/detail', compact('annonce')); //
     }
 
     /**

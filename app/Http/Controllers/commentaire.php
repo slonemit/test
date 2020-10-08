@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Annonce;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AnnoncesController extends Controller
+class commentaire extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,16 +36,8 @@ class AnnoncesController extends Controller
      */
     public function store(Request $request)
     {
-        $dispo = $request->input('disponibilite');
-
-        if(!$dispo){
-            $dispo = now();
-        }
-
-       // dd($request->all());
-       $request->input('quantite');
         $annonce = Annonce::create([
-            'user_id'=> 1,
+            'user_id'=>Auth->user()->id,
             'fichier_id'=> 1,
             'titre'=> $request->input('titre'),
             'description'=> $request->input('description'),
@@ -55,22 +48,8 @@ class AnnoncesController extends Controller
             'statut_ann'=> 0,
         ]);
 
-        if ($annonce) {
+           // return redirect()->route('annonces.show', $annonce->id);
 
-            /*if($request['image'] != null){
-                $file = $request->file('image');
-                $image = $annonce->id.'.'.$file->getClientOriginalExtension();
-
-                if (!file_exists(public_path('images/annonces'))) {
-                    mkdir(public_path('images/annonces'));
-                }
-                $file->move(public_path('images/annonces'), $image);
-                $annonce->image = "images/annonces/".$image;
-                $annonce->save();
-            }*/
-
-            return redirect()->route('annonces.show', $annonce->id);
-        }
     }
 
     /**

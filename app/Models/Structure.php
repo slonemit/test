@@ -14,4 +14,7 @@ class Structure extends Model
     public function grille(){
         return $this->belongsTo('App\Models\grille');
     }
+    public function produits(){
+        return $this->hasMany('App\Models\Produit');
+    }
 }

@@ -73,11 +73,11 @@
                             <li class="list-inline-item">
                                 <div class="profilebar">
                                     <div class="dropdown">
-                                      <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
+                                      <a class="dropdown-toggle" href="{{ route("structures.show",Auth()->user()->id)  }}" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                         <div class="dropdown-item">
                                             <div class="profilename">
-                                              <h5></h5>
+                                              <h5>{{ Auth()->user()->personne->nom}}</h5>
                                               <p>Social Media Strategist</p>
                                             </div>
                                         </div>
@@ -134,7 +134,7 @@
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>Vente</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{url('../light-vertical')}}"><i class="mdi mdi-circle"></i>Catalogue Produit</a></li>
+                            <li><a href="{{ route("structures.show",Auth()->user()->personne->structure->id)  }}"><i class="mdi mdi-circle"></i>Catalogue Produit</a></li>
                             <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Vendre Un Produit </a></li>
 
                         </ul>
@@ -142,7 +142,7 @@
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/apps.svg" class="img-fluid" alt="apps"><span>Achat</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{url('/apps-calender')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
+                            <li><a href="{{route('achat.index')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
                             <li><a href="{{url('/apps-chat')}}"><i class="mdi mdi-circle"></i>Vos Commandes</a></li>
 
                         </ul>

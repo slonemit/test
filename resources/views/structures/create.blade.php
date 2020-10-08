@@ -71,8 +71,8 @@
                                         </div>
                                         <div class="form-group">
                                             <select name="grille_id" class="form-control">
-                                                <option selected>Activité...</option>
-                                                @foreach($grilles as $grille)
+                                                <option selected>Activité.</option>
+                                                @foreach( App\Models\grille::all() as $grille)
                                                 <option value="{{ $grille->id }}">{{ $grille->activite }}</option>
                                                 @endforeach
                                             </select>
