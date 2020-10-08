@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Compte;
+use App\User;
 use Illuminate\Http\Request;
 
-class ComptesController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class ComptesController extends Controller
      */
     public function index()
     {
-        $comptes = Compte::get()->load("structure.grille");
-
-        return view('comptes.index', compact('comptes'));
+        //
     }
 
     /**
@@ -27,10 +25,6 @@ class ComptesController extends Controller
     public function create()
     {
         //
-    }
-    public function test(Request $request)
-    {
-        dd($request->all());
     }
 
     /**
@@ -52,7 +46,9 @@ class ComptesController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('users.show', compact('user'));
     }
 
     /**

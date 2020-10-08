@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/test', 'SMSController@getMessages');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     /*Route::resources([
@@ -28,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('comptes', 'ComptesController');
     Route::resource('typecomptes', 'TypeComptesController');
     Route::resource('structures', 'StructuresController');
+    Route::resource('users', 'UsersController');
     Route::resource('salons', 'SalonsController');
 });
 

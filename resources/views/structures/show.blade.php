@@ -307,7 +307,7 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form method="post" action="{{ route("salons.store") }}">
+                                            <form method="post" action="{{ url("salons.store") }}">
                                             <div class="modal-body">
                                                 @csrf
                                                 <input type="hidden" name="structure_id" value="{{ $structure->id }}"/>

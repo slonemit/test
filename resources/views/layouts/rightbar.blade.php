@@ -82,7 +82,7 @@
                                         <div class="dropdown-item">
                                             <div class="userbox">
                                                 <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item"><a href="#" class="profile-icon"><img src="{{ asset("assets/images/svg-icon/user.svg") }}" class="img-fluid" alt="user"></a></li>
+                                                    <li class="list-inline-item"><a href="{{ route("users.show", Auth::id()) }}" class="profile-icon"><img src="{{ asset("assets/images/svg-icon/user.svg") }}" class="img-fluid" alt="user"></a></li>
                                                     <li class="list-inline-item"><a href="#" class="profile-icon"><img src="{{ asset("assets/images/svg-icon/email.svg") }}" class="img-fluid" alt="email"></a></li>
                                                     <li class="list-inline-item">
                                                         <a class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
