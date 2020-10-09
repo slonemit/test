@@ -14,7 +14,9 @@ class SalonsController extends Controller
      */
     public function index()
     {
-        //
+        $salons = Salon::get();
+
+        return view("salons.index", compact('salons'));
     }
 
     /**
@@ -24,7 +26,7 @@ class SalonsController extends Controller
      */
     public function create()
     {
-        //
+        return view('salons.create');
     }
 
     /**

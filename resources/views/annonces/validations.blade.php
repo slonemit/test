@@ -28,7 +28,7 @@ PLATEFORM B2B - Comptes
 </div>
 <!-- End Breadcrumbbar -->
 <!-- Start Contentbar -->
-<div class="contentbar car">
+<div class="contentbar">
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->
@@ -40,12 +40,7 @@ PLATEFORM B2B - Comptes
                     <p class="card-text">{{ 'Publié le : '.$annonce->date_pub }}</p>
                     <p class="card-text">{{ $annonce->description }}</p>
                     <p class="card-text">{{ 'Par : '.$annonce->user->name }}</p>
-                    <div class="custom-control custom-switch">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="statut">
-                        <label class="custom-control-label" for="statut">Valider</label>
-                    </div>
-                    </div>
+                    <div><a href="{{ route("annonces.show", $annonce->id) }}" class="btn btn-primary">Details</a></div>
                 </div>
             </div>
         </div>
