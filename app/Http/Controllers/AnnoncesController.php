@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Annonce;
+use App\Models\CategAnnonce;
 use Illuminate\Http\Request;
 
 class AnnoncesController extends Controller
@@ -14,7 +15,9 @@ class AnnoncesController extends Controller
      */
     public function index()
     {
-        return view("ventes/Annonce");
+        $categ = CategAnnonce::get();
+
+        return view("ventes/Annonce", compact("categ"));
     }
 
     public function validatedAnnonces()
@@ -64,7 +67,7 @@ class AnnoncesController extends Controller
 
         if ($annonce) {
 
-            /*if($request['image'] != null){
+            if($request['image'] != null){
                 $file = $request->file('image');
                 $image = $annonce->id.'.'.$file->getClientOriginalExtension();
 
@@ -74,7 +77,7 @@ class AnnoncesController extends Controller
                 $file->move(public_path('images/annonces'), $image);
                 $annonce->image = "images/annonces/".$image;
                 $annonce->save();
-            }*/
+            }
             return \Redirect::back();
             return redirect()->route('annonces.show', $annonce->id);
         }

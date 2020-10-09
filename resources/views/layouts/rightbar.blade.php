@@ -132,7 +132,7 @@
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/layouts.svg") }}" class="img-fluid" alt="layouts"><span>Vente</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route("produits.index")  }}"><i class="mdi mdi-circle"></i>Catalogue Produit</a></li>
-                            <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Vendre Un Produit </a></li>
+                            <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Faire une annonce </a></li>
 
                         </ul>
                     </li>

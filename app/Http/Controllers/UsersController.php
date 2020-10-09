@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\Personne;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -46,9 +46,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $personne = Personne::where("user_id", $id)->get()->first()->load('structure');
 
-        return view('users.show', compact('user'));
+        return view('users.show', compact('personne'));
     }
 
     /**
