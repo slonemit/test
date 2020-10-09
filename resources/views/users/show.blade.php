@@ -74,23 +74,32 @@ Theta - Single Product
 <!-- Start Contentbar -->
 <div class="contentbar">
     <!-- Start row -->
+    <div class="card">
     <div class="row">
+        <div class="col-lg-6 col-xl-5">
+            <div class="product-slider-box product-box-for">
+                <div class="product-preview">
+                <img src="{{ asset("assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
+                <p><span class="badge badge-success font-14">25% off</span></p>
+                </div>
+            </div>
+        </div>
         <!-- Start col -->
         <div class="col-md-6">
-            <div class="card m-b-30">
-                <div class="card-header">
+            <div class="">
+                <div class="">
                     <h5 class="card-title">{{ $personne->structure->nom }}</h5>
                 </div>
-                <div class="card-body">
+                <div class="">
                     <ul class="nav nav-tabs custom-tab-line mb-3" id="defaultTabLine" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="description-tab-line" data-toggle="tab" href="#description-line" role="tab" aria-controls="description-line" aria-selected="true"><i class="feather icon-file-text mr-2"></i>A propos</a>
+                            <a class="nav-link active" id="description-tab-line" data-toggle="tab" href="#description-line" role="tab" aria-controls="description-line" aria-selected="true">A propos <i class="feather icon-file-text mr-2"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="review-tab-line" data-toggle="tab" href="#review-line" role="tab" aria-controls="review-line" aria-selected="false"><i class="feather icon-book-open mr-2"></i>Description</a>
+                            <a class="nav-link" id="review-tab-line" data-toggle="tab" href="#review-line" role="tab" aria-controls="review-line" aria-selected="false">Description <i class="feather icon-book-open mr-2"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="guide-tab-line" data-toggle="tab" href="#guide-line" role="tab" aria-controls="guide-line" aria-selected="false"><i class="feather icon-star mr-2"></i>Experience</a>
+                            <a class="nav-link" id="guide-tab-line" data-toggle="tab" href="#guide-line" role="tab" aria-controls="guide-line" aria-selected="false">Experience <i class="feather icon-star mr-2"></i></a>
                         </li>
                     </ul>
                     <div class="tab-content" id="defaultTabContentLine">
@@ -132,6 +141,7 @@ Theta - Single Product
             </div>
         </div>
         <!-- End col -->
+    </div>
     </div>
     <!-- End row -->
 </div>
