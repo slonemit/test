@@ -15,4 +15,8 @@ class Annonce extends Model
     public function fichier(){
         return $this->belongsTo('App\Models\Fichier');
     }
+
+    public function category(){
+        return $this->belongsTo('App\Models\CategAnnonce');
+    }
 }

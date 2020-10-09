@@ -29,15 +29,16 @@ Theta - Product Detail
 <!-- Start Contentbar -->
 <div class="contentbar">
     <!-- Start row -->
+        <form enctype="multipart/form-data" id="form-annonce" method="post" action="{{ route('annonces.store') }}">
     <div class="row">
         <!-- Start col -->
+
         <div class="col-lg-8 col-xl-9">
             <div class="card m-b-30">
                 <div class="card-header">
                     <h5 class="card-title">Annonces Detaill</h5>
                 </div>
                 <div class="card-body">
-                    <form id="form-annonce" method="post" action="{{ route('annonces.store') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="productTitle" class="col-sm-12 col-form-label">Titre</label>
@@ -65,32 +66,40 @@ Theta - Product Detail
                                 <textarea class="summernote" name="description" id="" cols="30" rows="10"></textarea>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
         <!-- End col -->
         <!-- Start col -->
         <div class="col-lg-4 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-header">
+                                <h5 class="card-title">Categories</h5>
+                            </div>
+                            <div class="card-body">
+                                @foreach($categ as $category)
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" name="categ_annonce_id" class="custom-control-input" value="{{ $category->id }}" id="{{ $category->categ_lib }}" @if($loop->first) checked @endif>
+                                    <label class="custom-control-label" for="{{ $category->categ_lib }}">{{ $category->categ_lib }}</label>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
             <div class="card m-b-30">
                 <div class="card-header">
                     <h5 class="card-title">Image</h5>
                 </div>
                 <div class="card-body">
                     <div class="ecommerce-upload">
-                        <form action="#" class="dropzone dz-clickable">
-                            <div class="dz-default dz-message">
-                                <p class="dash-analytic-icon"><i class="feather icon-plus primary-rgba text-primary"></i></p>
-                                <span>Upload Product Featured Image</span>
-                            </div>
-                        </form>
-                        <img src="assets/images/dashboard/cloud.svg" class="img-fluid" alt="cloud">
+                        <input class="form-control" type="file" name="image"/>
                     </div>
                 </div>
             </div>
         </div>
         <!-- End col -->
     </div>
+
+        </form>
     <!-- End row -->
 </div>
 <!-- End Contentbar -->
