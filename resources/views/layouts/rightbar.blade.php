@@ -41,7 +41,7 @@
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item">
                                 <div class="logobar">
-                                    <a href="{{url('/')}}" class="logo logo-large"><img src="assets/images/logo.svg" class="img-fluid" alt="logo"></a>
+                                    <a href="{{url('/')}}" class="logo logo-large"><img src="{{ asset("assets/images/logo.svg") }}" class="img-fluid" alt="logo"></a>
                                 </div>
                             </li>
                             <li class="list-inline-item">
@@ -50,7 +50,7 @@
                                         <div class="input-group">
                                           <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
                                           <div class="input-group-append">
-                                            <button class="btn" type="submit" id="button-addon2"><img src="assets/images/svg-icon/search.svg" class="img-fluid" alt="search"></button>
+                                            <button class="btn" type="submit" id="button-addon2"><img src="{{ asset("assets/images/svg-icon/search.svg") }}" class="img-fluid" alt="search"></button>
                                           </div>
                                         </div>
                                     </form>
@@ -63,17 +63,15 @@
                             <li class="list-inline-item">
                                 <div class="notifybar">
                                     <a href="javascript:void(0)" id="infobar-notifications-open" class="infobar-icon">
-                                        <img src="assets/images/svg-icon/notifications.svg" class="img-fluid" alt="notifications">
+                                        <img src="{{ asset("assets/images/svg-icon/notifications.svg") }}" class="img-fluid" alt="notifications">
                                         <span class="live-icon"></span>
                                     </a>
                                 </div>
                             </li>
-
-
                             <li class="list-inline-item">
                                 <div class="profilebar">
                                     <div class="dropdown">
-                                      <a class="dropdown-toggle" href="{{ route("structures.show",Auth()->user()->id)  }}" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
+                                      <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset("assets/images/users/profile.svg") }}" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                         <div class="dropdown-item">
                                             <div class="profilename">
@@ -84,10 +82,10 @@
                                         <div class="dropdown-item">
                                             <div class="userbox">
                                                 <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/images/svg-icon/user.svg" class="img-fluid" alt="user"></a></li>
-                                                    <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/images/svg-icon/email.svg" class="img-fluid" alt="email"></a></li>
+                                                    <li class="list-inline-item"><a href="{{ route("users.show", Auth::id()) }}" class="profile-icon"><img src="{{ asset("assets/images/svg-icon/user.svg") }}" class="img-fluid" alt="user"></a></li>
+                                                    <li class="list-inline-item"><a href="#" class="profile-icon"><img src="{{ asset("assets/images/svg-icon/email.svg") }}" class="img-fluid" alt="email"></a></li>
                                                     <li class="list-inline-item">
-                                                        <a class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        <a class="profile-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                             <img src="{{ asset("assets/images/svg-icon/logout.svg") }}" class="img-fluid" alt="logout">
                                                         </a>
                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -104,8 +102,8 @@
                             <li class="list-inline-item menubar-toggle">
                                 <div class="menubar">
                                     <a class="menu-hamburger navbar-toggle bg-transparent" href="javascript:void();" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="true">
-                                        <img src="assets/images/svg-icon/collapse.svg" class="img-fluid menu-hamburger-collapse" alt="collapse">
-                                        <img src="assets/images/svg-icon/close.svg" class="img-fluid menu-hamburger-close" alt="close">
+                                        <img src="{{ asset("assets/images/svg-icon/collapse.svg") }}" class="img-fluid menu-hamburger-collapse" alt="collapse">
+                                        <img src="{{ asset("assets/images/svg-icon/close.svg") }}" class="img-fluid menu-hamburger-close" alt="close">
                                     </a>
                                  </div>
                             </li>
@@ -128,19 +126,18 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                   <ul class="horizontal-menu">
                     <li>
-                        <a href="{{ route("home") }}" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/dashboard.svg" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
-
+                        <a href="{{ route("home") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>Vente</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/layouts.svg") }}" class="img-fluid" alt="layouts"><span>Vente</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route("structures.show",Auth()->user()->personne->structure->id)  }}"><i class="mdi mdi-circle"></i>Catalogue Produit</a></li>
+                            <li><a href="{{ route("produits.index")  }}"><i class="mdi mdi-circle"></i>Catalogue Produit</a></li>
                             <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Vendre Un Produit </a></li>
 
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/apps.svg" class="img-fluid" alt="apps"><span>Achat</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achat</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('achat.index')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
                             <li><a href="{{url('/apps-chat')}}"><i class="mdi mdi-circle"></i>Vos Commandes</a></li>
@@ -148,17 +145,17 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/components.svg" class="img-fluid" alt="components"><span>Opportunite</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/components.svg") }}" class="img-fluid" alt="components"><span>Opportunite</span></a>
                         <ul class="dropdown-menu">
                             <li >
-                                <a href="javaScript:void();" class="mdi mdi-circle" data-toggle="dropdown"><span>Rendez-Vous</span></a>
+                                <a href="{{url('/structures')}}" class="mdi mdi-circle" ><span>Rendez-Vous</span></a>
                                 <a href="javaScript:void();" class="mdi mdi-circle" data-toggle="dropdown"><span>Publicite</span></a>
 
                             </li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/pages.svg" class="img-fluid" alt="pages"><span>Salon</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Salon</span></a>
                         <ul class="dropdown-menu">
                             <li class="dropdown">
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown" ><i class="mdi mdi-circle"></i>Mes Salons</a>
@@ -166,17 +163,13 @@
                             </li>
                             <li class="dropdown">
                                 <a href="{{ route('salons.index') }}" class="dropdown-toggle" data-toggle="dropdown" ><i class="mdi mdi-circle"></i>Creer  Salons</a>
-
                             </li>
-
-
-
                         </ul>
                     </li>
-                    <li class="scroll"><a href="{{url('/widgets')}}"><img src="assets/images/svg-icon/widgets.svg" class="img-fluid" alt="widgets"><span>Formation</span></a></li>
+                    <li class="scroll"><a href="{{url('/widgets')}}"><img src="{{ asset("assets/images/svg-icon/widgets.svg") }}" class="img-fluid" alt="widgets"><span>Formation</span></a></li>
 
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/svg-icon/advanced.svg" class="img-fluid" alt="advanced"><span>Financement</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/advanced.svg") }}" class="img-fluid" alt="advanced"><span>Financement</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{url('/advanced-ui-kits-image-crop')}}"><i class="mdi mdi-circle"></i>Image Crop</a></li>
                             <li><a href="{{url('/advanced-ui-kits-jquery-confirm')}}"><i class="mdi mdi-circle"></i>jQuery Confirm</a></li>
@@ -190,6 +183,13 @@
                             <li><a href="{{url('/advanced-ui-kits-toolbar')}}"><i class="mdi mdi-circle"></i>Toolbar</a></li>
                             <li><a href="{{url('/advanced-ui-kits-tour')}}"><i class="mdi mdi-circle"></i>Tour</a></li>
                             <li><a href="{{url('/advanced-ui-kits-treeview')}}"><i class="mdi mdi-circle"></i>Tree View</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/advanced.svg") }}" class="img-fluid" alt="advanced"><span>Validations</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route("comptes.index") }}"><i class="mdi mdi-circle"></i>Comptes</a></li>
+                            <li><a href="{{ route("annonces.validate")}}"><i class="mdi mdi-circle"></i>Annonces</a></li>
                         </ul>
                     </li>
                   </ul>

@@ -156,12 +156,12 @@ Theta - Order Detail
                     <form  id="form-store" method="post" action="{{ route('comment.store')}}">
                         @csrf <!-- {{ csrf_field() }} -->
                         <div class="form-group">
-                            <select id="orderCategory" class="form-control">
-                                <option selected>Type Message</option>
-                                <option value="processing">Renseignemet</option>
-                                <option value="on-hold">Commande</option>
-                                <option value="shipped">Demande Remise</option>
-                                <option value="out-for-delivery">Annulation</option>
+                            <select id="orderCategory" class="form-control" name="type">
+                                <option selected >Type Message</option>
+                                <option value="1">Renseignemet</option>
+                                <option value="2">Commande</option>
+                                <option value="3">Demande Remise</option>
+                                <option value="4">Annulation</option>
 
                             </select>
                         </div>
@@ -180,17 +180,22 @@ Theta - Order Detail
                 <div class="card-body">
                     <div class="chat-detail order-chat-detail mb-0">
                         <div class="chat-body">
+                            @foreach ($annonce->comments as $commentaire)
+
+
                             <div class="chat-day text-center mb-3">
                                 <span class="badge badge-secondary">Today</span>
                             </div>
+                            @if ($commentaire->user_id=Auth()->user()->id)
                             <div class="chat-message chat-message-right">
                                 <div class="chat-message-text">
-                                    <span>Hello!</span>
+                                    <span>{{ $commentaire->content_com }}</span>
                                 </div>
                                 <div class="chat-message-meta">
-                                    <span>4:18 pm<i class="feather icon-check ml-2"></i></span>
+                                    <span>{{ $commentaire->dateComment}}<i class="feather icon-check ml-2"></i></span>
                                 </div>
                             </div>
+                            @else
                             <div class="chat-message chat-message-left">
                                 <div class="chat-message-text">
                                     <span>Yes, Sir</span>
@@ -199,62 +204,9 @@ Theta - Order Detail
                                     <span>4:20 pm<i class="feather icon-check ml-2"></i></span>
                                 </div>
                             </div>
-                            <div class="chat-message chat-message-right">
-                                <div class="chat-message-text">
-                                    <span>Schedule demo.</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:25 pm<i class="feather icon-check ml-2"></i></span>
-                                </div>
-                            </div>
-                            <div class="chat-message chat-message-left">
-                                <div class="chat-message-text">
-                                    <span>Sure, I will.</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:27 pm<i class="feather icon-check ml-2"></i></span>
-                                </div>
-                            </div>
-                            <div class="chat-message chat-message-right">
-                                <div class="chat-message-text">
-                                    <span>Great. Thanks</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:30 pm<i class="feather icon-clock ml-2"></i></span>
-                                </div>
-                            </div>
-                            <div class="chat-message chat-message-left">
-                                <div class="chat-message-text">
-                                    <span>I have completed.</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:20 pm<i class="feather icon-check ml-2"></i></span>
-                                </div>
-                            </div>
-                            <div class="chat-message chat-message-right">
-                                <div class="chat-message-text">
-                                    <span>Please, send me.</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:25 pm<i class="feather icon-check ml-2"></i></span>
-                                </div>
-                            </div>
-                            <div class="chat-message chat-message-left">
-                                <div class="chat-message-text">
-                                    <span>Sure, I will email you.</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:27 pm<i class="feather icon-check ml-2"></i></span>
-                                </div>
-                            </div>
-                            <div class="chat-message chat-message-right">
-                                <div class="chat-message-text">
-                                    <span>Ok, Got it.</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:30 pm<i class="feather icon-clock ml-2"></i></span>
-                                </div>
-                            </div>
+                            @endif
+
+                            @endforeach
                         </div>
                         <div class="chat-bottom px-0 pb-0">
                             <div class="chat-messagebar">

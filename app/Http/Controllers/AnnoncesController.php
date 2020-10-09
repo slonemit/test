@@ -17,6 +17,13 @@ class AnnoncesController extends Controller
         return view("ventes/Annonce");
     }
 
+    public function validatedAnnonces()
+    {
+        $annonces = Annonce::get()->load('user');
+
+        return view('annonces.validations', compact('annonces'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +51,7 @@ class AnnoncesController extends Controller
        // dd($request->all());
        $request->input('quantite');
         $annonce = Annonce::create([
-            'user_id'=> 1,
+            'user_id'=> Auth()->user()->id,
             'fichier_id'=> 1,
             'titre'=> $request->input('titre'),
             'description'=> $request->input('description'),
@@ -68,7 +75,7 @@ class AnnoncesController extends Controller
                 $annonce->image = "images/annonces/".$image;
                 $annonce->save();
             }*/
-
+            return \Redirect::back();
             return redirect()->route('annonces.show', $annonce->id);
         }
     }

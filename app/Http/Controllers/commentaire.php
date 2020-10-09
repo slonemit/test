@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Annonce;
+use App\Models\Commentaire as comme ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,20 +36,19 @@ class commentaire extends Controller
      */
     public function store(Request $request)
     {
-        $annonce = Annonce::create([
-            'user_id'=>Auth->user()->id,
-            'fichier_id'=> 1,
-            'titre'=> $request->input('titre'),
-            'description'=> $request->input('description'),
-            'date_pub'=> $request->input('date_pub'),
-            'cout'=> $request->input('cout'),
-            'quantite'=>1,
-            'disponibilite'=> $dispo,
-            'statut_ann'=> 0,
+
+        $commentaire = comme::create([
+           // 'user_id'=>Auth->user()->id,
+            'annonce_id'=> 1,
+            'typecomment_id'=>$request->input('type'),
+            'dateComment'=> now(),
+            'content_com'=> $request->input('content_com'),
+            'user_id'=>Auth()->user()->id,
+            'statut_com'=>0,
         ]);
+        return \Redirect::back();
 
-           // return redirect()->route('annonces.show', $annonce->id);
-
+ // return redirect()->route('annonces.show', $annonce->id);
     }
 
     /**
@@ -64,7 +63,7 @@ class commentaire extends Controller
     }
     public function comment(Request $request)
     {
-       dd($request) ;//
+      // dd($request) ;//
     }
 
     /**

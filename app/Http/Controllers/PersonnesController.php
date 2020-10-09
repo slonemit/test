@@ -39,6 +39,7 @@ class PersonnesController extends Controller
      */
     public function store(Request $request)
     {
+
         $personne = Personne::create([
             'nom'           => $request->input('nom'),
             'prenom'           => $request->input('prenom'),
