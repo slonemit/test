@@ -46,7 +46,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $personne = Personne::where("user_id", $id)->get()->first()->load('structure');
+        $personne = Personne::where("id", $id)->get()->first()->load('structure');
 
         return view('users.show', compact('personne'));
     }

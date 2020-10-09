@@ -145,9 +145,8 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Salons</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Opportunites</span></a>
                         <ul class="dropdown-menu">
-<<<<<<< HEAD
                             <li >
                                 <a href="{{url('/structures')}}" class="mdi mdi-circle" ><span>Rendez-Vous</span></a>
                                 <a href="javaScript:void();" class="mdi mdi-circle" data-toggle="dropdown"><span>Publicite</span></a>
@@ -161,10 +160,6 @@
                             <li class="dropdown">
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown" ><i class="mdi mdi-circle"></i>Mes Salons</a>
 
-=======
-                            <li>
-                                <a href="{{ route('salons.index') }}"><i class="mdi mdi-circle"></i>Salons</a>
->>>>>>> cb6019402ac7ec8cb41e7b88e09db7c4797a247d
                             </li>
                             <li>
                                 <a href="{{ route('salons.create') }}"><i class="mdi mdi-circle"></i>Creer un salon</a>

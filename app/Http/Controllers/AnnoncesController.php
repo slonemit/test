@@ -49,9 +49,13 @@ class AnnoncesController extends Controller
     public function store(Request $request)
     {
         $dispo = $request->input('disponibilite');
+        $cout = $request->input('cout');
+        $qte = $request->input('quantite');
 
-        if(!$dispo){
+        if(!$dispo || !$cout || $qte){
             $dispo = now();
+            $cout = 0;
+            $qte = 0;
         }
 
        // dd($request->all());

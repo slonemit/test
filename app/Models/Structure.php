@@ -17,4 +17,7 @@ class Structure extends Model
     public function produits(){
         return $this->hasMany('App\Models\Produit');
     }
+    public function personne(){
+        return $this->hasMany('App\Models\Personne');
+    }
 }

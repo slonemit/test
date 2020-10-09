@@ -61,12 +61,15 @@
                         </div>
                         <div class="card-body">
                             <div class="profilebox py-4 text-center">
+                                <img src="assets/images/users/profile.svg" class="img-fluid" alt="profile">
                                 <div class="profilename">
-                                    <h3>{{ $structure->nom.' '.$structure->form_jurid }}</h3>
-                                    <h5>{{ $structure->grille->activite }}</h5>
-                                    <p><i class="feather icon-mail mr-2"></i> {{ $structure->email }}</p>
-                                    <p><i class="feather icon-phone mr-2"></i> {{ $structure->tel }}</p>
-                                    <p><i class="feather icon-map-pin mr-2"></i> {{ $structure->adresse }}</p>
+                                    <h5>Shourya Kumar</h5>
+                                    <p class="text-muted"><a href="{{url('/my-account')}}"><i class="feather icon-edit-2 mr-2"></i>Edit Profile</a></p>
+                                </div>
+                                <div class="button-list">
+                                    <a href="#" class="btn btn-primary-rgba font-18"><i class="feather icon-facebook"></i></a>
+                                    <a href="#" class="btn btn-info-rgba font-18"><i class="feather icon-twitter"></i></a>
+                                    <a href="#" class="btn btn-danger-rgba font-18"><i class="feather icon-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +310,7 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span></button>
                                             </div>
-                                            <form method="post" action="{{ url("salons.store") }}">
+                                            <form method="post" action="{{ route("salons.store") }}">
                                             <div class="modal-body">
                                                 @csrf
                                                 <input type="hidden" name="structure_id" value="{{ $structure->id }}"/>

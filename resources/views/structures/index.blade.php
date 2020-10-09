@@ -81,7 +81,7 @@ Theta - Order List
                                     <td><span class="badge badge-primary-inverse">Processing</span></td>
                                     <td>
                                         <div class="button-list">
-                                            <a href="{{ route("structures.show",$structure->id) }}"class="btn btn-primary-rgba"><i class="feather icon-file"></i></a>
+                                            <a href="{{ route("users.show",$structure->personne()->first()->id) }}"class="btn btn-primary-rgba"><i class="feather icon-file"></i></a>
                                             <a href="{{url('/page-order-detail')}}" class="btn btn-success-rgba"><i class="feather icon-edit-2"></i></a>
                                             <a href="{{url('/page-order-detail')}}" class="btn btn-danger-rgba"><i class="feather icon-trash"></i></a>
                                         </div>
