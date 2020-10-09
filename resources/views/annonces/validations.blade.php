@@ -28,7 +28,7 @@ PLATEFORM B2B - Comptes
 </div>
 <!-- End Breadcrumbbar -->
 <!-- Start Contentbar -->
-<div class="contentbar">
+<div class="contentbar car">
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->

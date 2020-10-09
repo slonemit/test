@@ -15,14 +15,15 @@ class AnnoncesController extends Controller
      */
     public function index()
     {
+        $annonces = Annonce::where('statut_ann', 1)->get();
         $categ = CategAnnonce::get();
 
-        return view("ventes/Annonce", compact("categ"));
+        return view("annonces.index", compact('annonces', 'categ'));
     }
 
     public function validatedAnnonces()
     {
-        $annonces = Annonce::get()->load('user');
+        $annonces = Annonce::where('statut_ann', 0)->get()->load('user');
 
         return view('annonces.validations', compact('annonces'));
     }
@@ -34,7 +35,9 @@ class AnnoncesController extends Controller
      */
     public function create()
     {
-        //
+        $categ = CategAnnonce::get();
+
+        return view("annonces.create", compact("categ"));
     }
 
     /**
@@ -91,7 +94,9 @@ class AnnoncesController extends Controller
      */
     public function show($id)
     {
-        //
+        $annonce = Annonce::find($id);
+
+        return view("annonces.show", compact("annonce"));
     }
     public function comment(Request $request)
     {

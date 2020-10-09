@@ -131,8 +131,8 @@
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/layouts.svg") }}" class="img-fluid" alt="layouts"><span>Vente</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route("produits.index")  }}"><i class="mdi mdi-circle"></i>Catalogue Produit</a></li>
-                            <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Faire une annonce </a></li>
+                            <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Annonces</a></li>
+                            <li><a href="{{ route("annonces.create")  }}"><i class="mdi mdi-circle"></i>Faire une annonce </a></li>
 
                         </ul>
                     </li>
@@ -145,8 +145,9 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/components.svg") }}" class="img-fluid" alt="components"><span>Opportunite</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Salons</span></a>
                         <ul class="dropdown-menu">
+<<<<<<< HEAD
                             <li >
                                 <a href="{{url('/structures')}}" class="mdi mdi-circle" ><span>Rendez-Vous</span></a>
                                 <a href="javaScript:void();" class="mdi mdi-circle" data-toggle="dropdown"><span>Publicite</span></a>
@@ -160,14 +161,16 @@
                             <li class="dropdown">
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown" ><i class="mdi mdi-circle"></i>Mes Salons</a>
 
+=======
+                            <li>
+                                <a href="{{ route('salons.index') }}"><i class="mdi mdi-circle"></i>Salons</a>
+>>>>>>> cb6019402ac7ec8cb41e7b88e09db7c4797a247d
                             </li>
-                            <li class="dropdown">
-                                <a href="{{ route('salons.index') }}" class="dropdown-toggle" data-toggle="dropdown" ><i class="mdi mdi-circle"></i>Creer  Salons</a>
+                            <li>
+                                <a href="{{ route('salons.create') }}"><i class="mdi mdi-circle"></i>Creer un salon</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="scroll"><a href="{{url('/widgets')}}"><img src="{{ asset("assets/images/svg-icon/widgets.svg") }}" class="img-fluid" alt="widgets"><span>Formation</span></a></li>
-
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/advanced.svg") }}" class="img-fluid" alt="advanced"><span>Financement</span></a>
                         <ul class="dropdown-menu">
@@ -177,12 +180,6 @@
                             <li><a href="{{url('/advanced-ui-kits-pnotify')}}"><i class="mdi mdi-circle"></i>Pnotify</a></li>
                             <li><a href="{{url('/advanced-ui-kits-range-slider')}}"><i class="mdi mdi-circle"></i>Range Slider</a></li>
                             <li><a href="{{url('/advanced-ui-kits-ratings')}}"><i class="mdi mdi-circle"></i>Ratings</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-session-timeout')}}"><i class="mdi mdi-circle"></i>Session Timeout</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-sweet-alerts')}}"><i class="mdi mdi-circle"></i>Sweet Alerts</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-switchery')}}"><i class="mdi mdi-circle"></i>Switchery</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-toolbar')}}"><i class="mdi mdi-circle"></i>Toolbar</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-tour')}}"><i class="mdi mdi-circle"></i>Tour</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-treeview')}}"><i class="mdi mdi-circle"></i>Tree View</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
