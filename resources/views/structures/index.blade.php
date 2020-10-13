@@ -27,35 +27,21 @@ PLATFORM B2B
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->
-        <div class="col-lg-12">
+            @foreach($structures as $structure)
+        <div class="col-lg-3">
             <div class="card m-b-30">
                 <div class="card-header">
-                    <h5 class="card-title">Creation d'un compte</h5>
+                    <h5 class="card-title"><a href="{{ route("structures.show", $structure->id) }}">{{ $structure->nom .' '. $structure->form_jurid }}</a></h5>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route("structures.store") }}">
-                        @csrf
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">Nom</label>
-                                <input type="text" class="form-control" name="nom" placeholder="Nom de la structure">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputState">Type de compte</label>
-                                <select name="compte_lib" class="form-control">
-                                    <option selected>Selectionner...</option>
-                                    <option>Basique</option>
-                                    <option>Prenium</option>
-                                    <option>Silver</option>
-                                    <option>Gold</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                    </form>
+                    <p>{{ 'E-mail : '.$structure->email }}</p>
+                    <p>{{ 'Téléphone : '.$structure->tel }}</p>
+                    <p>{{ 'Adresse : '.$structure->adresse }}</p>
+                    <p>{{ $structure->description }}</p>
                 </div>
             </div>
         </div>
+            @endforeach
         <!-- End col -->
     </div> <!-- End row -->
 </div>

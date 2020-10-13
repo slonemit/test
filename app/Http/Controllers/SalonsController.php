@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invitation;
+use App\Models\Personne;
 use App\Models\Salon;
+use App\Models\Structure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SalonsController extends Controller
 {
@@ -37,9 +41,13 @@ class SalonsController extends Controller
      */
     public function store(Request $request)
     {
+        $person = Personne::where('user_id', Auth::id())->get()->first();
+
+
         $salon = Salon::create([
             'libelle'      => $request->input('libelle'),
-            'structure_id'      => $request->input('structure_id'),
+            'description'      => $request->input('description'),
+            'structure_id'      => $person->structure_id,
             'dateSalon'         => $request->input('dateSalon'),
             'heureSalon'         => $request->input('heureSalon'),
             'heureFinSalon'         => $request->input('heureFinSalon'),
@@ -47,7 +55,7 @@ class SalonsController extends Controller
         ]);
 
         if($salon){
-            return redirect()->route("structures.show", $request->input('structure_id'));
+            return redirect()->route("salons.show", $salon->id);
         }
     }
 
@@ -60,8 +68,10 @@ class SalonsController extends Controller
     public function show($id)
     {
         $salon = Salon::find($id);
+        $structures = Structure::orderBy('nom')->get();
+        $invitations = Invitation::where('salon_id', $id)->get()->load('structure');
 
-        return view('salons.show', compact('salon'));
+        return view('salons.show', compact('salon', 'structures', 'invitations'));
     }
 
     /**
