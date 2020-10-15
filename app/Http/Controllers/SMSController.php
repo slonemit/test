@@ -16,13 +16,15 @@ class SMSController extends Controller
 
         $xml = simplexml_load_string($response->body());
         $json = json_encode($xml);
-        $messages = json_decode($json,TRUE);
+        $messages = json_decode($json,TRUE); //dd($messages);
         $messages = $messages["Message"];
 
         return view('sms.index', compact('messages'));
     }
 
     public function callbackSms(Request $request){
+
+        echo 'result=1';
 
         $message = $request['message'];
 
@@ -35,18 +37,25 @@ class SMSController extends Controller
                 $nom = explode('*', $tab[1]);
 
                 Personne::create([
-                    'nom' => $nom[0],
+                    'nom' => strtoupper($nom[0]),
                     'prenom'    => $nom[1],
                     'datenaiss' => $tab[2],
                     'ville'     => $tab[3],
-                    'tel'       => $message['from'],
+                    'tel'       => $request['from'],
                     'email'     => 'mn@email.com'
                 ]);
 
             }elseif ($tab[0] == 2){
 
+                $personne_id = 0;
+
+                $personne = Personne::where("tel", $request['from'])->get()->first();
+                if($personne){
+                    $personne_id = $personne->id;
+                }
+
                 Annonce::create([
-                    'user_id'       => 0,
+                    'user_id'       => $personne_id,
                     'categ_annonce_id'       => 1,
                     'titre'       => $tab[1],
                     'description'       => 'Vente des '. $tab[1],
@@ -61,6 +70,5 @@ class SMSController extends Controller
 
         }
 
-        echo 'result=1';
     }
 }

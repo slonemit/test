@@ -35,7 +35,7 @@ PLATEFORM B2B - Comptes
         @foreach($messages as $message)
         <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="card bg-light m-b-30">
-                <div class="card-header"><h5 class="card-title">{{ $message['From'] }}</h5></div>
+                <div class="card-header"><h5 class="card-title">{{ json_encode($message["From"]) }}</h5></div>
                 <div class="card-body">
                     <p class="card-text">{{ $message['MessageText'] }}</p>
                     <p class="card-text">{{ $message['FormatedReceiveTime'] }}</p>
