@@ -174,6 +174,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ route("comptes.index") }}"><i class="mdi mdi-circle"></i>Comptes</a></li>
                             <li><a href="{{ route("annonces.validate")}}"><i class="mdi mdi-circle"></i>Annonces</a></li>
+                            <li><a href="{{ route("sms.index")}}"><i class="mdi mdi-circle"></i>SMS</a></li>
                         </ul>
                     </li>
                   </ul>

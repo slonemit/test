@@ -180,7 +180,7 @@ Theta - Single Product
                                                 <div class="form-row">
                                                     <div class="form-group col-md-12">
                                                         <label for="inputCity">Structure</label>
-                                                        <select name="structure_id" id="">
+                                                        <select class="form-control        " name="structure_id" id="">
                                                             @foreach($structures as $structure)
                                                             <option value="{{ $structure->id }}">{{ $structure->nom.' '.$structure->form_jurid }}</option>
                                                             @endforeach

@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::post('/test', 'SMSController@getMessages');
 Auth::routes();
 
 /*Route::prefix('basique')
@@ -39,6 +38,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('sms', 'SMSController');
 
     Route::get('annonces/validate', 'AnnoncesController@validatedAnnonces')->name("annonces.validate");
     Route::resource('annonces', 'AnnoncesController');
@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('salons', 'SalonsController');
 });
 
+Route::get('/diafaan-http-callback', 'SmsController@callbackSms');
 Route::get('/structures/create/{id}', 'StructuresController@create');
 Route::post('/structures', 'StructuresController@store')->name("structures.store");
 Route::post('/personnes', 'PersonnesController@store')->name("personnes.store");
