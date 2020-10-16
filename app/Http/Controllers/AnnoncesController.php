@@ -123,7 +123,12 @@ class AnnoncesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $annonce = Annonce::find($id);
+
+        $annonce->statut_ann = 1;
+        $annonce->save();
+
+        return redirect()->route('annonces.show', $annonce->id);
     }
 
     /**

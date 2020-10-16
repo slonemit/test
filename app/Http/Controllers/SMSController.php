@@ -49,10 +49,10 @@ class SMSController extends Controller
 
                 $personne_id = 0;
 
-                $personne = Personne::where("tel", $request['from'])->get()->first();
+                /*$personne = Personne::where("tel", $request['from'])->get()->first();
                 if($personne){
                     $personne_id = $personne->id;
-                }
+                }*/
 
                 Annonce::create([
                     'user_id'       => $personne_id,
