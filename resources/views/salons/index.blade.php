@@ -21,7 +21,7 @@ Theta - Cards
         </div>
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
-                <button class="btn btn-primary">Add Widget</button>
+                <a href="{{ route("salons.create") }}" class="btn btn-primary">Créer un salon</a>
             </div>                        
         </div>
     </div>          

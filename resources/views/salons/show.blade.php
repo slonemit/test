@@ -117,7 +117,7 @@ Theta - Single Product
         <div class="col-lg-12">
             <div class="card m-b-30">
                 <div class="card-header">
-                    <h5 class="card-title">Invitations</h5>
+                    <h5 class="card-title">Invitations <button type="button" class="btn btn-round btn-success-rgba" data-toggle="modal" data-target="#exampleStandardModal"><i class="feather icon-plus"></i></button></h5>
                 </div>
                 <div class="card-body">
                     <ul class="nav nav-tabs custom-tab-line mb-3" id="defaultTabLine" role="tablist">
@@ -131,54 +131,22 @@ Theta - Single Product
                     <div class="tab-content" id="defaultTabContentLine">
                         <div class="tab-pane fade show active" id="description-line" role="tabpanel" aria-labelledby="description-tab-line">
                             <ul class="list-unstyled">
+                                @foreach($invitations as $invitation)
                                 <li class="media">
-                                    <img src="assets/images/users/men.svg" class="img-fluid mr-3" alt="user">
+                                    <img src="{{ asset("assets/images/users/men.svg") }}" class="img-fluid mr-3" alt="user">
                                     <div class="media-body">
-                                        <h5 class="font-16 mt-0 mb-1">John Smith</h5>
-                                        <p class="text-muted font-14">
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star"></i>
-                                            <i class="feather icon-star"></i>
-                                        </p>
+                                        <h5 class="font-16 mt-0 mb-1">{{ $invitation->structure->nom }}</h5>
                                         <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <p>Envoyé le : {{ $invitation->date_invit }}</p>
                                     </div>
-                                </li>
-                                <li class="media my-4">
-                                    <img src="assets/images/users/boy.svg" class="img-fluid mr-3" alt="user">
-                                    <div class="media-body">
-                                        <h5 class="font-16 mt-0 mb-1">Michelle Johnson</h5>
-                                        <p class="text-muted font-14">
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star"></i>
-                                        </p>
-                                        <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img src="assets/images/users/girl.svg" class="img-fluid mr-3" alt="user">
-                                    <div class="media-body">
-                                        <h5 class="font-16 mt-0 mb-1">Denzel Page</h5>
-                                        <p class="text-muted font-14">
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star"></i>
-                                            <i class="feather icon-star"></i>
-                                            <i class="feather icon-star"></i>
-                                        </p>
-                                        <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </li>
+                                </li><hr/>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="tab-pane fade" id="review-line" role="tabpanel" aria-labelledby="review-tab-line">
                             <ul class="list-unstyled">
                                 <li class="media">
-                                    <img src="assets/images/users/men.svg" class="img-fluid mr-3" alt="user">
+                                    <img src="{{ asset("assets/images/users/men.svg") }}" class="img-fluid mr-3" alt="user">
                                     <div class="media-body">
                                         <h5 class="font-16 mt-0 mb-1">John Smith ok</h5>
                                         <p class="text-muted font-14">
@@ -191,39 +159,42 @@ Theta - Single Product
                                         <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                     </div>
                                 </li>
-                                <li class="media my-4">
-                                    <img src="assets/images/users/boy.svg" class="img-fluid mr-3" alt="user">
-                                    <div class="media-body">
-                                        <h5 class="font-16 mt-0 mb-1">Michelle Johnson ok</h5>
-                                        <p class="text-muted font-14">
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star"></i>
-                                        </p>
-                                        <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img src="assets/images/users/girl.svg" class="img-fluid mr-3" alt="user">
-                                    <div class="media-body">
-                                        <h5 class="font-16 mt-0 mb-1">Denzel Page ok</h5>
-                                        <p class="text-muted font-14">
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star"></i>
-                                            <i class="feather icon-star"></i>
-                                            <i class="feather icon-star"></i>
-                                        </p>
-                                        <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+<!-- Modal -->
+                                <div class="modal fade" id="exampleStandardModal" tabindex="-1" role="dialog" aria-labelledby="exampleStandardModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleStandardModalLabel">Création d'un salon</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <form method="post" action="{{ route("invitations.store") }}">
+                                            <div class="modal-body">
+                                                @csrf
+                                                <input type="hidden" name="salon_id" value="{{ $salon->id }}"/>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="inputCity">Structure</label>
+                                                        <select class="form-control        " name="structure_id" id="">
+                                                            @foreach($structures as $structure)
+                                                            <option value="{{ $structure->id }}">{{ $structure->nom.' '.$structure->form_jurid }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
         </div>
         <!-- End col -->
     </div>

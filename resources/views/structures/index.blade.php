@@ -30,7 +30,8 @@ Theta - Order List
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->
-        <div class="col-lg-12">
+            @foreach($structures as $structure)
+        <div class="col-lg-3">
             <div class="card m-b-30">
                 <div class="card-header">
                     <div class="row align-items-center">
@@ -96,6 +97,7 @@ Theta - Order List
                 </div>
             </div>
         </div>
+            @endforeach
         <!-- End col -->
     </div>
     <!-- End row -->
