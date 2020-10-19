@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compte;
 use App\Models\Personne;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -63,8 +64,18 @@ class PersonnesController extends Controller
             ]);
 
             if($user){
-                return redirect('/structures/create/1');
+
+                $compte = Compte::create([
+                    'user_id'           => $user->id,
+                    'structure_id'      => 0,
+                    'typecompte_id'     => 1,
+                ]);
+
+                if($compte) {
+                    return redirect('/rules');
+                }
             }
+
         }
     }
 

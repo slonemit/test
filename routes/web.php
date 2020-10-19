@@ -13,28 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Auth::routes();
-
-/*Route::prefix('basique')
-    ->namespace('Basic')
-    ->middleware(['auth','basique'])
-    ->name('basique.')
-    ->group(function(){
-        Route::get('/home', 'Basique\HomeController@index')->name('home');
-
-        Route::get('annonces/validate', 'AnnoncesController@validatedAnnonces')->name("annonces.validate");
-        Route::resource('annonces', 'AnnoncesController');
-        Route::resource('produits', 'ProduitsController');
-        Route::resource('personnes', 'PersonnesController');
-        Route::resource('comptes', 'ComptesController');
-        Route::resource('typecomptes', 'TypeComptesController');
-        Route::resource('structures', 'StructuresController');
-        Route::resource('users', 'UsersController');
-        Route::resource('salons', 'SalonsController');
-
-    });*/
-
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
@@ -44,17 +23,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('annonces', 'AnnoncesController');
     Route::resource('invitations', 'InvitationsController');
     Route::resource('produits', 'ProduitsController');
-    Route::resource('personnes', 'PersonnesController');
-    Route::resource('comptes', 'ComptesController');
-    Route::resource('typecomptes', 'TypeComptesController');
     Route::resource('structures', 'StructuresController');
     Route::resource('users', 'UsersController');
+    Route::resource('comptes', 'ComptesController');
     Route::resource('salons', 'SalonsController');
 });
 
 Route::get('/diafaan-http-callback', 'SmsController@callbackSms');
-Route::get('/structures/create/{id}', 'StructuresController@create');
-Route::post('/structures', 'StructuresController@store')->name("structures.store");
+Route::get('/comptes/create/{id}', 'StructuresController@create');
+Route::post('/comptes', 'StructuresController@store')->name("structures.store");
 Route::post('/personnes', 'PersonnesController@store')->name("personnes.store");
 Route::get('/typecomptes', 'TypeComptesController@index')->name("typecomptes.index");
-

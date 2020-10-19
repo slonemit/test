@@ -99,8 +99,12 @@ class StructuresController extends Controller
 
                 if($user){
                     $personne->user_id = $user->id;
+                    $personne->save();
 
-                    return redirect()->route("structures.show", $compte->id);
+                    $compte->user_id = $user->id;
+                    $compte->save();
+
+                    return redirect('rules');
                 }
             }
         }
