@@ -11,4 +11,8 @@ class Invitation extends Model
     public function structure(){
         return $this->belongsTo('App\Models\Structure');
     }
+
+    public function salon(){
+        return $this->belongsTo('App\Models\Salon');
+    }
 }

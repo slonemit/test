@@ -129,7 +129,7 @@
                         <a href="{{ route("home") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/layouts.svg") }}" class="img-fluid" alt="layouts"><span>Vente</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/layouts.svg") }}" class="img-fluid" alt="layouts"><span>Annonces</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Annonces</a></li>
                             <li><a href="{{ route("annonces.create")  }}"><i class="mdi mdi-circle"></i>Faire une annonce </a></li>
@@ -137,7 +137,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achat</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achats</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{url('/apps-calender')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
                             <li><a href="{{url('/apps-chat')}}"><i class="mdi mdi-circle"></i>Vos Commandes</a></li>
@@ -154,6 +154,9 @@
                                 <a href="{{ route('salons.create') }}"><i class="mdi mdi-circle"></i>Creer un salon</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="{{ route("invitations.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Invitations</span></a>
                     </li>
                   </ul>
                 </div>
