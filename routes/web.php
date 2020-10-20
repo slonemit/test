@@ -42,14 +42,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('annonces/validate', 'AnnoncesController@validatedAnnonces')->name("annonces.validate");
     Route::resource('annonces', 'AnnoncesController');
-<<<<<<< HEAD
     Route::resource('achat', 'Achat');
     Route::resource('comment', 'commentaire');
     Route::resource('rendezvous','rendezvous');
 
-=======
     Route::resource('invitations', 'InvitationsController');
->>>>>>> 6c2d957684102fb9bcbea68411e3887424f39b68
     Route::resource('produits', 'ProduitsController');
     Route::resource('personnes', 'PersonnesController');
     Route::resource('comptes', 'ComptesController');
@@ -65,7 +62,4 @@ Route::post('/structures', 'StructuresController@store')->name("structures.store
 
 Route::post('/personnes', 'PersonnesController@store')->name("personnes.store");
 Route::get('/typecomptes', 'TypeComptesController@index')->name("typecomptes.index");
-<<<<<<< HEAD
-=======
 
->>>>>>> 6c2d957684102fb9bcbea68411e3887424f39b68
