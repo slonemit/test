@@ -17,13 +17,12 @@ class Basique
      */
     public function handle($request, Closure $next)
     {
-        $personne_id = Auth::user()->personne-id;
-        $personne = Personne::find($personne_id); dd($personne);
+        dd(Auth::user()->personne->id);
 
-        if($personne->structure_id != 0){
+        /*if($personne->structure_id != 0){
             return redirect('/login');
         }
 
-        return $next($request);
+        return $next($request);*/
     }
 }

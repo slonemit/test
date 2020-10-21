@@ -21,13 +21,13 @@ Theta - Single Product
                 </ol>
             </div>
         </div>
-        @if($annonce->statut_ann == 0)
+        @if($compte->statut == 0)
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
-                <form action="{{ route("annonces.update", $annonce->id) }}" method="post">
+                <form action="{{ route("comptes.update", $compte->id) }}" method="post">
                     @method('PUT')
                     @csrf
-                    <input name="statut_ann" type="hidden" value="1"/>
+                    <input name="statut" type="hidden" value="1"/>
                     <button type="submit" class="btn btn-primary">Valider</button>
                 </form>
             </div>                        
@@ -48,7 +48,7 @@ Theta - Single Product
                         <div class="col-lg-6 col-xl-5">
                             <div class="product-slider-box product-box-for">
                                 <div class="product-preview">
-                                    <img src="{{ asset($annonce->image??"assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
+                                    <img src="{{ asset($structure->image??"assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
                                     <p><span class="badge badge-success font-14">25% off</span></p>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ Theta - Single Product
                         </div>
                         <div class="col-lg-6 col-xl-7">
                             <p><span class="badge badge-light font-16">Pupular</span></p>
-                            <h2 class="font-22">{{ $annonce->titre }}</h2>
+                            <h2 class="font-22">{{ $structure->nom }}</h2>
                             <p>
                                 <i class="feather icon-star text-warning"></i>
                                 <i class="feather icon-star text-warning"></i>
@@ -84,8 +84,8 @@ Theta - Single Product
                                 <i class="feather icon-star"></i>
                                 <span class="ml-2">25 Ratings</span>
                             </p>
-                            <p class="text-primary font-26 f-w-7 my-3"><sup class="font-16">$</sup>{{ $annonce->cout }}</p>
-                            <p class="mb-4">{{ $annonce->description }}</p>
+                            <p class="text-primary font-26 f-w-7 my-3"><sup class="font-16">$</sup>{{ $structure->form_jurid }}</p>
+                            <p class="mb-4">{{ $structure->description }}</p>
                             <div class="button-list mt-5 mb-5">
                                 <button type="button" class="btn btn-danger-rgba font-18"><i class="feather icon-heart"></i></button>
                                 <button type="button" class="btn btn-primary-rgba font-18"><i class="feather icon-shopping-bag mr-2"></i>Ajouter dans le panier</button>

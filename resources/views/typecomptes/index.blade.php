@@ -51,7 +51,7 @@
                         </div>
                         <div class="pricing-bottom pricing-bottom-basic">
                             <div class="pricing-btn">
-                                <a href="{{ url("structures/create/".$type->id) }}" class="btn btn-success font-16">Select..<i class="feather icon-arrow-right ml-2"></i></a>
+                                <a href="{{ url("comptes/create/".$type->id) }}" class="btn btn-success font-16">Select..<i class="feather icon-arrow-right ml-2"></i></a>
                             </div>
                         </div>
                     </div>

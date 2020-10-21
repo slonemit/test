@@ -101,7 +101,7 @@ Theta - Shop
                         <div class="col-lg-6 col-xl-4">
                             <div class="product-bar m-b-30">
                                 <div class="product-head">
-                                    <a href="{{url('/ecommerce-single-product')}}"><img src="{{ asset($annonce->image??"assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="product"></a>
+                                    <a href="{{ route("annonces.show", $annonce->id) }}"><img src="{{ asset($annonce->image??"assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="product"></a>
                                     <p><span class="badge badge-success font-14">25% off</span></p>
                                 </div>
                                 <div class="product-body py-3">

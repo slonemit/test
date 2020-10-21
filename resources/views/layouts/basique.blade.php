@@ -246,7 +246,7 @@
         <!-- Start Containerbar -->
         <div id="containerbar" class="container-fluid">
             <!-- Start Rightbar -->
-            @include('layouts.rightbar')
+            @include('layouts.basique_rightbar')
             @yield('content')
             <!-- End Rightbar -->
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compte;
+use App\Models\Structure;
 use Illuminate\Http\Request;
 
 class ComptesController extends Controller
@@ -14,7 +15,7 @@ class ComptesController extends Controller
      */
     public function index()
     {
-        $comptes = Compte::get()->load("structure.grille");
+        $comptes = Compte::where([['statut', 0], ['structure_id', '>', 0]])->get()->load("structure.grille");
 
         return view('comptes.index', compact('comptes'));
     }
@@ -52,7 +53,10 @@ class ComptesController extends Controller
      */
     public function show($id)
     {
-        //
+        $compte = Compte::find($id);
+        $structure = Structure::find($compte->structure_id); //dd($compte, $structure);
+
+        return view('comptes.show', compact('structure', 'compte'));
     }
 
     /**
@@ -75,7 +79,12 @@ class ComptesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $compte = Compte::find($id);
+
+        $compte->statut = $request['statut'];
+        $compte->save();
+
+        return redirect()->route('comptes.show', $compte->id);
     }
 
     /**

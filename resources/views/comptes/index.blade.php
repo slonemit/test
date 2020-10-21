@@ -42,10 +42,7 @@ PLATEFORM B2B - Comptes
                     <p class="card-text">{{ 'E-mail : '.$compte->structure->email }}</p>
                     <p class="card-text">{{ 'Télephone : '.$compte->structure->tel }}</p>
                     <div class="custom-control custom-switch">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="statut">
-                        <label class="custom-control-label" for="statut">Activer</label>
-                    </div>
+                    <div><a href="{{ route("comptes.show", $compte->id) }}" class="btn btn-primary">Details</a></div>
                     </div>
                 </div>
             </div>

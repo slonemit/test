@@ -22,7 +22,10 @@ class StructuresController extends Controller
      */
     public function index()
     {
-        $structures = Structure::all();
+        $structures = Structure::join('comptes', function ($join) {
+        $join->on('comptes.id', '=', 'structures.compte_id')
+            ->where('comptes.statut', '=', 1);
+            })->get();
 
         return view("structures.index", compact('structures'));
     }
@@ -96,8 +99,12 @@ class StructuresController extends Controller
 
                 if($user){
                     $personne->user_id = $user->id;
+                    $personne->save();
 
-                    return redirect()->route("structures.show", $compte->id);
+                    $compte->user_id = $user->id;
+                    $compte->save();
+
+                    return redirect('rules');
                 }
             }
         }
