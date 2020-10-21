@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invitation;
+use App\Models\ParticipeSalon;
 use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,9 +17,9 @@ class InvitationsController extends Controller
      */
     public function index()
     {
-        $personne = Personne::find(Auth::user()->personne_id);//  dd($personne);
+        $personne = Personne::find(Auth::user()->personne_id);  //dd($personne->structure_id);
 
-        $invitations = Invitation::where('structure_id', $personne->structure_id)->get()->load('structure', 'salon');
+        $invitations = Invitation::where([['structure_id', $personne->structure_id], ['statut', 0]])->get()->load('structure', 'salon');
 
         return view('invitations.index', compact('invitations'));
     }
@@ -57,6 +58,16 @@ class InvitationsController extends Controller
 
         $invitation->statut = 1;
         $invitation->save();
+
+        if($invitation){
+            ParticipeSalon::create([
+                'user_id'   => Auth::id(),
+                'salon_id'  => $invitation->salon_id,
+                'moderateur'    => 0,
+                'statut'        =>0
+            ]);
+
+        }
 
         return redirect()->route('invitations.show', $invitation->id);
     }

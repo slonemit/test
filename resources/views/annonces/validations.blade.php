@@ -34,11 +34,11 @@ PLATEFORM B2B - Comptes
         <!-- Start col -->
         @foreach($annonces as $annonce)
         <div class="col-md-6 col-lg-6 col-xl-3">
-            <div class="card bg-light m-b-30">
+            <div style="height: 250px" class="card bg-light m-b-30">
                 <div class="card-header"><h5 class="card-title">{{ $annonce->titre }}</h5></div>
                 <div class="card-body">
                     <p class="card-text">{{ 'Publié le : '.$annonce->date_pub }}</p>
-                    <p class="card-text">{{ $annonce->description }}</p>
+                    <p class="card-text">{{ substr($annonce->description, 100) . '...' }}</p>
                     <p class="card-text">{{ $annonce->user_id >0?'Par : '.$annonce->user->name:"" }}</p>
                     <div><a href="{{ route("annonces.show", $annonce->id) }}" class="btn btn-primary">Details</a></div>
                 </div>

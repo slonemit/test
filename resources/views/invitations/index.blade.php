@@ -1,5 +1,5 @@
 @section('title')
-Theta - Cards
+B2B - Invitations
 @endsection
 @extends('layouts.main')
 @section('style')
@@ -10,12 +10,11 @@ Theta - Cards
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">Cards</h4>
+            <h4 class="page-title">Invitations</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Basic UI Kits</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Cards</li>
+                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Accueil</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Invitations</li>
                 </ol>
             </div>
         </div>

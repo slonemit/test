@@ -153,6 +153,9 @@
                             <li>
                                 <a href="{{ route('salons.create') }}"><i class="mdi mdi-circle"></i>Creer un salon</a>
                             </li>
+                            <li>
+                                <a href="{{ route("invitations.index") }}"><i class="mdi mdi-circle"></i>Invitations</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="dropdown">
