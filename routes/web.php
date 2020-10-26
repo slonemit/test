@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function(){
+    return redirect('/login');
+});
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
@@ -27,6 +30,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController');
     Route::resource('comptes', 'ComptesController');
     Route::resource('salons', 'SalonsController');
+    Route::resource('commentaires', 'CommentairesController');
+    Route::get('/chat', function(){
+        return view('apps-chat');
+    });
 });
 
 Route::get('/diafaan-http-callback', 'SmsController@callbackSms');

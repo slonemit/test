@@ -36,6 +36,9 @@ class HomeController extends Controller
             if($compte->typecompte_id == 2){
                 return view('dashboard-ecommerce');
             }
+            if($compte->typecompte_id == 3){
+                return view('dashboard-ecommerce');
+            }
         }
     }
 }

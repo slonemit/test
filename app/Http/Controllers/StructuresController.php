@@ -37,7 +37,7 @@ class StructuresController extends Controller
      */
     public function create($id)
     {
-        $grilles = Grille::all();
+        $grilles = Grille::orderBy('activite')->get();
         $type = Typecompte::find($id);
         $type_id = $type->id;
 
@@ -104,7 +104,7 @@ class StructuresController extends Controller
                     $compte->user_id = $user->id;
                     $compte->save();
 
-                    return redirect('rules');
+                    return redirect('/home');
                 }
             }
         }
