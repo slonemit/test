@@ -22,16 +22,16 @@ Theta - Single Product
             </div>
         </div>
         @if($annonce->statut_ann == 0)
-        <div class="col-md-4 col-lg-4">
-            <div class="widgetbar">
-                <form action="{{ route("annonces.update", $annonce->id) }}" method="post">
-                    @method('PUT')
-                    @csrf
-                    <input name="statut_ann" type="hidden" value="1"/>
-                    <button type="submit" class="btn btn-primary">Valider</button>
-                </form>
-            </div>                        
-        </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="widgetbar">
+                    <form action="{{ route("annonces.update", $annonce->id) }}" method="post">
+                        @method('PUT')
+                        @csrf
+                        <input name="statut_ann" type="hidden" value="1"/>
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                    </form>
+                </div>                        
+            </div>
         @endif
     </div>          
 </div>

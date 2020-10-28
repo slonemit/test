@@ -140,7 +140,8 @@
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achat</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{url('/apps-calender')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
-                            <li><a href="{{url('/apps-chat')}}"><i class="mdi mdi-circle"></i>Vos Commandes</a></li>
+                            <li><a href="{{url('/chats')}}"><i class="mdi mdi-circle"></i>Messages</a></li>
+                            <li><a href="{{ route('packpubs.index') }}"><i class="mdi mdi-circle"></i>Publicités</a></li>
 
                         </ul>
                     </li>

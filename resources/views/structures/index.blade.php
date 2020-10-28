@@ -1,7 +1,7 @@
 @section('title')
 PLATFORM B2B
 @endsection
-@extends('layouts.default')
+@extends('layouts.main')
 @section('style')
 
 @endsection
@@ -10,12 +10,11 @@ PLATFORM B2B
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">Form Layouts</h4>
+            <h4 class="page-title">Structures</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Forms Elements</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Form Layouts</li>
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Structures</li>
                 </ol>
             </div>
         </div>

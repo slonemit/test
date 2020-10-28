@@ -9,7 +9,11 @@ class AcheterPack extends Model
     protected $guarded = [];
 
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\User');
+    }
+
+    public function pack(){
+        return $this->belongsTo('App\Models\Pack');
     }
 
     public function personne(){

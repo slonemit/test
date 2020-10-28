@@ -31,7 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('comptes', 'ComptesController');
     Route::resource('salons', 'SalonsController');
     Route::resource('commentaires', 'CommentairesController');
-    Route::get('/chat', function(){
+    Route::resource('packpubs', 'PackpubsController');
+    Route::resource('achatpack', 'AchatPacksController');
+    Route::get('/chats', function(){
         return view('apps-chat');
     });
 });
