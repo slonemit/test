@@ -157,6 +157,9 @@
                             <li>
                                 <a href="{{ route("invitations.index") }}"><i class="mdi mdi-circle"></i>Invitations</a>
                             </li>
+                            <li>
+                                <a href="{{ route("rdv.index") }}"><i class="mdi mdi-circle"></i>Rendez-vous</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="dropdown">

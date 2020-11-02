@@ -33,9 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('commentaires', 'CommentairesController');
     Route::resource('packpubs', 'PackpubsController');
     Route::resource('achatpack', 'AchatPacksController');
-    Route::get('/chats', function(){
-        return view('apps-chat');
-    });
+    Route::resource('chats', 'MessagesController');
+    Route::resource('rdv', 'RdvsController');
 });
 
 Route::get('/diafaan-http-callback', 'SmsController@callbackSms');

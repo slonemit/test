@@ -11,4 +11,8 @@ class Rdv extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    public function receiver(){
+        return $this->belongsTo('App\Models\User');
+    }
 }
