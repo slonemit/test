@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rdv;
 use App\Models\Meeting;
+use App\Models\ParticipeMeeting;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -17,9 +18,10 @@ class RdvsController extends Controller
      */
     public function index()
     {
-        $rdvs = Rdv::get();
+        $rdvs_e = Rdv::where('user_id', Auth::id())->get();
+        $rdvs_r = Rdv::where('receiver_id', Auth::id())->get();
 
-        return view('rdvs.index', compact('rdvs'));
+        return view('rdvs.index', compact('rdvs_e','rdvs_r'));
     }
 
     /**
@@ -61,6 +63,12 @@ class RdvsController extends Controller
             ]);
 
             if($meeting){
+
+                $particite = ParticipeMeeting::create([
+                    'user_id'   => Auth::id(),
+                    'meeting_id'    => $meeting->id
+                ]);
+
                 return redirect()->route('rdv.index');
             }
         }
@@ -99,7 +107,30 @@ class RdvsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $rdv = Rdv::find($id);
+        $rdv->statut_rdv = 1;
+        $rdv->save();
+
+        if($rdv){
+
+            $meeting = Meeting::find($id);    
+            $meeting->statutMeet = 1;
+            $meeting->save();
+
+            if($meeting){
+
+                $particite = ParticipeMeeting::create([
+                    'user_id'       => Auth::id(),
+                    'meeting_id'    => $meeting->id
+                ]);
+        
+                if($particite){
+                    return redirect()->route('rdv.show', $rdv->id);
+                }
+            }
+
+        }
     }
 
     /**

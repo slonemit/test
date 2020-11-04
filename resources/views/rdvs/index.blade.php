@@ -29,15 +29,34 @@ Theta - Cards
 <!-- End Breadcrumbbar -->
 <!-- Start Contentbar -->    
 <div class="contentbar">
+
+    <h3>{{ count($rdvs_e) > 1 ?'Envoyés':'Envoyé' }}</h3>
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->
-        @foreach($rdvs as $rdv)
+        @foreach($rdvs_e as $rdv)
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="card m-b-30">
-                    <a href="{{ route('rdv.show', $rdv->id) }}"><img class="card-img-top" src="assets/images/ui-cards/ui-cards-1.jpg" alt="Card image cap"></a>
                     <div class="card-body">
-                        <h5 class="card-title font-18">{{ $rdv->date_propose }}</h5>
+                    <h5 class="card-title font-18"><a href="{{ route('rdv.show', $rdv->id) }}">{{ $rdv->receiver->name }}</a></h5>
+                        <p class="card-text mb-3">{{ $rdv->rdv_comment }}</p>
+                    </div>
+                </div> 
+            </div>
+        @endforeach
+        <!-- End col -->
+    </div><hr>
+    <!-- End row -->
+
+    <h3>{{ count($rdvs_r) > 1 ?'Reçus':'Reçu' }}</h3>
+    <!-- Start row -->
+    <div class="row">
+        <!-- Start col -->
+        @foreach($rdvs_r as $rdv)
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="card m-b-30">
+                    <div class="card-body">
+                    <h5 class="card-title font-18"><a href="{{ route('rdv.show', $rdv->id) }}">{{ $rdv->user->name }}</a></h5>
                         <p class="card-text mb-3">{{ $rdv->rdv_comment }}</p>
                     </div>
                 </div> 
