@@ -1,5 +1,5 @@
 @section('title')
-Theta - Single Product
+B2B - Salons
 @endsection
 @extends('layouts.main')
 @section('style')
@@ -12,12 +12,12 @@ Theta - Single Product
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">Single Product</h4>
+            <h4 class="page-title">Details du salon</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">eCommerce</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Single Product</li>
+                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('salons.index') }}">Salons</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $salon->libelle }}</li>
                 </ol>
             </div>
         </div>
@@ -91,11 +91,6 @@ Theta - Single Product
                             <h2 class="font-22">{{ $salon->libelle }}</h2>
                             <h2 class="font-14">{{ $salon->dateSalon.'  '.$salon->heureSalon.'-'.$salon->heureFinSalon }}</h2>
                             <p class="mb-4">{{ $salon->description }}</p>
-                            <div class="button-list mt-5 mb-5">
-                                <button type="button" class="btn btn-danger-rgba font-18"><i class="feather icon-heart"></i></button>
-                                <button type="button" class="btn btn-primary-rgba font-18"><i class="feather icon-shopping-bag mr-2"></i>Interessé</button>
-                                <button type="button" class="btn btn-success font-17">Confirmer</button>
-                            </div>
                             <div class="button-list">
                                 <h6 class="mb-3">Partager</h6>
                                 <a href="#" class="btn btn-primary-rgba font-18"><i class="feather icon-facebook"></i></a>
@@ -132,6 +127,7 @@ Theta - Single Product
                         <div class="tab-pane fade show active" id="description-line" role="tabpanel" aria-labelledby="description-tab-line">
                             <ul class="list-unstyled">
                                 @foreach($invitations as $invitation)
+                                @if($invitation->statut == 0)
                                 <li class="media">
                                     <img src="{{ asset("assets/images/users/men.svg") }}" class="img-fluid mr-3" alt="user">
                                     <div class="media-body">
@@ -140,25 +136,24 @@ Theta - Single Product
                                         <p>Envoyé le : {{ $invitation->date_invit }}</p>
                                     </div>
                                 </li><hr/>
+                                @endif
                                 @endforeach
                             </ul>
                         </div>
                         <div class="tab-pane fade" id="review-line" role="tabpanel" aria-labelledby="review-tab-line">
                             <ul class="list-unstyled">
+                                @foreach($invitations as $invitation)
+                                @if($invitation->statut == 1)
                                 <li class="media">
                                     <img src="{{ asset("assets/images/users/men.svg") }}" class="img-fluid mr-3" alt="user">
                                     <div class="media-body">
-                                        <h5 class="font-16 mt-0 mb-1">John Smith ok</h5>
-                                        <p class="text-muted font-14">
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star text-success"></i>
-                                            <i class="feather icon-star"></i>
-                                            <i class="feather icon-star"></i>
-                                        </p>
+                                        <h5 class="font-16 mt-0 mb-1">{{ $invitation->structure->nom }}</h5>
                                         <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <p>Envoyé le : {{ $invitation->date_invit }}</p>
                                     </div>
-                                </li>
+                                </li><hr/>
+                                @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>

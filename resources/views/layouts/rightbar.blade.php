@@ -139,8 +139,14 @@
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achat</span></a>
                         <ul class="dropdown-menu">
+<<<<<<< HEAD
                             <li><a href="{{route('achat.index')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
                             <li><a href="{{url('/apps-chat')}}"><i class="mdi mdi-circle"></i>Vos Commandes</a></li>
+=======
+                            <li><a href="{{url('/apps-calender')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
+                            <li><a href="{{url('/chats')}}"><i class="mdi mdi-circle"></i>Messages</a></li>
+                            <li><a href="{{ route('packpubs.index') }}"><i class="mdi mdi-circle"></i>Publicités</a></li>
+>>>>>>> 148244a6c5691d1e850df7d503036f57d3a4266c
 
                         </ul>
                     </li>
@@ -163,6 +169,12 @@
                             </li>
                             <li>
                                 <a href="{{ route('salons.create') }}"><i class="mdi mdi-circle"></i>Creer un salon</a>
+                            </li>
+                            <li>
+                                <a href="{{ route("invitations.index") }}"><i class="mdi mdi-circle"></i>Invitations</a>
+                            </li>
+                            <li>
+                                <a href="{{ route("rdv.index") }}"><i class="mdi mdi-circle"></i>Rendez-vous</a>
                             </li>
                         </ul>
                     </li>

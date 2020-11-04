@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Annonce;
 use App\Models\CategAnnonce;
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 
 class AnnoncesController extends Controller
@@ -99,8 +100,9 @@ class AnnoncesController extends Controller
     public function show($id)
     {
         $annonce = Annonce::find($id);
+        $commentaires = Commentaire::where('annonce_id', $id)->get();
 
-        return view("annonces.show", compact("annonce"));
+        return view("annonces.show", compact('annonce', 'commentaires'));
     }
     public function comment(Request $request)
     {

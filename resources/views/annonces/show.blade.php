@@ -22,22 +22,22 @@ Theta - Single Product
             </div>
         </div>
         @if($annonce->statut_ann == 0)
-        <div class="col-md-4 col-lg-4">
-            <div class="widgetbar">
-                <form action="{{ route("annonces.update", $annonce->id) }}" method="post">
-                    @method('PUT')
-                    @csrf
-                    <input name="statut_ann" type="hidden" value="1"/>
-                    <button type="submit" class="btn btn-primary">Valider</button>
-                </form>
-            </div>                        
-        </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="widgetbar">
+                    <form action="{{ route("annonces.update", $annonce->id) }}" method="post">
+                        @method('PUT')
+                        @csrf
+                        <input name="statut_ann" type="hidden" value="1"/>
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                    </form>
+                </div>                        
+            </div>
         @endif
     </div>          
 </div>
 <!-- End Breadcrumbbar -->
 <!-- Start Contentbar -->    
-<div class="contentbar">                
+<div class="contentbar">
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->
@@ -106,6 +106,48 @@ Theta - Single Product
         <!-- End col -->
     </div>
     <!-- End row -->
+    <!-- Start row -->
+    <div class="row">
+        <!-- Start col -->
+        <div class="col-lg-12">
+            <div class="card m-b-30">
+                <div class="card-header">
+                    <h5 class="card-title">Commentaires</h5>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="defaultTabContentLine">
+                        <div class="tab-pane fade show active" id="description-line" role="tabpanel" aria-labelledby="description-tab-line">
+                            <ul class="list-unstyled">
+                                @foreach($commentaires as $comment)
+                                    @if($comment->statut_com == 1)
+                                        <li class="media">
+                                            <img src="{{ asset("assets/images/users/men.svg") }}" class="img-fluid mr-3" alt="user">
+                                            <div class="media-body">
+                                                <h5 class="font-16 mt-0 mb-1 {{ $comment->user_id == Auth::id()? 'text-right':'' }}">{{ $comment->user_id == Auth::id()?'Vous, '.$comment->dateComment:$comment->user->name.', '. $comment->dateComment }}</h5>
+                                                <p class="mb-0">{{ $comment->content_com }}</p>
+                                            </div>
+                                        </li><hr/>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </div>  
+                <form action="{{ route('commentaires.store') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="annonce_id" value="{{ $annonce->id }}">
+                    <div class="row"> 
+                        <div class="col-md-8">                                                    
+                            <div class="form-group">
+                                <textarea class="form-control" name="content_com" id="inputTextarea" rows="3" placeholder="Commentaire"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-info">Commenter</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+
 </div>
 <!-- End Contentbar -->
 @endsection 
