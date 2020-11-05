@@ -134,7 +134,8 @@ export default {
                 .then(response => response.json())
                 .then(response => {
 
-                    if (response === 200) {
+                    if (response.code === 200) {
+                        this.chat_box.push(response.message)
                         this.content_message = ''
                     }
                 })

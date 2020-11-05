@@ -227,7 +227,9 @@ __webpack_require__.r(__webpack_exports__);
       fetch(url, option).then(function (response) {
         return response.json();
       }).then(function (response) {
-        if (response === 200) {
+        if (response.code === 200) {
+          _this2.chat_box.push(response.message);
+
           _this2.content_message = '';
         }
       });

@@ -67,7 +67,10 @@ class MessagesController extends Controller
             'statut-mess'       => 0
         ]);
 
-        return response()->json(200);
+        return response()->json([
+            'code'      => 200,
+            'message'   => $message
+        ]);
     }
 
     /**
