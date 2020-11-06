@@ -20,8 +20,9 @@ class InvitationsController extends Controller
         $personne = Personne::find(Auth::user()->personne_id);  //dd($personne->structure_id);
 
         $invitations = Invitation::where([['structure_id', $personne->structure_id], ['statut', 0]])->get()->load('structure', 'salon');
+        $invit_confirm = Invitation::where([['structure_id', $personne->structure_id], ['statut', 1]])->get()->load('structure', 'salon');
 
-        return view('invitations.index', compact('invitations'));
+        return view('invitations.index', compact('invitations','invit_confirm'));
     }
 
     /**

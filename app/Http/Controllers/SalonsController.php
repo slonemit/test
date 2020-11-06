@@ -55,8 +55,29 @@ class SalonsController extends Controller
             'heureFinSalon'         => $request->input('heureFinSalon'),
             'statutSalon'       => 0
         ]);
+        
 
-        if($salon){
+        if ($salon) {
+
+            if($request['image'] != null){
+                $file = $request->file('image');
+                $image = $salon->id.'.'.$file->getClientOriginalExtension();
+
+                if (!file_exists(public_path('images/salons'))) {
+                    mkdir(public_path('images/salons'));
+                }
+                $file->move(public_path('images/salons'), $image);
+                $salon->image = "images/salons/".$image;
+                $salon->save();
+            }
+
+            ParticipeSalon::create([
+                'user_id'       => Auth::id(),
+                'salon_id'      => $salon->id,
+                'moderateur'    => 0,
+                'statut'        => 1
+            ]);
+
             return redirect()->route("salons.show", $salon->id);
         }
     }
@@ -69,9 +90,17 @@ class SalonsController extends Controller
      */
     public function show($id)
     {
+        $confirm = [];
         $salon = Salon::find($id);
-        $structures = Structure::orderBy('nom')->get();
+        $own_structure = Personne::where('user_id', Auth::id())->get()->first();
+        $confirm[] = $own_structure->structure_id;
+
         $invitations = Invitation::where('salon_id', $id)->get()->load('structure');
+        
+        foreach($invitations as $invitation){
+            $confirm[] = $invitation->structure_id;
+        }
+        $structures = Structure::whereNotIn('id', $confirm)->orderBy('nom')->get();
 
         return view('salons.show', compact('salon', 'structures', 'invitations'));
     }

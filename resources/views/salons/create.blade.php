@@ -1,5 +1,5 @@
 @section('title')
-Theta - Product Detail
+{{ config('app.name') }} - Salon
 @endsection
 @extends('layouts.main')
 @section('style')
