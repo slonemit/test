@@ -12,6 +12,10 @@ class Message extends Model
         return $this->belongsTo('App\Models\Meeting');
     }
 
+    public function salon(){
+        return $this->belongsTo('App\Models\Salon');
+    }
+
     public function user(){
         return $this->belongsTo('App\User');
     }

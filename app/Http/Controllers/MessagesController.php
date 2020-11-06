@@ -59,8 +59,20 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
+        $meeting_id = 0;
+        $salon_id = 0;
+
+        if($request['meeting_id']){
+            $meeting_id = $request['meeting_id'];
+        }
+
+        if($request['salon_id']){
+            $salon_id = $request['salon_id'];
+        }
+
         $message = Message::create([
-            'meeting_id'        => $request['meeting_id'],
+            'meeting_id'        => $meeting_id,
+            'salon_id'          => $salon_id,
             'user_id'           => Auth::id(),
             'content_mess'        => $request['content_mess'],
             'date_message'      => now(),

@@ -145,6 +145,9 @@
 
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{ route("rdv.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Rendez-vous</span></a>
+                    </li>
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Salons</span></a>
                         <ul class="dropdown-menu">
@@ -158,19 +161,8 @@
                                 <a href="{{ route("invitations.index") }}"><i class="mdi mdi-circle"></i>Invitations</a>
                             </li>
                             <li>
-                                <a href="{{ route("rdv.index") }}"><i class="mdi mdi-circle"></i>Rendez-vous</a>
+                                <a href="{{ route("salons.chats") }}"><i class="mdi mdi-circle"></i>Chats</a>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/advanced.svg") }}" class="img-fluid" alt="advanced"><span>Financement</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{url('/advanced-ui-kits-image-crop')}}"><i class="mdi mdi-circle"></i>Image Crop</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-jquery-confirm')}}"><i class="mdi mdi-circle"></i>jQuery Confirm</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-nestable')}}"><i class="mdi mdi-circle"></i>Nestable</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-pnotify')}}"><i class="mdi mdi-circle"></i>Pnotify</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-range-slider')}}"><i class="mdi mdi-circle"></i>Range Slider</a></li>
-                            <li><a href="{{url('/advanced-ui-kits-ratings')}}"><i class="mdi mdi-circle"></i>Ratings</a></li>
                         </ul>
                     </li>
                     <li>
