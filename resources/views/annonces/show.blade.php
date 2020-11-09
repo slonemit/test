@@ -52,26 +52,6 @@ Theta - Single Product
                                     <p><span class="badge badge-success font-14">25% off</span></p>
                                 </div>
                             </div>
-                            <div class="product-slider-box product-box-nav">
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_01.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_02.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_03.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_04.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_05.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_06.jpg" class="img-fluid" alt="Product">
-                                </div>
-                            </div>
                         </div>
                         <div class="col-lg-6 col-xl-7">
                             <p><span class="badge badge-light font-16">Pupular</span></p>
