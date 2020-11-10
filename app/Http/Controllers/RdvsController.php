@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rdv;
 use App\Models\Meeting;
 use App\Models\ParticipeMeeting;
+use App\Models\Annonce;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -83,6 +84,7 @@ class RdvsController extends Controller
     public function show($id)
     {
         $rdv = Rdv::find($id);
+        $user_id = Auth::id();
 
         return view('rdvs.show', compact('rdv'));
     }
@@ -142,5 +144,46 @@ class RdvsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Save rdv form annonces.show
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function save(Request $request)
+    {
+        $annonce = Annonce::find($request['annonce_id']);
+
+        $rdv = Rdv::create([
+            'user_id'       => Auth::id(),
+            'receiver_id'   => $annonce->user_id,
+            'date_propose'  => $request['date_propose'],
+            'date_appouv'  => $request['date_propose'],
+            'rdv_comment'   => $request['rdv_comment'],
+            'statut_rdv'    => 0
+        ]);
+
+        if($rdv){
+
+            $meeting = Meeting::create([
+                'heureMeet'         => $request['heureMeet'],
+                'heureFinMeet'      => $request['heureFinMeet'],
+                'dateMeet'          => $request['date_propose'],
+                'statutMeet'        => 0
+            ]);
+
+            if($meeting){
+
+                $particite = ParticipeMeeting::create([
+                    'user_id'   => Auth::id(),
+                    'meeting_id'    => $meeting->id
+                ]);
+
+                return redirect()->route('annonces.show', $annonce->id);
+            }
+        }
+
     }
 }

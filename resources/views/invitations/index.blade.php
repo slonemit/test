@@ -54,7 +54,7 @@ B2B - Invitations
         <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="card m-b-30">
                 <div class="card-body">
-                    <p class="card-text mb-3">Vous êtes invité a un salon organisé par <b>{{ $invitation->structure->nom }}</b> le <b>{{ $invitation->salon->dateSalon }}</b> sur <b>{{ $invitation->salon->libelle }}</b> <a title="Plus" href="{{ route('invitations.show', $invitation->id) }}"> ...</a></p>
+                    <p class="card-text mb-3">Vous êtes invité a un salon organisé par <b>{{ $invitation->structure->nom }}</b> le <b>{{ $invitation->salon->dateSalon }}</b> sur <b>{{ $invitation->salon->libelle }}</b> <a title="Plus" href="{{ route('invitations.show', $invitation->id) }}"> voir plus</a></p>
                 </div>
             </div>
         </div>

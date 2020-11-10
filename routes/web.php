@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('packpubs', 'PackpubsController');
     Route::resource('achatpack', 'AchatPacksController');
     Route::resource('chats', 'MessagesController');
+    Route::post('rdv/save', 'RdvsController@save')->name('rdv_annonce');
     Route::resource('rdv', 'RdvsController');
 });
 
