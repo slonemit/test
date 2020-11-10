@@ -152,7 +152,22 @@ class StructuresController extends Controller
         $structure->experience = $request['experience'];
         $structure->save();
 
-        if($structure)  return redirect()->route('structures.show', $id);
+        if($structure)  {
+
+            if($request['image'] != null){
+                $file = $request->file('image');
+                $image = $structure->id.'.'.$file->getClientOriginalExtension();
+
+                if (!file_exists(public_path('images/structures'))) {
+                    mkdir(public_path('images/structures'));
+                }
+                $file->move(public_path('images/structures'), $image);
+                $structure->image = "images/structures/".$image;
+                $structure->save();
+            }
+
+            return redirect()->route('structures.show', $id);
+        }
     }
 
     /**

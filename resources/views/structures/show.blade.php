@@ -81,7 +81,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
                 </div>
-                <form method="post" action="{{ route("structures.update", $structure->id) }}">
+                <form enctype="multipart/form-data" method="post" action="{{ route("structures.update", $structure->id) }}">
                 <div class="modal-body">
                     @csrf
                     @method('PUT')
@@ -95,6 +95,12 @@
                         <div class="form-group col-md-12">
                             <label for="inputCity">Experience</label>
                             <textarea class="form-control" name="experience" id="" cols="30" rows="3">{{ $structure->experience??'' }}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputCity">Image</label>
+                            <input class="form-control" type="file" name="image" id="">
                         </div>
                     </div>
                 </div>
