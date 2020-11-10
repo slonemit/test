@@ -121,8 +121,9 @@ class StructuresController extends Controller
         $structure = Structure::find($id);
         $salons = Salon::where("structure_id", $id)->get();
         $produits = Produit::where("structure_id", $id)->get();
+        $grilles = Grille::orderBy('activite')->get();
 
-        return view('structures.show', compact('structure', 'salons', 'produits'));
+        return view('structures.show', compact('structure', 'salons', 'produits','grilles'));
     }
 
     /**
@@ -145,7 +146,13 @@ class StructuresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $structure = Structure::find($id);
+
+        $structure->description = $request['description'];
+        $structure->experience = $request['experience'];
+        $structure->save();
+
+        if($structure)  return redirect()->route('structures.show', $id);
     }
 
     /**

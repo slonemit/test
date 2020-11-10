@@ -85,7 +85,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-12">
                                         <p>{{ strlen($annonce->description)<149?$annonce->description:substr($annonce->description, 0, 150) }} @if(strlen($annonce->description)>149) <strong><a href="{{ route("annonces.show", $annonce->id) }}">... voir plus</a></strong>@endif</p>
-                                        <p><strong class="f-w-7 mb-0"><i class="feather icon-message-square"></i><sup class="font-14">57</sup></strong> | Prendre un RDV <i class="feather icon-send"></i></p>
+                                        <p><strong class="f-w-7 mb-0"><i class="feather icon-message-square"></i><sup class="font-14">57</sup></strong>></p>
                                         </div>
                                     </div>
                                 </div>
