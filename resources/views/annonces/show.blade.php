@@ -12,12 +12,12 @@ Theta - Single Product
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">Single Product</h4>
+            <h4 class="page-title">{{ $annonce->titre }}</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">eCommerce</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Single Product</li>
+                    <li class="breadcrumb-item"><a href="#">Annonces</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $annonce->titre }}</li>
                 </ol>
             </div>
         </div>
@@ -52,26 +52,6 @@ Theta - Single Product
                                     <p><span class="badge badge-success font-14">25% off</span></p>
                                 </div>
                             </div>
-                            <div class="product-slider-box product-box-nav">
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_01.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_02.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_03.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_04.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_05.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_06.jpg" class="img-fluid" alt="Product">
-                                </div>
-                            </div>
                         </div>
                         <div class="col-lg-6 col-xl-7">
                             <p><span class="badge badge-light font-16">Pupular</span></p>
@@ -89,7 +69,7 @@ Theta - Single Product
                             <div class="button-list mt-5 mb-5">
                                 <button type="button" class="btn btn-danger-rgba font-18"><i class="feather icon-heart"></i></button>
                                 <button type="button" class="btn btn-primary-rgba font-18"><i class="feather icon-shopping-bag mr-2"></i>Ajouter dans le panier</button>
-                                <button type="button" class="btn btn-success font-17">Acheter</button>
+                                <button class="btn btn-info font-17" data-toggle="modal" data-target="#exampleStandardModal">MeTo <i class="feather icon-git-branch"></i></button>
                             </div>
                             <div class="button-list">
                                 <h6 class="mb-3">Partager</h6>
@@ -147,7 +127,49 @@ Theta - Single Product
                 </form>
                 </div>
             </div>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleStandardModal" tabindex="-1" role="dialog" aria-labelledby="exampleStandardModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleStandardModalLabel">MeTo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <form method="post" action="{{ route("rdv_annonce") }}">
+            <div class="modal-body">
+                @csrf
+                <input type="hidden" name="annonce_id" value="{{ $annonce->id }}"/>
+                <div class="form-row">                            
+                    <div class="col-md-6">
+                        <label for="productTitle" class="col-sm-12 col-form-label">Date</label>
+                        <input type="date" class="form-control" name="date_propose" placeholder="Titre">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="productTitle1" class="col-sm-12 col-form-label">Debut</label>
+                        <input type="time" class="form-control" name="heureMeet" placeholder="Titre">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="productTitle5" class="col-sm-12 col-form-label">Fin</label>
+                        <input type="time" class="form-control" name="heureFinMeet" placeholder="Titre">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputCity">Commentaire</label>
+                        <textarea required class="form-control" name="rdv_comment" id="" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End col -->
 </div>
 <!-- End Contentbar -->
 @endsection 

@@ -29,16 +29,32 @@ B2B - Invitations
 <!-- Start Contentbar -->
 <div class="contentbar">
     <!-- Start row -->
+    <h3>{{ count($invitations) > 1 ?'Invitations reçues': 'Invitation reçue' }}</h3>
     <div class="row">
         <!-- Start col -->
         @foreach($invitations as $invitation)
         <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="card m-b-30">
-                <img class="card-img-top" src="assets/images/ui-cards/ui-cards-1.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title font-18">{{ $invitation->salon->libelle }}</h5>
-                    <p class="card-text mb-3">Vous êtes invité a un salon organisé par <b>{{ $invitation->structure->nom }}</b> le <b>{{ $invitation->salon->dateSalon }}</b></p>
-                    <a href="{{ route('invitations.show', $invitation->id) }}" class="btn btn-primary">Details</a>
+                    <div class="card-body">
+                        <p class="card-text mb-3">Vous êtes invité a un salon organisé par <b>{{ $invitation->structure->nom }}</b> le <b>{{ $invitation->salon->dateSalon }}</b> sur <b>{{ $invitation->salon->libelle }}</b> <a title="Plus" href="{{ route('invitations.show', $invitation->id) }}"> ...</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        <!-- End col -->
+    </div><hr>
+    <!-- End row -->
+    <!-- Start row -->
+    <h3>{{ count($invit_confirm) > 1 ?'Invitations confirmées': 'Invitation confirmée' }}</h3>
+    <div class="row">
+        <!-- Start col -->
+        @foreach($invit_confirm as $invitation)
+        <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <p class="card-text mb-3">Vous êtes invité a un salon organisé par <b>{{ $invitation->structure->nom }}</b> le <b>{{ $invitation->salon->dateSalon }}</b> sur <b>{{ $invitation->salon->libelle }}</b> <a title="Plus" href="{{ route('invitations.show', $invitation->id) }}"> voir plus</a></p>
                 </div>
             </div>
         </div>

@@ -1,27 +1,45 @@
 @section('title')
+<<<<<<< HEAD
 {{ $structure->nom }}
 @endsection
 @extends('layouts.main')
 @section('style')
 
+=======
+{{ config('app.name') }} - Entreprise
+@endsection
+@extends('layouts.main')
+@section('style')
+<!-- Slick css -->
+<link href="{{ asset('assets/plugins/slick/slick.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets/plugins/slick/slick-theme.css') }}" rel="stylesheet" type="text/css">
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
 @endsection
 @section('rightbar-content')
 <!-- Start Breadcrumbbar -->
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
+<<<<<<< HEAD
             <h4 class="page-title">Mon Compte</h4>
+=======
+            <h4 class="page-title">Details de l'entreprise</h4>
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Structure</a></li>
+                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('salons.index') }}">Entreprise</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $structure->nom }}</li>
                 </ol>
             </div>
         </div>
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
+<<<<<<< HEAD
                 <button class="btn btn-primary">Add Widget</button>
+=======
+                <button type="button" class="btn btn-round btn-success-rgba" data-toggle="modal" data-target="#exampleStandardModal">Modifier</button>
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
             </div>
         </div>
     </div>
@@ -32,8 +50,9 @@
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->
-        <div class="col-lg-5 col-xl-3">
+        <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="card m-b-30">
+<<<<<<< HEAD
                 <div class="card-header">
                     <h5 class="card-title mb-0">My Account</h5>
                 </div>
@@ -75,39 +94,30 @@
                         </div>
                     </div>
                     <!-- Start row -->
+=======
+                <div class="card-body">
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
                     <div class="row">
-                        <!-- Start col -->
-                        <div class="col-lg-12 col-xl-4">
-                            <div class="card m-b-20">
-                                <div class="card-body">
-                                    <div class="ecom-dashboard-widget">
-                                        <div class="media">
-                                            <i class="feather icon-package"></i>
-                                            <div class="media-body">
-                                                <h5>My Orders</h5>
-                                                <p>Pending (3)</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-6 col-xl-5">
+                            <div class="product-slider-box product-box-for">
+                                <div class="product-preview">
+                                    <img src="{{ asset($structure->image??"assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
+                                    <p><span class="badge badge-success font-14">25% off</span></p>
                                 </div>
                             </div>
                         </div>
-                        <!-- End col -->
-                        <!-- Start col -->
-                        <div class="col-lg-12 col-xl-4">
-                            <div class="card m-b-20">
-                                <div class="card-body">
-                                    <div class="ecom-dashboard-widget">
-                                        <div class="media">
-                                            <i class="feather icon-heart"></i>
-                                            <div class="media-body">
-                                                <h5>My Wishlist</h5>
-                                                <p>Items (7)</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="col-lg-6 col-xl-7">
+                            <h2 class="font-25 p-t-10">{{ $structure->nom.' - '.$structure->form_jurid }}</h2>
+                            <p class="mb-4">{{ $structure->description }}</p>
+                            @if($structure->experience)
+                            <div class="button-list">
+                                <h6 class="mb-3">Experience</h6>
+                                <p class="mb-4">{{ $structure->experience }}</p>
+                            </div>@endif
+                            <div class="button-list">
+                                <p class="mb-3"><strong style="color: black">Activite : </strong>{{ $structure->grille->activite }}</p>
                             </div>
+<<<<<<< HEAD
                         </div>
                         <!-- End col -->
                         <!-- Start col -->
@@ -245,10 +255,18 @@
                                         </div>
                                     </div>
                                 </div>
+=======
+                            <div class="button-list">
+                                <p class="mb-3"><strong style="color: black">Adresse : </strong>{{ $structure->adresse }}</p>
+                            </div>
+                            <div class="button-list">
+                                <p class="mb-3"><strong style="color: black">Téléphone : </strong>{{ $structure->tel }}</p>
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
                             </div>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <!-- My Orders End -->
                 <!-- My Addresses Start -->
                 <div class="tab-pane fade" id="v-pills-addresses" role="tabpanel" aria-labelledby="v-pills-addresses-tab">
@@ -429,42 +447,47 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary-rgba font-16"><i class="feather icon-save mr-2"></i>Enregistrer</button>
                             </form>
+=======
+            </div>
+        </div>
+        <!-- End col -->
+    </div>
+    <!-- End row -->
+    </div>
+    <!-- End row --><!-- Modal -->
+    <div class="modal fade" id="exampleStandardModal" tabindex="-1" role="dialog" aria-labelledby="exampleStandardModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleStandardModalLabel">Modification profil</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                </div>
+                <form enctype="multipart/form-data" method="post" action="{{ route("structures.update", $structure->id) }}">
+                <div class="modal-body">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputCity">description</label>
+                        <textarea class="form-control" name="description" id="" cols="30" rows="3">{{ $structure->description??'' }}</textarea>
                         </div>
                     </div>
-                    <div class="card m-b-30">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Mes produits</h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputCity">Experience</label>
+                            <textarea class="form-control" name="experience" id="" cols="30" rows="3">{{ $structure->experience??'' }}</textarea>
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                @foreach($produits as $produit)
-                                <div class="col-lg-12 col-xl-6">
-                                    <div class="address-box">
-                                        <div class="card border m-b-30">
-                                            <div class="card-header">
-                                                <h5 class="mb-0">{{ $produit->name }}</h5>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-7"><p>{{ $produit->description }}</p></div>
-                                                    <div class="col-md-3"><img src="{{ asset("assets/images/ui-images/image-circle.jpg") }}" alt="Rounded Image" class="rounded-circle"></div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer">
-                                                <div class="button-list">
-                                                    <button type="button" class="btn btn-round btn-success-rgba mb-1"><i class="feather icon-edit-2"></i></button>
-                                                    <button type="button" class="btn btn-round btn-danger-rgba mb-1"><i class="feather icon-trash"></i></button>
-                                                    <a href="{{ route("produits.show", $produit->id) }}" class="btn btn-primary-rgba font-16 mb-0">Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputCity">Image</label>
+                            <input class="form-control" type="file" name="image" id="">
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <!-- My Profile End -->
                 <!-- My Logout Start -->
                 <div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab">
@@ -495,10 +518,28 @@
         <!-- End col -->
     </div>
     <!-- End row -->
+=======
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+                </form>
+            </div>
+        </div>
+</div>
+<!-- End col -->
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
 </div>
 <!-- End Contentbar -->
 @endsection
 @section('script')
+<<<<<<< HEAD
 <!-- eCommerce My Account Page js -->
 <script src="{{ asset('assets/js/custom/custom-ecommerce-myaccount.js') }}"></script>
 @endsection
+=======
+<!-- Slick js -->
+<script src="{{ asset('assets/plugins/slick/slick.min.js') }}"></script>
+<script src="{{ asset('assets/js/custom/custom-ecommerce-single-product.js') }}"></script>
+@endsection
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5

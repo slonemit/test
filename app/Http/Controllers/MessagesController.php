@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Models\ParticipeMeeting;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class MessagesController extends Controller
@@ -14,12 +16,29 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        $messages = Message::get();
+        $messages = Message::get()->load('user');
         $messages = $messages->groupBy('meeting_id');
         $messages = $messages->toArray();
 
+        $participants = [];
+
+        $meetings = ParticipeMeeting::where('user_id', Auth::id())->get();
+
+        foreach($meetings as $meeting){
+
+            $participant = ParticipeMeeting::where([
+                ['meeting_id', $meeting->meeting_id],
+                ['user_id', '!=', Auth::id()]
+                ])->get()->first()->load('user');
+
+            $participants[] = $participant;
+        }
+
         //dd($messages);
-        return view('messages.index', compact('messages'));
+        return view('messages.index', [
+            'messages'      => json_encode($messages),
+            'participants'      => json_encode($participants)
+        ]);
     }
 
     /**
@@ -40,16 +59,30 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
+        $meeting_id = 0;
+        $salon_id = 0;
+
+        if($request['meeting_id']){
+            $meeting_id = $request['meeting_id'];
+        }
+
+        if($request['salon_id']){
+            $salon_id = $request['salon_id'];
+        }
+
         $message = Message::create([
-            'meeting_id'        => $request['meeting_id'],
+            'meeting_id'        => $meeting_id,
+            'salon_id'          => $salon_id,
+            'user_id'           => Auth::id(),
             'content_mess'        => $request['content_mess'],
             'date_message'      => now(),
-            'status_mess'       => 0
+            'statut-mess'       => 0
         ]);
 
-        if($message){
-            // return view('chats.index');
-        }
+        return response()->json([
+            'code'      => 200,
+            'message'   => $message
+        ]);
     }
 
     /**

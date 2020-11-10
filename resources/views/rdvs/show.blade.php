@@ -1,5 +1,5 @@
 @section('title')
-B2B - Salons
+B2B - RDV
 @endsection
 @extends('layouts.main')
 @section('style')
@@ -12,7 +12,7 @@ B2B - Salons
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">Details du salon</h4>
+            <h4 class="page-title">Details du rendez-vous</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
@@ -37,64 +37,22 @@ B2B - Salons
             <div class="card m-b-30">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-6 col-xl-5">
-                            <div class="product-slider-box product-box-for">
-                                <div class="product-preview">
-                                    <img src="{{ asset("assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-success font-14">25% off</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_02.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-primary font-14">New</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_03.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-danger font-14">Price Drop</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_04.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-success font-14">Sale</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_05.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-warning font-14">Trending</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_06.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-info font-14">Popular</span></p>
-                                </div>
-                            </div>
-                            <div class="product-slider-box product-box-nav">
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_01.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_02.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_03.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_04.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_05.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_06.jpg" class="img-fluid" alt="Product">
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-lg-6 col-xl-7">
-                            <p><span class="badge badge-light font-16">{{ $rdv->date_appouv }}</span></p>
+                            <p><span class="badge badge-light font-16">{{ $rdv->user->name }}</span></p>
+                            <p class="mb-4">{{ $rdv->date_appouv }}</p>
                             <p class="mb-4">{{ $rdv->rdv_comment }}</p>
-                            <div class="button-list">
-                                <h6 class="mb-3">Partager</h6>
-                                <a href="#" class="btn btn-primary-rgba font-18"><i class="feather icon-facebook"></i></a>
-                                <a href="#" class="btn btn-info-rgba font-18"><i class="feather icon-twitter"></i></a>
-                                <a href="#" class="btn btn-danger-rgba font-18"><i class="feather icon-instagram"></i></a>
-                                <a href="#" class="btn btn-warning-rgba font-18"><i class="feather icon-linkedin"></i></a>
-                            </div>
+                            @if ($rdv->user_id != Auth::id())
+                                <div class="button-list">
+                                    <h6 class="mb-3">Actions</h6>
+                                    <form class="d-inline-block" action="{{ route("rdv.update", $rdv->id) }}" method="post">
+                                        @method('PUT')
+                                        @csrf
+                                        <input name="statut" type="hidden" value="1"/>
+                                        <button {{ $rdv->statut_rdv == 1? 'disabled':'' }} type="submit" class="btn btn-primary-rgba font-18">Confirmer <i class="feather icon-facebook"></i></button>
+                                    </form>
+                                    <a {{ $rdv->statut_rdv == 1? 'disabled':'' }} href="#" class="btn btn-info-rgba font-18">Date <i class="feather icon-twitter"></i></a>
+                                </div>                                
+                            @endif
                         </div>
                     </div>
                 </div>

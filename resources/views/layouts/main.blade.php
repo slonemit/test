@@ -253,7 +253,6 @@
         <!-- End Containerbar -->
         <!-- Start JS -->
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
         <script src="{{ asset('assets/js/detect.js') }}"></script>
@@ -263,6 +262,8 @@
         @yield('script')
         <!-- Core JS -->
         <script src="{{ asset('assets/js/core.js') }}"></script>
+        <!-- VueJS -->
+        <script src="{{ asset('/js/app.js') }}" defer></script>
         <!-- End JS -->
     </body>
 </html>

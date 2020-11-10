@@ -1,5 +1,5 @@
 @section('title')
-B2B - Salons
+{{ config('app.name') }} - Salon
 @endsection
 @extends('layouts.main')
 @section('style')
@@ -41,48 +41,8 @@ B2B - Salons
                         <div class="col-lg-6 col-xl-5">
                             <div class="product-slider-box product-box-for">
                                 <div class="product-preview">
-                                    <img src="{{ asset("assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
+                                    <img src="{{ asset($salon->image??"assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
                                     <p><span class="badge badge-success font-14">25% off</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_02.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-primary font-14">New</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_03.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-danger font-14">Price Drop</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_04.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-success font-14">Sale</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_05.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-warning font-14">Trending</span></p>
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_06.jpg" class="img-fluid" alt="Product">
-                                    <p><span class="badge badge-info font-14">Popular</span></p>
-                                </div>
-                            </div>
-                            <div class="product-slider-box product-box-nav">
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_01.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_02.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_03.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_04.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_05.jpg" class="img-fluid" alt="Product">
-                                </div>
-                                <div class="product-preview">
-                                    <img src="assets/images/ecommerce/product_img_06.jpg" class="img-fluid" alt="Product">
                                 </div>
                             </div>
                         </div>
@@ -164,7 +124,7 @@ B2B - Salons
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleStandardModalLabel">Création d'un salon</h5>
+                                                <h5 class="modal-title" id="exampleStandardModalLabel">Envoie d'une invitation</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span></button>
                                             </div>
@@ -175,9 +135,9 @@ B2B - Salons
                                                 <div class="form-row">
                                                     <div class="form-group col-md-12">
                                                         <label for="inputCity">Structure</label>
-                                                        <select class="form-control" name="structure_id" id="">
+                                                        <select @if (count($structures) < 1) disabled @endif class="form-control" name="structure_id" id="">
                                                             @foreach($structures as $structure)
-                                                            <option value="{{ $structure->id }}">{{ $structure->nom.' '.$structure->form_jurid }}</option>
+                                                                <option value="{{ $structure->id }}">{{ $structure->nom.' '.$structure->form_jurid }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>

@@ -57,13 +57,13 @@ Theta - Product Detail
                             </div>
                             <div class="col-md-6">
                                 <label for="productTitle" class="col-sm-12 col-form-label">Date disponible</label>
-                                <input type="date" class="form-control" name="date_pub" placeholder="Titre">
+                                <input type="date" class="form-control" name="disponibilite" placeholder="Titre">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-12 col-form-label">Description</label>
                             <div class="col-sm-12">
-                                <textarea class="summernote" name="description" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                 </div>

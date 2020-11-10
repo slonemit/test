@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('sms', 'SMSController');
 
     Route::get('annonces/validate', 'AnnoncesController@validatedAnnonces')->name("annonces.validate");
+    Route::get('salons/chats', 'SalonsController@chats')->name('salons.chats');
     Route::resource('annonces', 'AnnoncesController');
     Route::resource('achat', 'Achat');
     Route::resource('comment', 'commentaire');
@@ -38,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('packpubs', 'PackpubsController');
     Route::resource('achatpack', 'AchatPacksController');
     Route::resource('chats', 'MessagesController');
+    Route::post('rdv/save', 'RdvsController@save')->name('rdv_annonce');
     Route::resource('rdv', 'RdvsController');
 });
 

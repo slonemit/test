@@ -6,6 +6,8 @@ use App\Models\Invitation;
 use App\Models\Personne;
 use App\Models\Salon;
 use App\Models\Structure;
+use App\Models\Message;
+use App\Models\ParticipeSalon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,8 +55,29 @@ class SalonsController extends Controller
             'heureFinSalon'         => $request->input('heureFinSalon'),
             'statutSalon'       => 0
         ]);
+        
 
-        if($salon){
+        if ($salon) {
+
+            if($request['image'] != null){
+                $file = $request->file('image');
+                $image = $salon->id.'.'.$file->getClientOriginalExtension();
+
+                if (!file_exists(public_path('images/salons'))) {
+                    mkdir(public_path('images/salons'));
+                }
+                $file->move(public_path('images/salons'), $image);
+                $salon->image = "images/salons/".$image;
+                $salon->save();
+            }
+
+            ParticipeSalon::create([
+                'user_id'       => Auth::id(),
+                'salon_id'      => $salon->id,
+                'moderateur'    => 0,
+                'statut'        => 1
+            ]);
+
             return redirect()->route("salons.show", $salon->id);
         }
     }
@@ -67,9 +90,17 @@ class SalonsController extends Controller
      */
     public function show($id)
     {
+        $confirm = [];
         $salon = Salon::find($id);
-        $structures = Structure::orderBy('nom')->get();
+        $own_structure = Personne::where('user_id', Auth::id())->get()->first();
+        $confirm[] = $own_structure->structure_id;
+
         $invitations = Invitation::where('salon_id', $id)->get()->load('structure');
+        
+        foreach($invitations as $invitation){
+            $confirm[] = $invitation->structure_id;
+        }
+        $structures = Structure::whereNotIn('id', $confirm)->orderBy('nom')->get();
 
         return view('salons.show', compact('salon', 'structures', 'invitations'));
     }
@@ -106,5 +137,28 @@ class SalonsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Display the salon's chat
+     */
+
+    public function chats() {
+
+        $messages = [];
+        $salons = [];
+
+        $user_salons = ParticipeSalon::where('user_id', Auth::id())->get()->load('salon');
+        foreach($user_salons as $p){
+            $salons[] = $p->salon_id;
+        }
+
+        $messages = Message::whereIn('salon_id', $salons)->get();
+        $messages = $messages->groupBy('salon_id');
+        $messages = $messages->toArray();
+        $messages = json_encode($messages);
+        $user_salons = json_encode($user_salons);
+
+        return view('salons.chats', compact('messages', 'user_salons'));
     }
 }

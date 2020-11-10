@@ -1,5 +1,5 @@
 @section('title')
-Theta - Product Detail
+{{ config('app.name') }} - Salon
 @endsection
 @extends('layouts.main')
 @section('style')
@@ -63,7 +63,7 @@ Theta - Product Detail
                         <div class="form-group row">
                             <label class="col-sm-12 col-form-label">Description</label>
                             <div class="col-sm-12">
-                                <textarea class="summernote" name="description" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="description" id="" cols="30" rows="6"></textarea>
                             </div>
                         </div>
                 </div>

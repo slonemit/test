@@ -16,7 +16,7 @@ class AnnoncesController extends Controller
      */
     public function index()
     {
-        $annonces = Annonce::where('statut_ann', 1)->get();
+        $annonces = Annonce::orderBy('created_at', 'desc')->where('statut_ann', 1)->get()->load('user');
         $categ = CategAnnonce::get();
 
         return view("annonces.index", compact('annonces', 'categ'));
@@ -49,19 +49,11 @@ class AnnoncesController extends Controller
      */
     public function store(Request $request)
     {
-        $dispo = $request->input('disponibilite');
-        $cout = $request->input('cout');
-        $qte = $request->input('quantite');
-
-        if(!$dispo || !$cout || $qte){
-            $dispo = now();
-            $cout = 0;
-            $qte = 0;
-        }
 
        // dd($request->all());
        $request->input('quantite');
         $annonce = Annonce::create([
+<<<<<<< HEAD
             'user_id'=> Auth()->user()->id,
             'fichier_id'=> 1,
             'titre'=> $request->input('titre'),
@@ -71,6 +63,18 @@ class AnnoncesController extends Controller
             'quantite'=>1,
             'disponibilite'=> $dispo,
             'statut_ann'=> 0,
+=======
+            'user_id'       => 1,
+            'fichier_id'       => 1,
+            'categ_annonce_id'       => $request->input('categ_annonce_id'),
+            'titre'       => $request->input('titre'),
+            'description'       => $request->input('description'),
+            'date_pub'       => now(),
+            'cout'       => $request->input('cout')??0,
+            'quantite'       => $request->input('quantite')??0,
+            'disponibilite'       => $request->input('disponibilite')??now(),
+            'statut_ann'       => 0,
+>>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
         ]);
 
         if ($annonce) {

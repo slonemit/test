@@ -56,7 +56,7 @@ Theta - Product Detail
                                 <input type="date" class="form-control" name="date_propose" placeholder="Titre">
                             </div>
                             <div class="col-md-2">
-                                <label for="productTitle" class="col-sm-12 col-form-label">Heure</label>
+                                <label for="productTitle" class="col-sm-12 col-form-label">Debut</label>
                                 <input type="time" class="form-control" name="heureMeet" placeholder="Titre">
                             </div>
                             <div class="col-md-2">

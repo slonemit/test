@@ -1,5 +1,5 @@
 @section('title') 
-B2B - Chat
+B2B - Chat Salon
 @endsection 
 @extends('layouts.main')
 @section('style')
@@ -28,7 +28,7 @@ B2B - Chat
 <!-- End Breadcrumbbar -->
 <!-- Start Contentbar -->    
 <div id="app">
-    <chat-component :user_id="{{ Auth::id() }}" :messages="{{ $messages }}" :participants="{{ $participants }}"></chat-component>
+    <chatsalon-component :user_id="{{ Auth::id() }}" :salons="{{ $user_salons }}" :messages="{{ $messages }}"></chatsalon-component>
 </div>
 <!-- End contentbar -->
 @endsection 
