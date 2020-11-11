@@ -128,16 +128,11 @@
                     <li>
                         <a href="{{ route("home") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
                     </li>
-                    <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/layouts.svg") }}" class="img-fluid" alt="layouts"><span>Vente</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Annonces</a></li>
-                            <li><a href="{{ route("annonces.create")  }}"><i class="mdi mdi-circle"></i>Faire une annonce </a></li>
-
-                        </ul>
+                    <li>
+                        <a href="{{ route("annonces.index")  }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Annonces</span></a>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achat</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achats</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{url('/apps-calender')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
                             <li><a href="{{url('/chats')}}"><i class="mdi mdi-circle"></i>Messages</a></li>

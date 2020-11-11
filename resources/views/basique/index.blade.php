@@ -19,13 +19,14 @@
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Annonces</a></li>
+                    <li class="breadcrumb-item"><a href="#">Annonces</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
                 </ol>
             </div>
         </div>
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
-                <a class="btn btn-primary" href="{{ route("annonces.create")  }}">Faire une annonce </a>
+                <button class="btn btn-primary">Add Widget</button>
             </div>
         </div>
     </div>
