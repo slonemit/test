@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('annonces/validate', 'AnnoncesController@validatedAnnonces')->name("annonces.validate");
     Route::get('salons/chats', 'SalonsController@chats')->name('salons.chats');
     Route::resource('annonces', 'AnnoncesController');
+    Route::resource('news', 'Basique\AnnoncesController');
     Route::resource('invitations', 'InvitationsController');
     Route::resource('produits', 'ProduitsController');
     Route::resource('structures', 'StructuresController');

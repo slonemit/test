@@ -1,11 +1,7 @@
 @section('title')
 {{ config('app.name') .' - Actualités' }}
 @endsection
-@if (Auth::id() === 1)
-    @extends('layouts.main')
-@else
-    @extends('layouts.basique')
-@endif
+@extends('layouts.main')
 @section('style')
 <!-- Range Slider css -->
 <link href="{{ asset('assets/plugins/ion-rangeSlider/ion.rangeSlider.css') }}" rel="stylesheet" type="text/css">
@@ -15,7 +11,7 @@
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">Shop</h4>
+            <h4 class="page-title">Actualité</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
