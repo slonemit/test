@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Pack;
 use App\Models\AcheterPack;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AchatPacksController extends Controller
 {
@@ -36,14 +38,47 @@ class AchatPacksController extends Controller
      */
     public function store(Request $request)
     {
+        $pack = Pack::find($request['pack_id']);
+        $interval = $pack->jour;        
+
         $achatpack = AcheterPack::create([
             'user_id'           => Auth::id(),
             'pack_id'           => $request['pack_id'],
             'date_achat'        => $request['date_achat'],
-            'date_fin'          => $request['date_fin'],
+            'date_fin'          => date('Y-m-d', strtotime($request['date_achat']. ' + ' . $interval .' days')),
             'statut_pack'       => 0
         ]);
         if($achatpack){
+
+            if($request['fichier'] != null){
+                
+                $file = $request->file('fichier');
+
+                $mime = mime_content_type($file->getPathName());
+
+                if(strstr($mime, "video/")){
+                    $video = $achatpack->id.'.'.$file->getClientOriginalExtension();
+
+                    if (!file_exists(public_path('images/achatpacks'))) {
+                        mkdir(public_path('images/achatpacks'));
+                    }
+                    $file->move(public_path('images/achatpacks'), $video);
+                    $achatpack->video = "images/achatpacks/".$video;
+                    $achatpack->save();
+
+                }else if(strstr($mime, "image/")){
+
+                    $image = $achatpack->id.'.'.$file->getClientOriginalExtension();
+
+                    if (!file_exists(public_path('images/achatpacks'))) {
+                        mkdir(public_path('images/achatpacks'));
+                    }
+                    $file->move(public_path('images/achatpacks'), $image);
+                    $achatpack->image = "images/achatpacks/".$image;
+                    $achatpack->save();
+                }
+            }
+
             return redirect()->route('packpubs.index');
         }
     }

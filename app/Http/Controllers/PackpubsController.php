@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pack;
 use App\Models\AcheterPack;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PackpubsController extends Controller
 {

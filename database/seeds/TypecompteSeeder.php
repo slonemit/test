@@ -20,5 +20,10 @@ class TypecompteSeeder extends Seeder
             'nom'   => 'Premium',
             'montantCotis'  => 80000
         ]);
+
+        DB::table('typecomptes')->insert([
+            'nom'   => 'CCIAM',
+            'montantCotis'  => 80000
+        ]);
     }
 }

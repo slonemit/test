@@ -40,7 +40,8 @@ PLATFORM B2B
                     <div class="card-header">
                         <h5 class="card-title"><a href="{{ route("packpubs.show", $pack->id) }}">{{ $pack->libelle_pack }}</a></h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body">                        
+                        <p>{{ $pack->jour > 1 ?$pack->jour.' Jours':$pack->jour.' Jour' }}</p>
                         <p>{{ $pack->montant }}</p>
                     </div>
                 </div>
@@ -79,12 +80,12 @@ PLATFORM B2B
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
             </div>
-            <form method="post" action="{{ route("pubs.store") }}">
+            <form enctype="multipart/form-data" method="post" action="{{ route("achatpack.store") }}">
             <div class="modal-body">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="inputCity">Libelle</label>
+                        <label for="inputCity">Pack</label>
                         <select class="form-control" name="pack_id" id="">
                             @foreach ($packs as $pack)
                                 <option value="{{ $pack->id }}">{{ $pack->libelle_pack }}</option>
@@ -92,16 +93,18 @@ PLATFORM B2B
                         </select>
                     </div>
                     <div class="row">                        
-                        <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-group col-md-12">
+                                <label for="inputCity">Fichier</label>
+                                <input class="form-control" type="file" name="fichier">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">                                            
+                        <div class="col-md-12">
                             <div class="form-group col-md-12">
                                 <label for="inputCity">Date debut</label>
                                 <input class="form-control" type="date" name="date_achat">
-                            </div>
-                        </div>                        
-                        <div class="col-md-6">
-                            <div class="form-group col-md-12">
-                                <label for="inputCity">Date fin</label>
-                                <input class="form-control" type="date" name="date_fin">
                             </div>
                         </div>
                     </div>

@@ -56,7 +56,6 @@ class AnnoncesController extends Controller
      */
     public function store(Request $request)
     {
-
         /*dd($request->all());*/
         $annonce = Annonce::create([
             'user_id'       => Auth::id(),
