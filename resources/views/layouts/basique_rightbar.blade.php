@@ -126,15 +126,13 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                   <ul class="horizontal-menu">
                     <li>
-                        <a href="{{ route("home") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
+                        <a href="{{ route("news.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
                     </li>
-                    <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/layouts.svg") }}" class="img-fluid" alt="layouts"><span>Annonces</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ route("news.index")  }}"><i class="mdi mdi-circle"></i>Annonces</a></li>
-                            <li><a href="{{ route("news.create")  }}"><i class="mdi mdi-circle"></i>Faire une annonce </a></li>
-
-                        </ul>
+                    <li>
+                        <a href="{{ route("companies.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Structures</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ route("pubs.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Publicités</span></a>
                     </li>
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achats</span></a>

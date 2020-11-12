@@ -126,10 +126,7 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                   <ul class="horizontal-menu">
                     <li>
-                        <a href="{{ route("home") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
-                    </li>
-                    <li>
-                        <a href="{{ route("annonces.index")  }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Annonces</span></a>
+                        <a href="{{ route("annonces.index")  }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
                     </li>
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achats</span></a>
@@ -163,14 +160,16 @@
                     <li>
                         <a href="{{ route("structures.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Structures</span></a>
                     </li>
-                    <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/advanced.svg") }}" class="img-fluid" alt="advanced"><span>Validations</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ route("comptes.index") }}"><i class="mdi mdi-circle"></i>Comptes</a></li>
-                            <li><a href="{{ route("annonces.validate")}}"><i class="mdi mdi-circle"></i>Annonces</a></li>
-                            <li><a href="{{ route("sms.index")}}"><i class="mdi mdi-circle"></i>SMS</a></li>
-                        </ul>
-                    </li>
+                    @if (Auth::user()->name == 'CCIAM')
+                        <li class="dropdown">
+                            <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/advanced.svg") }}" class="img-fluid" alt="advanced"><span>Validations</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route("comptes.index") }}"><i class="mdi mdi-circle"></i>Comptes</a></li>
+                                <li><a href="{{ route("annonces.validate")}}"><i class="mdi mdi-circle"></i>Annonces</a></li>
+                                <li><a href="{{ route("sms.index")}}"><i class="mdi mdi-circle"></i>SMS</a></li>
+                            </ul>
+                        </li>
+                    @endif
                   </ul>
                 </div>
             </nav>

@@ -1,7 +1,7 @@
 @section('title')
 PLATFORM B2B
 @endsection
-@extends('layouts.main')
+@extends('layouts.basique')
 @section('style')
 
 @endsection
@@ -22,7 +22,6 @@ PLATFORM B2B
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#packSold">Acheter un pack</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleStandardModal">Créer un pack</button>
             </div>                        
         </div>
     </div>
@@ -38,7 +37,7 @@ PLATFORM B2B
             <div class="col-lg-3">
                 <div class="card m-b-30">
                     <div class="card-header">
-                        <h5 class="card-title"><a href="{{ route("packpubs.show", $pack->id) }}">{{ $pack->libelle_pack }}</a></h5>
+                        <h5 class="card-title">{{ $pack->libelle_pack }}</h5>
                     </div>
                     <div class="card-body">
                         <p>{{ $pack->montant }}</p>
@@ -58,7 +57,7 @@ PLATFORM B2B
             <div class="col-lg-3">
                 <div class="card m-b-30">
                     <div class="card-header">
-                        <h5 class="card-title"><a href="#">{{ $achatpack->pack->libelle_pack }}</a></h5>
+                        <h5 class="card-title">{{ $achatpack->pack->libelle_pack }}</h5>
                     </div>
                     <div class="card-body">
                         <p>Structure : {{ $achatpack->user->name }}</p>
@@ -104,40 +103,6 @@ PLATFORM B2B
                                 <input class="form-control" type="date" name="date_fin">
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- End col -->
-<!-- Modal -->
-<div class="modal fade" id="exampleStandardModal" tabindex="-1" role="dialog" aria-labelledby="exampleStandardModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleStandardModalLabel">Création d'un salon</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-            </div>
-            <form method="post" action="{{ route("packpubs.store") }}">
-            <div class="modal-body">
-                @csrf
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="inputCity">Libelle</label>
-                        <input class="form-control" type="text" name="libelle_pack">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="inputCity">Montant</label>
-                        <input class="form-control" type="number" name="montant">
                     </div>
                 </div>
             </div>

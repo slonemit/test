@@ -21,18 +21,6 @@ Theta - Single Product
                 </ol>
             </div>
         </div>
-        @if($annonce->statut_ann == 0)
-            <div class="col-md-4 col-lg-4">
-                <div class="widgetbar">
-                    <form action="{{ route("annonces.update", $annonce->id) }}" method="post">
-                        @method('PUT')
-                        @csrf
-                        <input name="statut_ann" type="hidden" value="1"/>
-                        <button type="submit" class="btn btn-primary">Valider</button>
-                    </form>
-                </div>                        
-            </div>
-        @endif
     </div>          
 </div>
 <!-- End Breadcrumbbar -->
@@ -54,7 +42,7 @@ Theta - Single Product
                             </div>
                         </div>
                         <div class="col-lg-6 col-xl-7">
-                            <p><span class="badge badge-light font-16">Pupular</span></p>
+                            <p><span class="badge badge-light font-16">{{ $annonce->user->name }}</span></p>
                             <h2 class="font-22">{{ $annonce->titre }}</h2>
                             <p>
                                 <i class="feather icon-star text-warning"></i>
@@ -64,13 +52,10 @@ Theta - Single Product
                                 <i class="feather icon-star"></i>
                                 <span class="ml-2">25 Ratings</span>
                             </p>
-                            <p class="text-primary font-26 f-w-7 my-3"><sup class="font-16">$</sup>{{ $annonce->cout }}</p>
+                            @if ($annonce->cout > 0)
+                                <p class="text-primary font-26 f-w-7 my-3"><sup class="font-16">$</sup>{{ $annonce->cout }}</p>  
+                            @endif
                             <p class="mb-4">{{ $annonce->description }}</p>
-                            <div class="button-list mt-5 mb-5">
-                                <button type="button" class="btn btn-danger-rgba font-18"><i class="feather icon-heart"></i></button>
-                                <button type="button" class="btn btn-primary-rgba font-18"><i class="feather icon-shopping-bag mr-2"></i>Ajouter dans le panier</button>
-                                <button class="btn btn-info font-17" data-toggle="modal" data-target="#exampleStandardModal">MeTo <i class="feather icon-git-branch"></i></button>
-                            </div>
                             <div class="button-list">
                                 <h6 class="mb-3">Partager</h6>
                                 <a href="#" class="btn btn-primary-rgba font-18"><i class="feather icon-facebook"></i></a>
@@ -110,21 +95,7 @@ Theta - Single Product
                                     @endif
                                 @endforeach
                             </ul>
-                        </div>  
-                <form action="{{ route('commentaires.store') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="annonce_id" value="{{ $annonce->id }}">
-                    <div class="row"> 
-                        <div class="col-md-8">                                                    
-                            <div class="form-group">
-                                <textarea class="form-control" name="content_com" id="inputTextarea" rows="3" placeholder="Commentaire"></textarea>
-                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <button class="btn btn-info">Commenter</button>
-                        </div>
-                    </div>
-                </form>
                 </div>
             </div>
 <!-- Modal -->

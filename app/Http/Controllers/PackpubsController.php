@@ -16,7 +16,7 @@ class PackpubsController extends Controller
     public function index()
     {
         $packs = Pack::get();
-        $achatpacks = AcheterPack::get();
+        $achatpacks = AcheterPack::where('user_id', Auth::id())->get();
 
         return view('packs.index', compact('packs', 'achatpacks'));
     }

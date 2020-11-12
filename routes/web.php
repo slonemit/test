@@ -25,7 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('annonces/validate', 'AnnoncesController@validatedAnnonces')->name("annonces.validate");
     Route::get('salons/chats', 'SalonsController@chats')->name('salons.chats');
     Route::resource('annonces', 'AnnoncesController');
-    Route::resource('news', 'Basique\AnnoncesController');
     Route::resource('invitations', 'InvitationsController');
     Route::resource('produits', 'ProduitsController');
     Route::resource('structures', 'StructuresController');
@@ -38,6 +37,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('chats', 'MessagesController');
     Route::post('rdv/save', 'RdvsController@save')->name('rdv_annonce');
     Route::resource('rdv', 'RdvsController');
+
+    // Basique routes
+    Route::get('pubs', 'Basique\PubsController@index')->name("pubs.index");
+    Route::post('pubs', 'Basique\PubsController@store')->name("pubs.store");
+    Route::get('companies', 'Basique\StructuresController@index')->name("companies.index");
+    Route::get('companies/{id}', 'Basique\StructuresController@show')->name("companies.show");
+    Route::resource('news', 'Basique\AnnoncesController');
 });
 
 Route::get('/diafaan-http-callback', 'SmsController@callbackSms');

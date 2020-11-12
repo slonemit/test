@@ -13,14 +13,14 @@ class CreateAcheterPacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('acheter_packs', function (Blueprint $table) {
+        Schema::create('acheter_packs', function (Blueprint $table) {            
+            $table->id();
             $table->integer("user_id");
             $table->integer("pack_id");
             $table->date("date_achat");
             $table->date("date_fin");
             $table->integer("statut_pack");
             $table->timestamps();
-            $table->primary(["user_id", "pack_id"]);
         });
     }
 

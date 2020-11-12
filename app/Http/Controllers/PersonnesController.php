@@ -72,7 +72,7 @@ class PersonnesController extends Controller
                 ]);
 
                 if($compte) {
-                    return redirect('/rules');
+                    return redirect('/login');
                 }
             }
 

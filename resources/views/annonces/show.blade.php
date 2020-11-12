@@ -64,11 +64,11 @@ Theta - Single Product
                                 <i class="feather icon-star"></i>
                                 <span class="ml-2">25 Ratings</span>
                             </p>
-                            <p class="text-primary font-26 f-w-7 my-3"><sup class="font-16">$</sup>{{ $annonce->cout }}</p>
+                            @if ($annonce->cout > 0)
+                                <p class="text-primary font-26 f-w-7 my-3">{{ $annonce->cout }} <sup class="font-16">FCFA</sup></p>
+                            @endif
                             <p class="mb-4">{{ $annonce->description }}</p>
                             <div class="button-list mt-5 mb-5">
-                                <button type="button" class="btn btn-danger-rgba font-18"><i class="feather icon-heart"></i></button>
-                                <button type="button" class="btn btn-primary-rgba font-18"><i class="feather icon-shopping-bag mr-2"></i>Ajouter dans le panier</button>
                                 <button class="btn btn-info font-17" data-toggle="modal" data-target="#exampleStandardModal">MeTo <i class="feather icon-git-branch"></i></button>
                             </div>
                             <div class="button-list">

@@ -11,18 +11,12 @@
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-            <h4 class="page-title">Shop</h4>
+            <h4 class="page-title">Actualité</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Annonces</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                    <li class="breadcrumb-item active"><a href="#">Annonces</a></li>
                 </ol>
-            </div>
-        </div>
-        <div class="col-md-4 col-lg-4">
-            <div class="widgetbar">
-                <a class="btn btn-primary" href="{{ route("news.create")  }}">Faire une annonce </a>
             </div>
         </div>
     </div>
