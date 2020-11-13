@@ -126,37 +126,21 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                   <ul class="horizontal-menu">
                     <li>
-                        <a href="{{ route("home") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
+                        <a href="{{ route("news.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Accueil</span></a>
                     </li>
-                    <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/layouts.svg") }}" class="img-fluid" alt="layouts"><span>Annonces</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ route("annonces.index")  }}"><i class="mdi mdi-circle"></i>Annonces</a></li>
-                            <li><a href="{{ route("annonces.create")  }}"><i class="mdi mdi-circle"></i>Faire une annonce </a></li>
-
-                        </ul>
+                    <li>
+                        <a href="{{ route("companies.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Structures</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ route("pubs.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Publicités</span></a>
                     </li>
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/apps.svg") }}" class="img-fluid" alt="apps"><span>Achats</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{url('/apps-calender')}}"><i class="mdi mdi-circle"></i>Acheter</a></li>
-                            <li><a href="{{url('/apps-chat')}}"><i class="mdi mdi-circle"></i>Vos Commandes</a></li>
+                            <li><a href="{{url('/apps-calender')}}"><i class="mdi mdi-circle"></i>Mes Achats</a></li>
+                            <li><a href="{{url('/apps-chat')}}"><i class="mdi mdi-circle"></i>Mes Commandes</a></li>
 
                         </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Salons</span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="{{ route('salons.index') }}"><i class="mdi mdi-circle"></i>Salons</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('salons.create') }}"><i class="mdi mdi-circle"></i>Creer un salon</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="{{ route("invitations.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Invitations</span></a>
                     </li>
                   </ul>
                 </div>

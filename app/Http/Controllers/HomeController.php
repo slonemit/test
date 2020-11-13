@@ -31,13 +31,10 @@ class HomeController extends Controller
 
         if($compte){
             if($compte->typecompte_id == 1){
-                return view('basique.dashboard');
+                return redirect()->route('news.index');
             }
             if($compte->typecompte_id == 2){
-                return view('dashboard-ecommerce');
-            }
-            if($compte->typecompte_id == 3){
-                return view('dashboard-ecommerce');
+                return redirect()->route('annonces.index');
             }
         }
     }

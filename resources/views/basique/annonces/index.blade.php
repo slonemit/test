@@ -1,7 +1,7 @@
 @section('title')
 {{ config('app.name') .' - Actualités' }}
 @endsection
-@extends('layouts.main')
+@extends('layouts.basique')
 @section('style')
 <!-- Range Slider css -->
 <link href="{{ asset('assets/plugins/ion-rangeSlider/ion.rangeSlider.css') }}" rel="stylesheet" type="text/css">
@@ -17,11 +17,6 @@
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                     <li class="breadcrumb-item active"><a href="#">Annonces</a></li>
                 </ol>
-            </div>
-        </div>
-        <div class="col-md-4 col-lg-4">
-            <div class="widgetbar">
-                <a class="btn btn-primary" href="{{ route("annonces.create")  }}">Faire une annonce </a>
             </div>
         </div>
     </div>
@@ -77,14 +72,14 @@
                         <div class="col-12">
                             <div class="product-bar">
                                 <div class="product-head">
-                                    <a href="{{ route("annonces.show", $annonce->id) }}"><img src="{{ asset($annonce->image??"assets/images/ecommerce/product_img_01.jpg") }}" class="mx-auto d-block img-fluid" alt="product"></a>
+                                    <a href="{{ route("news.show", $annonce->id) }}"><img src="{{ asset($annonce->image??"assets/images/ecommerce/product_img_01.jpg") }}" class="mx-auto d-block img-fluid" alt="product"></a>
                                     <p><span class="badge badge-success font-14">25% off</span></p>
                                 </div>
                                 <div class="product-body">
                                     <div class="row align-items-center">
                                         <div class="col-12">
-                                        <p>{{ strlen($annonce->description)<149?$annonce->description:substr($annonce->description, 0, 150) }} @if(strlen($annonce->description)>149) <strong><a href="{{ route("annonces.show", $annonce->id) }}">... voir plus</a></strong>@endif</p>
-                                        <p><strong class="f-w-7 mb-0"><i class="feather icon-message-square"></i><sup class="font-14">57</sup></strong></p>
+                                        <p>{{ strlen($annonce->description)<149?$annonce->description:substr($annonce->description, 0, 150) }} @if(strlen($annonce->description)>149) <strong><a href="{{ route("news.show", $annonce->id) }}">... voir plus</a></strong>@endif</p>
+                                        <p><strong class="f-w-7 mb-0"><i class="feather icon-message-square"></i><sup class="font-14">57</sup></strong>></p>
                                         </div>
                                     </div>
                                 </div>

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Basique;
 
-use App\Models\Annonce;
-use App\Models\CategAnnonce;
-use App\Models\Commentaire;
 use App\Models\Compte;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Annonce;
+use App\Models\Commentaire;
+use App\Models\CategAnnonce;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AnnoncesController extends Controller
 {
@@ -21,19 +22,7 @@ class AnnoncesController extends Controller
         $annonces = Annonce::orderBy('created_at', 'desc')->where('statut_ann', 1)->get()->load('user');
         $categ = CategAnnonce::get();
 
-        $compte = Compte::where('user_id', Auth::id())->get()->first();
-        if($compte->typecompte_id == 1){
-            return view("basique.annonces", compact('annonces', 'categ'));
-        }else{
-            return view("annonces.index", compact('annonces', 'categ'));
-        }
-    }
-
-    public function validatedAnnonces()
-    {
-        $annonces = Annonce::where('statut_ann', 0)->get()->load('user');
-
-        return view('annonces.validations', compact('annonces'));
+        return view("basique.annonces.index", compact('annonces', 'categ'));
     }
 
     /**
@@ -45,7 +34,7 @@ class AnnoncesController extends Controller
     {
         $categ = CategAnnonce::get();
 
-        return view("annonces.create", compact("categ"));
+        return view("basique.annonces.create", compact("categ"));
     }
 
     /**
@@ -56,17 +45,10 @@ class AnnoncesController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
 
-       // dd($request->all());
-       $request->input('quantite');
-        $annonce = Annonce::create([
-            'user_id'=> 1,
-=======
         /*dd($request->all());*/
         $annonce = Annonce::create([
             'user_id'       => Auth::id(),
->>>>>>> a3083847a1c6c2594671379769271fe90b1134b8
             'fichier_id'       => 1,
             'categ_annonce_id'       => $request->input('categ_annonce_id'),
             'titre'       => $request->input('titre'),
@@ -91,8 +73,8 @@ class AnnoncesController extends Controller
                 $annonce->image = "images/annonces/".$image;
                 $annonce->save();
             }
-            return \Redirect::back();
-            return redirect()->route('annonces.show', $annonce->id);
+
+            return redirect()->route('basique.annonces.show', $annonce->id);
         }
     }
 
@@ -107,11 +89,7 @@ class AnnoncesController extends Controller
         $annonce = Annonce::find($id);
         $commentaires = Commentaire::where('annonce_id', $id)->get();
 
-        return view("annonces.show", compact('annonce', 'commentaires'));
-    }
-    public function comment(Request $request)
-    {
-       dd($request) ;//
+        return view("basique.annonces.show", compact('annonce', 'commentaires'));
     }
 
     /**
@@ -139,7 +117,7 @@ class AnnoncesController extends Controller
         $annonce->statut_ann = 1;
         $annonce->save();
 
-        return redirect()->route('annonces.show', $annonce->id);
+        return redirect()->route('basique.annonces.show', $annonce->id);
     }
 
     /**
