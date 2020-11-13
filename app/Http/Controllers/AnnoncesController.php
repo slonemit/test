@@ -53,18 +53,7 @@ class AnnoncesController extends Controller
        // dd($request->all());
        $request->input('quantite');
         $annonce = Annonce::create([
-<<<<<<< HEAD
-            'user_id'=> Auth()->user()->id,
-            'fichier_id'=> 1,
-            'titre'=> $request->input('titre'),
-            'description'=> $request->input('description'),
-            'date_pub'=> $request->input('date_pub'),
-            'cout'=> $request->input('cout'),
-            'quantite'=>1,
-            'disponibilite'=> $dispo,
-            'statut_ann'=> 0,
-=======
-            'user_id'       => 1,
+            'user_id'=> 1,
             'fichier_id'       => 1,
             'categ_annonce_id'       => $request->input('categ_annonce_id'),
             'titre'       => $request->input('titre'),
@@ -74,7 +63,6 @@ class AnnoncesController extends Controller
             'quantite'       => $request->input('quantite')??0,
             'disponibilite'       => $request->input('disponibilite')??now(),
             'statut_ann'       => 0,
->>>>>>> 7564bc8ddc858102c717f7a98ca3006603e823e5
         ]);
 
         if ($annonce) {
