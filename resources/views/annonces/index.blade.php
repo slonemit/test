@@ -30,7 +30,7 @@
 <!-- Start Contentbar -->
 <div class="contentbar">
     <!-- Start row -->
-    <div class="row">
+    <div id="app" class="row">
         <!-- Start col -->
         <div class="col-lg-3 col-xl-3">
             <div class="card m-b-30">
@@ -99,36 +99,7 @@
         </div>
         <!-- End col -->
         <!-- Start col -->
-        <div class="col-lg-3 col-xl-3">
-            <div class="card m-b-30">
-                <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col-9">
-                            <h5 class="card-title mb-0">Publicités</h5>
-                        </div>
-                        <div class="col-3">
-                            <ul class="list-inline-group text-right mb-0 pl-0">
-                                <li class="list-inline-item mr-0 font-12"><a href="#"><i class="feather icon-refresh-cw font-16 text-primary ml-1"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    @foreach($categ as $category)
-                    @if($loop->first)
-                    <div class="custom-control custom-checkbox">
-                        <input type="radio" name="categ_annonce_id" value="0" class="custom-control-input" id="all" checked="">
-                        <label class="custom-control-label" for="all">All</label>
-                    </div>
-                    @endif
-                    <div class="custom-control custom-checkbox">
-                        <input type="radio" name="categ_annonce_id" class="custom-control-input" value="{{ $category->id }}" id="{{ $category->categ_lib }}">
-                        <label class="custom-control-label" for="{{ $category->categ_lib }}">{{ $category->categ_lib }}</label>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
+        <pub-slider-component :pubs="{{ $pubs }}"></pub-slider-component>
         <!-- End col -->
     </div>
     <!-- End row -->

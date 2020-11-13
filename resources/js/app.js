@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('chat-component', require('./components/ChatComponent.vue').default);
 Vue.component('chatsalon-component', require('./components/ChatSalonComponent.vue').default);
+Vue.component('pub-slider-component', require('./components/PubSliderComponent.vue').default);
 Vue.component('test', require('./components/test'));
 
 /**
