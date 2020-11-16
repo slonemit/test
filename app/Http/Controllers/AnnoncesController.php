@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Annonce;
-use App\Models\CategAnnonce;
-use App\Models\Commentaire;
 use App\Models\Compte;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Annonce;
+use App\Models\AcheterPack;
+use App\Models\Commentaire;
+use App\Models\CategAnnonce;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnnoncesController extends Controller
 {
@@ -21,12 +22,10 @@ class AnnoncesController extends Controller
         $annonces = Annonce::orderBy('created_at', 'desc')->where('statut_ann', 1)->get()->load('user');
         $categ = CategAnnonce::get();
 
-        $compte = Compte::where('user_id', Auth::id())->get()->first();
-        if($compte->typecompte_id == 1){
-            return view("basique.annonces", compact('annonces', 'categ'));
-        }else{
-            return view("annonces.index", compact('annonces', 'categ'));
-        }
+        $pubs = AcheterPack::where([['date_achat', '<=', now()],['date_fin', '>=', now()]])->get();
+        $pubs = json_encode($pubs);
+
+        return view("annonces.index", compact('annonces', 'categ', 'pubs'));
     }
 
     public function validatedAnnonces()
