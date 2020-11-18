@@ -11,20 +11,18 @@ class SMSController extends Controller
 {
     public function index(){
 
-        $response = Http::get('http://localhost:9710/http/request-received-messages?username=admin&password=admin&limit=100&order=newest');
+        // $response = Http::get('http://localhost:9710/http/request-received-messages?username=admin&password=admin&limit=100&order=newest');
 
 
-        $xml = simplexml_load_string($response->body());
-        $json = json_encode($xml);
-        $messages = json_decode($json,TRUE); //dd($messages);
-        $messages = $messages["Message"];
+        // $xml = simplexml_load_string($response->body());
+        // $json = json_encode($xml);
+        // $messages = json_decode($json,TRUE); //dd($messages);
+        // $messages = $messages["Message"];
 
         return view('sms.index', compact('messages'));
     }
 
     public function callbackSms(Request $request){
-
-        echo 'result=1';
 
         $message = $request['message'];
 
@@ -69,6 +67,8 @@ class SMSController extends Controller
             }
 
         }
+
+        return response('result=1')->header('Content-Length', 8);
 
     }
 }

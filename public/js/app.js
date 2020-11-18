@@ -703,6 +703,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.index < 0) {
         this.index = this.slidesCount - 1;
       }
+    },
+    changeSlide: function changeSlide() {
+      console.log('Bonjour');
     }
   },
   computed: {
@@ -715,6 +718,7 @@ __webpack_require__.r(__webpack_exports__);
     this.slides.forEach(function (slide, i) {
       slide.index = i;
     });
+    this.changeSlide();
   }
 });
 
