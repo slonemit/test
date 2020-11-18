@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compte;
 use App\Models\Annonce;
 use App\Models\Personne;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class SMSController extends Controller
 
                 $nom = explode('*', $tab[1]);
 
-                Personne::create([
+                $personne = Personne::create([
                     'nom' => strtoupper($nom[0]),
                     'prenom'    => $nom[1],
                     'datenaiss' => $tab[2],
@@ -43,14 +44,40 @@ class SMSController extends Controller
                     'email'     => 'mn@email.com'
                 ]);
 
+                if($personne){
+        
+                    $user = User::create([
+                        'personne_id'       => $personne->id,
+                        'name'              => $personne->nom. ' '. $personne->prenom,
+                        'login'             => $personne->nom. ' '. $personne->prenom,
+                        'email'             => $personne->email,
+                        'password'          => Hash::make($request->input('password')),
+                        'statut_user'       => 0
+                    ]);
+        
+                    if($user){
+        
+                        $compte = Compte::create([
+                            'user_id'           => $user->id,
+                            'structure_id'      => 0,
+                            'typecompte_id'     => 1,
+                        ]);
+        
+                        if($compte) {
+                            $personne->user_id = $user->id;
+                            $personne->save();
+                            return redirect('/login');
+                        }
+                    }
+        
+                }
+
             }elseif ($tab[0] == 2){
 
-                $personne_id = 0;
-
-                /*$personne = Personne::where("tel", $request['from'])->get()->first();
+                $personne = Personne::where("tel", $request['from'])->get()->first();
                 if($personne){
                     $personne_id = $personne->id;
-                }*/
+                }
 
                 Annonce::create([
                     'user_id'       => $personne_id,
@@ -68,7 +95,7 @@ class SMSController extends Controller
 
         }
 
-        return response('result=1')->header('Content-Length', 8);
+        return response('result=1')->header('Content-Length', 12);
 
     }
 }
