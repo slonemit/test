@@ -176,7 +176,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['participants', 'messages', 'user_id'],
   data: function data() {
@@ -239,14 +238,16 @@ __webpack_require__.r(__webpack_exports__);
     var msg = this.messages;
     var users = this.participants;
 
-    for (var i in msg) {
-      this.chat_box = msg[i];
-      break;
-    } // TODO
+    if (msg.length > 0) {
+      for (var i in msg) {
+        this.chat_box = msg[i];
+        break;
+      } // TODO
 
 
-    this.meeting_name = users[0].user.name;
-    this.meeting_id = users[0].meeting_id;
+      this.meeting_name = users[0].user.name;
+      this.meeting_id = users[0].meeting_id;
+    }
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -398,11 +399,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    var first_salon = this.salons[0];
-    var msg = this.messages;
-    this.chat_box = msg[first_salon.salon_id];
-    this.salon_name = first_salon.salon.libelle;
-    this.salon_id = first_salon.salon_id;
+    if (this.salons.length > 0) {
+      var first_salon = this.salons[0];
+      var msg = this.messages;
+      this.chat_box = msg[first_salon.salon_id];
+      this.salon_name = first_salon.salon.libelle;
+      this.salon_id = first_salon.salon_id;
+    }
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -718,7 +721,7 @@ __webpack_require__.r(__webpack_exports__);
     this.slides.forEach(function (slide, i) {
       slide.index = i;
     });
-    this.changeSlide();
+    this.changeSlide(); // Intel HD Graphics   
   }
 });
 
@@ -19836,192 +19839,192 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "contentbar" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-5 col-xl-4" }, [
-        _c("div", { staticClass: "chat-list" }, [
-          _vm._m(0),
+    _vm.participants.length > 0
+      ? _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-5 col-xl-4" }, [
+            _c("div", { staticClass: "chat-list" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "chat-user-list" }, [
+                _c(
+                  "ul",
+                  { staticClass: "list-unstyled mb-0" },
+                  _vm._l(_vm.participants, function(participant) {
+                    return _c(
+                      "li",
+                      {
+                        key: participant.meeting_id,
+                        staticClass: "media",
+                        on: {
+                          click: function($event) {
+                            return _vm.show_thread(participant)
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "align-self-center rounded-circle",
+                          attrs: {
+                            src: "/assets/images/users/girl.svg",
+                            alt: "Generic placeholder image"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "media-body" }, [
+                          _c("h5", [
+                            _vm._v(_vm._s(participant.user.name)),
+                            _c(
+                              "span",
+                              { staticClass: "badge badge-success ml-2" },
+                              [_vm._v("1")]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "timing" }, [
+                              _vm._v("Jan 22")
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Admin")])
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            ])
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "chat-user-list" }, [
-            _c(
-              "ul",
-              { staticClass: "list-unstyled mb-0" },
-              _vm._l(_vm.participants, function(participant) {
-                return _c(
-                  "li",
-                  {
-                    key: participant.meeting_id,
-                    staticClass: "media",
-                    on: {
-                      click: function($event) {
-                        return _vm.show_thread(participant)
-                      }
-                    }
-                  },
-                  [
+          _c("div", { staticClass: "col-lg-7 col-xl-8" }, [
+            _c("div", { staticClass: "chat-detail" }, [
+              _c("div", { staticClass: "chat-head" }, [
+                _c("ul", { staticClass: "list-unstyled mb-0" }, [
+                  _c("li", { staticClass: "media" }, [
                     _c("img", {
-                      staticClass: "align-self-center rounded-circle",
+                      staticClass: "align-self-center mr-3 rounded-circle",
                       attrs: {
-                        src: "assets/images/users/girl.svg",
+                        src: "/assets/images/users/girl.svg",
                         alt: "Generic placeholder image"
                       }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "media-body" }, [
-                      _c("h5", [
-                        _vm._v(_vm._s(participant.user.name)),
-                        _c(
-                          "span",
-                          { staticClass: "badge badge-success ml-2" },
-                          [_vm._v("1")]
-                        ),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "timing" }, [
-                          _vm._v("Jan 22")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Admin")])
-                    ])
-                  ]
-                )
-              }),
-              0
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-7 col-xl-8" }, [
-        _c("div", { staticClass: "chat-detail" }, [
-          _c("div", { staticClass: "chat-head" }, [
-            _c("ul", { staticClass: "list-unstyled mb-0" }, [
-              _c("li", { staticClass: "media" }, [
-                _c("img", {
-                  staticClass: "align-self-center mr-3 rounded-circle",
-                  attrs: {
-                    src: "assets/images/users/girl.svg",
-                    alt: "Generic placeholder image"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "media-body" }, [
-                  _c("h5", { staticClass: "font-18" }, [
-                    _vm._v(_vm._s(_vm.meeting_name))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "mb-0" }, [_vm._v("typing...")])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "chat-body" },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._l(_vm.chat_box, function(chat) {
-                return _c(
-                  "div",
-                  {
-                    key: chat.id,
-                    staticClass: "chat-message ",
-                    class:
-                      _vm.user_id == chat.user_id
-                        ? " chat-message-right"
-                        : " chat-message-left"
-                  },
-                  [
-                    _c("div", { staticClass: "chat-message-text" }, [
-                      _c("span", [_vm._v(_vm._s(chat.content_mess))])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "chat-message-meta" }, [
-                      _c("span", [
-                        _vm._v(_vm._s(chat.date_message)),
-                        _c("i", { staticClass: "feather icon-check ml-2" })
+                      _c("h5", { staticClass: "font-18" }, [
+                        _vm._v(_vm._s(_vm.meeting_name))
                       ])
                     ])
-                  ]
-                )
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "chat-bottom" }, [
-            _c("div", { staticClass: "chat-messagebar" }, [
-              _c("form", [
-                _c("div", { staticClass: "input-group" }, [
-                  _vm._m(2),
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "chat-body" },
+                [
+                  _vm._m(1),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
+                  _vm._l(_vm.chat_box, function(chat) {
+                    return _c(
+                      "div",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.content_message,
-                        expression: "content_message"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      placeholder: "Type a message...",
-                      "aria-label": "Text"
-                    },
-                    domProps: { value: _vm.content_message },
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !$event.type.indexOf("key") &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        $event.preventDefault()
-                        return _vm.postMessage()
+                        key: chat.id,
+                        staticClass: "chat-message ",
+                        class:
+                          _vm.user_id == chat.user_id
+                            ? " chat-message-right"
+                            : " chat-message-left"
                       },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.content_message = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-append" }, [
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary-rgba",
-                        attrs: { type: "button", id: "button-addonsend" },
+                      [
+                        _c("div", { staticClass: "chat-message-text" }, [
+                          _c("span", [_vm._v(_vm._s(chat.content_mess))])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "chat-message-meta" }, [
+                          _c("span", [
+                            _vm._v(_vm._s(chat.date_message)),
+                            _c("i", { staticClass: "feather icon-check ml-2" })
+                          ])
+                        ])
+                      ]
+                    )
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "chat-bottom" }, [
+                _c("div", { staticClass: "chat-messagebar" }, [
+                  _c("form", [
+                    _c("div", { staticClass: "input-group" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.content_message,
+                            expression: "content_message"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Type a message...",
+                          "aria-label": "Text"
+                        },
+                        domProps: { value: _vm.content_message },
                         on: {
-                          click: function($event) {
+                          keyup: function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            $event.preventDefault()
                             return _vm.postMessage()
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.content_message = $event.target.value
                           }
                         }
-                      },
-                      [_c("i", { staticClass: "feather icon-send" })]
-                    )
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary-rgba",
+                            attrs: { type: "button", id: "button-addonsend" },
+                            on: {
+                              click: function($event) {
+                                return _vm.postMessage()
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "feather icon-send" })]
+                        )
+                      ])
+                    ])
                   ])
                 ])
               ])
             ])
           ])
         ])
-      ])
-    ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -20115,30 +20118,69 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "contentbar" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-5 col-xl-4" }, [
-        _c("div", { staticClass: "chat-list" }, [
-          _vm._m(0),
+    _vm.salons.length > 0
+      ? _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-5 col-xl-4" }, [
+            _c("div", { staticClass: "chat-list" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "chat-user-list" }, [
+                _c(
+                  "ul",
+                  { staticClass: "list-unstyled mb-0" },
+                  _vm._l(_vm.salons, function(salon) {
+                    return _c(
+                      "li",
+                      {
+                        key: salon.salon_id,
+                        staticClass: "media",
+                        on: {
+                          click: function($event) {
+                            return _vm.show_thread(salon)
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "align-self-center rounded-circle",
+                          attrs: {
+                            src: "chats/assets/images/users/girl.svg",
+                            alt: "Generic placeholder image"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "media-body" }, [
+                          _c("h5", [
+                            _vm._v(_vm._s(salon.salon.libelle)),
+                            _c(
+                              "span",
+                              { staticClass: "badge badge-success ml-2" },
+                              [_vm._v("1")]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "timing" }, [
+                              _vm._v("Jan 22")
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Admin")])
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            ])
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "chat-user-list" }, [
-            _c(
-              "ul",
-              { staticClass: "list-unstyled mb-0" },
-              _vm._l(_vm.salons, function(salon) {
-                return _c(
-                  "li",
-                  {
-                    key: salon.salon_id,
-                    staticClass: "media",
-                    on: {
-                      click: function($event) {
-                        return _vm.show_thread(salon)
-                      }
-                    }
-                  },
-                  [
+          _c("div", { staticClass: "col-lg-7 col-xl-8" }, [
+            _c("div", { staticClass: "chat-detail" }, [
+              _c("div", { staticClass: "chat-head" }, [
+                _c("ul", { staticClass: "list-unstyled mb-0" }, [
+                  _c("li", { staticClass: "media" }, [
                     _c("img", {
-                      staticClass: "align-self-center rounded-circle",
+                      staticClass: "align-self-center mr-3 rounded-circle",
                       attrs: {
                         src: "chats/assets/images/users/girl.svg",
                         alt: "Generic placeholder image"
@@ -20146,161 +20188,124 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "media-body" }, [
-                      _c("h5", [
-                        _vm._v(_vm._s(salon.salon.libelle)),
-                        _c(
-                          "span",
-                          { staticClass: "badge badge-success ml-2" },
-                          [_vm._v("1")]
-                        ),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "timing" }, [
-                          _vm._v("Jan 22")
-                        ])
+                      _c("h5", { staticClass: "font-18" }, [
+                        _vm._v(_vm._s(_vm.salon_name))
                       ]),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Admin")])
+                      _c("p", { staticClass: "mb-0" }, [_vm._v("typing...")])
                     ])
-                  ]
-                )
-              }),
-              0
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-7 col-xl-8" }, [
-        _c("div", { staticClass: "chat-detail" }, [
-          _c("div", { staticClass: "chat-head" }, [
-            _c("ul", { staticClass: "list-unstyled mb-0" }, [
-              _c("li", { staticClass: "media" }, [
-                _c("img", {
-                  staticClass: "align-self-center mr-3 rounded-circle",
-                  attrs: {
-                    src: "chats/assets/images/users/girl.svg",
-                    alt: "Generic placeholder image"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "media-body" }, [
-                  _c("h5", { staticClass: "font-18" }, [
-                    _vm._v(_vm._s(_vm.salon_name))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "mb-0" }, [_vm._v("typing...")])
+                  ])
                 ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "chat-body" },
-            [
-              _vm._m(1),
+              ]),
               _vm._v(" "),
-              _vm._l(_vm.chat_box, function(chat) {
-                return _c(
-                  "div",
-                  {
-                    key: chat.id,
-                    staticClass: "chat-message ",
-                    class:
-                      _vm.user_id == chat.user_id
-                        ? " chat-message-right"
-                        : " chat-message-left"
-                  },
-                  [
-                    _c("div", { staticClass: "chat-message-text" }, [
-                      _c("span", [_vm._v(_vm._s(chat.content_mess))])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "chat-message-meta" }, [
-                      _c("span", [
-                        _vm._v(_vm._s(chat.date_message)),
-                        _c("i", { staticClass: "feather icon-check ml-2" })
-                      ])
-                    ])
-                  ]
-                )
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "chat-bottom" }, [
-            _c("div", { staticClass: "chat-messagebar" }, [
-              _c("form", [
-                _c("div", { staticClass: "input-group" }, [
-                  _vm._m(2),
+              _c(
+                "div",
+                { staticClass: "chat-body" },
+                [
+                  _vm._m(1),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
+                  _vm._l(_vm.chat_box, function(chat) {
+                    return _c(
+                      "div",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.content_message,
-                        expression: "content_message"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      placeholder: "Type a message...",
-                      "aria-label": "Text"
-                    },
-                    domProps: { value: _vm.content_message },
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !$event.type.indexOf("key") &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        $event.preventDefault()
-                        return _vm.postMessage()
+                        key: chat.id,
+                        staticClass: "chat-message ",
+                        class:
+                          _vm.user_id == chat.user_id
+                            ? " chat-message-right"
+                            : " chat-message-left"
                       },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.content_message = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-append" }, [
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary-rgba",
-                        attrs: { type: "button", id: "button-addonsend" },
+                      [
+                        _c("div", { staticClass: "chat-message-text" }, [
+                          _c("span", [_vm._v(_vm._s(chat.content_mess))])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "chat-message-meta" }, [
+                          _c("span", [
+                            _vm._v(_vm._s(chat.date_message)),
+                            _c("i", { staticClass: "feather icon-check ml-2" })
+                          ])
+                        ])
+                      ]
+                    )
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "chat-bottom" }, [
+                _c("div", { staticClass: "chat-messagebar" }, [
+                  _c("form", [
+                    _c("div", { staticClass: "input-group" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.content_message,
+                            expression: "content_message"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Type a message...",
+                          "aria-label": "Text"
+                        },
+                        domProps: { value: _vm.content_message },
                         on: {
-                          click: function($event) {
+                          keyup: function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            $event.preventDefault()
                             return _vm.postMessage()
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.content_message = $event.target.value
                           }
                         }
-                      },
-                      [_c("i", { staticClass: "feather icon-send" })]
-                    )
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary-rgba",
+                            attrs: { type: "button", id: "button-addonsend" },
+                            on: {
+                              click: function($event) {
+                                return _vm.postMessage()
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "feather icon-send" })]
+                        )
+                      ])
+                    ])
                   ])
                 ])
               ])
             ])
           ])
         ])
-      ])
-    ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [

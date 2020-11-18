@@ -17,13 +17,7 @@ B2B - Chat
                     <li class="breadcrumb-item active" aria-current="page">Messages</li>
                 </ol>
             </div>
-        </div>
-        <div class="col-md-4 col-lg-4">
-            <div class="widgetbar">
-                <button class="btn btn-primary">Add Widget</button>
-            </div>                        
-        </div>
-    </div>          
+        </div>          
 </div>
 <!-- End Breadcrumbbar -->
 <!-- Start Contentbar -->    

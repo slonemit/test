@@ -1,7 +1,7 @@
 <template>
 <div class="contentbar">
     <!-- Start row -->
-    <div class="row">
+    <div v-if="participants.length > 0" class="row">
         <!-- Start col -->
         <div class="col-lg-5 col-xl-4">
             <div class="chat-list">
@@ -18,7 +18,7 @@
                 <div class="chat-user-list">
                     <ul class="list-unstyled mb-0">
                         <li v-for="participant in participants" :key="participant.meeting_id" @click="show_thread(participant)" class="media">
-                            <img class="align-self-center rounded-circle" src="assets/images/users/girl.svg" alt="Generic placeholder image">
+                            <img class="align-self-center rounded-circle" src="/assets/images/users/girl.svg" alt="Generic placeholder image">
                             <div class="media-body">
                                 <h5>{{ participant.user.name }}<span class="badge badge-success ml-2">1</span> <span class="timing">Jan 22</span></h5>
                                 <p>Admin</p>
@@ -35,10 +35,9 @@
                 <div class="chat-head">
                     <ul class="list-unstyled mb-0">
                         <li class="media">
-                            <img class="align-self-center mr-3 rounded-circle" src="assets/images/users/girl.svg" alt="Generic placeholder image">
+                            <img class="align-self-center mr-3 rounded-circle" src="/assets/images/users/girl.svg" alt="Generic placeholder image">
                             <div class="media-body">
                                 <h5 class="font-18">{{ meeting_name }}</h5>
-                                <p class="mb-0">typing...</p>
                             </div>
                         </li>
                     </ul>
@@ -145,15 +144,17 @@ export default {
         let msg = this.messages
         let users = this.participants
 
-        for (const i in msg) {
-            this.chat_box = msg[i]
+        if(msg.length > 0){
+            for (const i in msg) {
+                this.chat_box = msg[i]
 
-            break
+                break
+            }
+
+            // TODO
+            this.meeting_name = users[0].user.name
+            this.meeting_id = users[0].meeting_id
         }
-
-        // TODO
-        this.meeting_name = users[0].user.name
-        this.meeting_id = users[0].meeting_id
     },
     mounted() {
         console.log('Component mounted.')

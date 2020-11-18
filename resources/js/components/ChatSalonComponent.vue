@@ -1,7 +1,7 @@
 <template>
 <div class="contentbar">
     <!-- Start row -->
-    <div class="row">
+    <div v-if="salons.length > 0" class="row">
         <!-- Start col -->
         <div class="col-lg-5 col-xl-4">
             <div class="chat-list">
@@ -134,12 +134,14 @@ export default {
     },
     created() {
 
-        let first_salon = this.salons[0]
-        let msg = this.messages
+        if(this.salons.length > 0){
+            let first_salon = this.salons[0]
+            let msg = this.messages
 
-        this.chat_box = msg[first_salon.salon_id]
-        this.salon_name = first_salon.salon.libelle
-        this.salon_id = first_salon.salon_id
+            this.chat_box = msg[first_salon.salon_id]
+            this.salon_name = first_salon.salon.libelle
+            this.salon_id = first_salon.salon_id
+        }
     },
     mounted() {
         console.log('Component mounted.')
