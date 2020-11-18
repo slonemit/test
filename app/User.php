@@ -38,6 +38,11 @@ class User extends Authenticatable
     ];
 
     public function personne(){
+        return $this->hasOne('App\Models\Personne','id','personne_id');
+
+/*
+    public function personne(){
         return $this->belongsTo('App\Models\Personne');
+*/
     }
 }

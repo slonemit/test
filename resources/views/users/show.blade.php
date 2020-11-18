@@ -23,7 +23,49 @@ Theta - Single Product
         </div>
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
-                <button class="btn btn-primary">Modifier mon profil</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleStandardModal">Prendre Rendez-vous</button>
+
+            </div>
+            <div class="modal fade" id="exampleStandardModal" tabindex="-1" role="dialog" aria-labelledby="exampleStandardModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleStandardModalLabel">Demande de Rendes-Vous</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <form method="post" action="{{ route("salons.store") }}">
+                        <div class="modal-body">
+                            @csrf
+                            <input type="hidden" name="structure_id" value="{{ $personne->structure}}"/>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputCity">Motif</label>
+                                    <input type="text" class="form-control" name="libelle">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">Date</label>
+                                    <input type="date" class="form-control" name="dateSalon">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputCity">Début</label>
+                                    <input type="time" class="form-control" name="heureSalon">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputCity">Fin</label>
+                                    <input type="time" class="form-control" name="heureFinSalon">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 @section('title')
-PLATFORM B2B
+Theta - Order List
 @endsection
 @extends('layouts.main')
 @section('style')
@@ -10,13 +10,25 @@ PLATFORM B2B
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
+<<<<<<< HEAD
+            <h4 class="page-title">Contact</h4>
+            <div class="breadcrumb-list">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#"></a></li>
+                    <li class="breadcrumb-item active" aria-current="page"></li>
+=======
             <h4 class="page-title">Structures</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Structures</li>
+>>>>>>> 148244a6c5691d1e850df7d503036f57d3a4266c
                 </ol>
             </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+
         </div>
     </div>
 </div>
@@ -30,19 +42,73 @@ PLATFORM B2B
         <div class="col-lg-3">
             <div class="card m-b-30">
                 <div class="card-header">
-                    <h5 class="card-title"><a href="{{ route("structures.show", $structure->id) }}">{{ $structure->nom .' '. $structure->form_jurid }}</a></h5>
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <h5 class="card-title mb-0">Tout</h5>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-inline-group text-right mb-0 pl-0">
+                                <li class="list-inline-item">
+                                      <div class="form-group mb-0 amount-spent-select">
+                                        <select class="form-control" id="formControlSelect">
+
+                                          <option>Tout</option>
+                                          @foreach( App\Models\grille::all() as $grille)
+                                          <option>{{ $grille->activite }}</option>
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <p>{{ 'E-mail : '.$structure->email }}</p>
-                    <p>{{ 'Téléphone : '.$structure->tel }}</p>
-                    <p>{{ 'Adresse : '.$structure->adresse }}</p>
-                    <p>{{ $structure->description }}</p>
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Forme</th>
+                                    <th>Raison_social</th>
+                                    <th>Objet_social</th>
+                                    <th>Adresse</th>
+
+
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach( App\Models\structure::all() as $structure)
+                                <tr>
+                                    <th scope="row">#{{ $structure->id }}</th>
+                                    <td>{{ $structure->form_jurid }}</td>
+                                    <td>{{ $structure->raison_social }}</td>
+                                    <td>{{ $structure->objet_social }}</td>
+                                    <td>{{ $structure->adresse }}</td>
+
+                                    <td><span class="badge badge-primary-inverse">Processing</span></td>
+                                    <td>
+                                        <div class="button-list">
+                                            <a href="{{ route("users.show",$structure->personne()->first()->id) }}"class="btn btn-primary-rgba"><i class="feather icon-file"></i></a>
+                                            <a href="{{url('/page-order-detail')}}" class="btn btn-success-rgba"><i class="feather icon-edit-2"></i></a>
+                                            <a href="{{url('/page-order-detail')}}" class="btn btn-danger-rgba"><i class="feather icon-trash"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
             @endforeach
         <!-- End col -->
-    </div> <!-- End row -->
+    </div>
+    <!-- End row -->
 </div>
 <!-- End Contentbar -->
 @endsection

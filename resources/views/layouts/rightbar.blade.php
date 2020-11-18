@@ -75,7 +75,7 @@
                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                         <div class="dropdown-item">
                                             <div class="profilename">
-                                              <h5></h5>
+                                              <h5>{{ Auth()->user()->personne->nom}}</h5>
                                               <p>Social Media Strategist</p>
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                                                     <li class="list-inline-item"><a href="{{ route("users.show", Auth::id()) }}" class="profile-icon"><img src="{{ asset("assets/images/svg-icon/user.svg") }}" class="img-fluid" alt="user"></a></li>
                                                     <li class="list-inline-item"><a href="#" class="profile-icon"><img src="{{ asset("assets/images/svg-icon/email.svg") }}" class="img-fluid" alt="email"></a></li>
                                                     <li class="list-inline-item">
-                                                        <a class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        <a class="profile-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                             <img src="{{ asset("assets/images/svg-icon/logout.svg") }}" class="img-fluid" alt="logout">
                                                         </a>
                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -141,10 +141,21 @@
                         <a href="{{ route("rdv.index") }}"><img src="{{ asset("assets/images/svg-icon/dashboard.svg") }}" class="img-fluid" alt="dashboard"><span>Rendez-vous</span></a>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Salons</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Opportunites</span></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="{{ route('salons.index') }}"><i class="mdi mdi-circle"></i>Salons</a>
+                            <li >
+                                <a href="{{url('/structures')}}" class="mdi mdi-circle" ><span>Rendez-Vous</span></a>
+                                <a href="javaScript:void();" class="mdi mdi-circle" data-toggle="dropdown"><span>Publicite</span></a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset("assets/images/svg-icon/pages.svg") }}" class="img-fluid" alt="pages"><span>Salon</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown" ><i class="mdi mdi-circle"></i>Mes Salons</a>
+
                             </li>
                             <li>
                                 <a href="{{ route('salons.create') }}"><i class="mdi mdi-circle"></i>Creer un salon</a>

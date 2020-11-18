@@ -48,7 +48,7 @@ Theta - Product Detail
                         </div>
                         <div class="form-group row">
                             <div class="col-md-3">
-                                <label for="productTitle" class="col-sm-12 col-form-label">Quantité</label>
+                                <label for="quantite" class="col-sm-12 col-form-label">Quantité</label>
                                 <input type="number" class="form-control" name="quantite" placeholder="1">
                             </div>
                             <div class="col-md-3">
@@ -91,7 +91,13 @@ Theta - Product Detail
                 </div>
                 <div class="card-body">
                     <div class="ecommerce-upload">
-                        <input class="form-control" type="file" name="image"/>
+                        <form action="#" class="dropzone dz-clickable">
+                            <div class="dz-default dz-message">
+                                <p class="dash-analytic-icon"><i class="feather icon-plus primary-rgba text-primary"></i></p>
+                                <span>Telecharge l'image</span>
+                            </div>
+                        </form>
+                        <img src="assets/images/dashboard/cloud.svg" class="img-fluid" alt="cloud">
                     </div>
                 </div>
             </div>

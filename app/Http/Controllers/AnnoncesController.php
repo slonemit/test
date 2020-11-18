@@ -55,9 +55,17 @@ class AnnoncesController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
+
+       // dd($request->all());
+       $request->input('quantite');
+        $annonce = Annonce::create([
+            'user_id'=> 1,
+=======
         /*dd($request->all());*/
         $annonce = Annonce::create([
             'user_id'       => Auth::id(),
+>>>>>>> a3083847a1c6c2594671379769271fe90b1134b8
             'fichier_id'       => 1,
             'categ_annonce_id'       => $request->input('categ_annonce_id'),
             'titre'       => $request->input('titre'),
@@ -82,7 +90,7 @@ class AnnoncesController extends Controller
                 $annonce->image = "images/annonces/".$image;
                 $annonce->save();
             }
-
+            return \Redirect::back();
             return redirect()->route('annonces.show', $annonce->id);
         }
     }
@@ -99,6 +107,10 @@ class AnnoncesController extends Controller
         $commentaires = Commentaire::where('annonce_id', $id)->get();
 
         return view("annonces.show", compact('annonce', 'commentaires'));
+    }
+    public function comment(Request $request)
+    {
+       dd($request) ;//
     }
 
     /**
