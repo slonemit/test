@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,12 +31,12 @@
                         <div class="auth-box-left">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4>Votre Communauté Vous Attend.</h4>
+                                    <h4></h4>
                                     <div class="auth-box-icon">
-                                        <img src="assets/images/authentication/auth-box-icon.svg" class="img-fluid" alt="auth-box-icon">
+                                    <img src="{{ asset("lona.png") }}" class="img-fluid" alt="auth-box-icon">
                                     </div>
                                     <div class="auth-box-logo">
-                                        <img src="assets/images/logo.svg" class="img-fluid " alt="logo">
+                                        
                                     </div>
                                 </div>
                             </div>
