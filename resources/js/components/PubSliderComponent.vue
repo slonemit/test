@@ -55,6 +55,9 @@ export default {
             if(this.index < 0) {
                 this.index = this.slidesCount - 1
             }
+        },
+        changeSlide() {
+            console.log('Bonjour')
         }
     },
     computed: {
@@ -65,7 +68,10 @@ export default {
         this.slides = this.$children
         this.slides.forEach((slide, i) => {
             slide.index = i
-        });
+        }); 
+        
+        this.changeSlide()
+        // Intel HD Graphics   
     }
 }
 </script>
