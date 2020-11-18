@@ -35,7 +35,12 @@ PLATEFORM B2B - Comptes
         @foreach($comptes as $compte)
         <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="card bg-light m-b-30">
-                <div class="card-header"><h5 class="card-title">{{ $compte->structure->nom. '-'.$compte->structure->form_jurid }}</h5></div>
+                @if ($compte->structure_id > 0)                    
+                    <div class="card-header"><h5 class="card-title">{{ $compte->structure->nom. '-'.$compte->structure->form_jurid }}</h5></div>
+                @endif
+                @if ($compte->structure_id == 0)                    
+                    <div class="card-header"><h5 class="card-title">{{ $compte->personne->nom . ' '. $compte->personne->prenom }}</h5></div>
+                @endif
                 <div class="card-body">
                     <p class="card-text">{{ 'Secteur : '.$compte->structure->grille->activite }}</p>
                     <p class="card-text">{{ 'Adresse : '.$compte->structure->adresse }}</p>

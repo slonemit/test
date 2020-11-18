@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Models\Compte;
 use App\Models\Annonce;
 use App\Models\Personne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 
 class SMSController extends Controller
@@ -41,7 +43,7 @@ class SMSController extends Controller
                     'datenaiss' => $tab[2],
                     'ville'     => $tab[3],
                     'tel'       => $request['from'],
-                    'email'     => 'mn@email.com'
+                    'email'     => $nom[0].$nom[1]."@email.com"
                 ]);
 
                 if($personne){
@@ -51,7 +53,7 @@ class SMSController extends Controller
                         'name'              => $personne->nom. ' '. $personne->prenom,
                         'login'             => $personne->nom. ' '. $personne->prenom,
                         'email'             => $personne->email,
-                        'password'          => Hash::make($request->input('password')),
+                        'password'          => Hash::make('1234'),
                         'statut_user'       => 0
                     ]);
         
@@ -66,6 +68,7 @@ class SMSController extends Controller
                         if($compte) {
                             $personne->user_id = $user->id;
                             $personne->save();
+                            
                             return redirect('/login');
                         }
                     }

@@ -11,4 +11,8 @@ class Compte extends Model
     public function structure(){
         return $this->belongsTo('App\Models\Structure');
     }
+
+    public function personne(){
+        return $this->belongsTo('App\Models\Personne');
+    }
 }
