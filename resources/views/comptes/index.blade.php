@@ -39,7 +39,7 @@ PLATEFORM B2B - Comptes
                     <div class="card-header"><h5 class="card-title">{{ $compte->structure->nom. '-'.$compte->structure->form_jurid }}</h5></div>
                 @endif
                 @if ($compte->structure_id == 0)                    
-                    <div class="card-header"><h5 class="card-title">{{ $compte->personne->nom . ' '. $compte->personne->prenom }}</h5></div>
+                    <div class="card-header"><h5 class="card-title">{{ $compte->personne->nom . ' '. $compte->personne->prenom  }}</h5></div>
                 @endif
                 <div class="card-body">
                     <p class="card-text">{{ 'Secteur : '.$compte->structure->grille->activite }}</p>

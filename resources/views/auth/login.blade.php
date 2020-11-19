@@ -12,10 +12,10 @@
     <!-- Fevicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <!-- Start CSS -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ time() < '8:00:00'?asset('assets/css/bootstrap.min.css'):asset('assets/css_light/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css_light/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css_light/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ time() < '8:00:00'?asset('assets/css/style.css'):asset('assets/css_light/style.css') }}" rel="stylesheet" type="text/css">
     <!-- End CSS -->
 </head>
 <body class="vertical-layout">
