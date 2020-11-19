@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compte;
+use App\Models\Personne;
 use App\Models\Structure;
 use Illuminate\Http\Request;
 
@@ -55,8 +56,9 @@ class ComptesController extends Controller
     {
         $compte = Compte::find($id);
         $structure = Structure::find($compte->structure_id); //dd($compte, $structure);
+        $personne = Personne::where('user_id', $compte->user_id)->get()->first(); //dd($personne);
 
-        return view('comptes.show', compact('structure', 'compte'));
+        return view('comptes.show', compact('structure', 'compte', 'personne'));
     }
 
     /**

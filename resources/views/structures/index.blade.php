@@ -10,20 +10,12 @@ Theta - Order List
 <div class="breadcrumbbar">
     <div class="row align-items-center">
         <div class="col-md-8 col-lg-8">
-<<<<<<< HEAD
             <h4 class="page-title">Contact</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                     <li class="breadcrumb-item"><a href="#"></a></li>
                     <li class="breadcrumb-item active" aria-current="page"></li>
-=======
-            <h4 class="page-title">Structures</h4>
-            <div class="breadcrumb-list">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Structures</li>
->>>>>>> 148244a6c5691d1e850df7d503036f57d3a4266c
                 </ol>
             </div>
         </div>
@@ -38,8 +30,7 @@ Theta - Order List
     <!-- Start row -->
     <div class="row">
         <!-- Start col -->
-            @foreach($structures as $structure)
-        <div class="col-lg-3">
+        <div class="col-lg-12">
             <div class="card m-b-30">
                 <div class="card-header">
                     <div class="row align-items-center">
@@ -105,7 +96,6 @@ Theta - Order List
                 </div>
             </div>
         </div>
-            @endforeach
         <!-- End col -->
     </div>
     <!-- End row -->

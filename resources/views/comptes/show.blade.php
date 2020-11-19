@@ -39,6 +39,7 @@ Theta - Single Product
 <!-- Start Contentbar -->    
 <div class="contentbar">                
     <!-- Start row -->
+    @if ($compte->structure_id > 0)
     <div class="row">
         <!-- Start col -->
         <div class="col-md-12 col-lg-12 col-xl-12">
@@ -105,7 +106,44 @@ Theta - Single Product
         </div>
         <!-- End col -->
     </div>
+    @endif
     <!-- End row -->
+    
+    @if ($compte->structure_id == 0)
+    <div class="row">
+        <!-- Start col -->
+        <div class="col-md-12 col-lg-12 col-xl-12">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-7">
+                            <p><span class="badge badge-light font-16">Pupular</span></p>
+                            <h2 class="font-22">{{ $personne->nom.' '.$personne->prenom }}</h2>
+                            <p>
+                                <i class="feather icon-star text-warning"></i>
+                                <i class="feather icon-star text-warning"></i>
+                                <i class="feather icon-star text-warning"></i>
+                                <i class="feather icon-star"></i>
+                                <i class="feather icon-star"></i>
+                                <span class="ml-2">25 Ratings</span>
+                            </p>
+                            <p class="text-primary font-26 f-w-7 my-3"><sup class="font-16">$</sup>{{ $personne->datenaiss }}</p>
+                            <p class="mb-4">{{ $personne->telephone }}</p>
+                            <div class="button-list">
+                                <h6 class="mb-3">Partager</h6>
+                                <a href="#" class="btn btn-primary-rgba font-18"><i class="feather icon-facebook"></i></a>
+                                <a href="#" class="btn btn-info-rgba font-18"><i class="feather icon-twitter"></i></a>
+                                <a href="#" class="btn btn-danger-rgba font-18"><i class="feather icon-instagram"></i></a>
+                                <a href="#" class="btn btn-warning-rgba font-18"><i class="feather icon-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End col -->
+    </div>
+    @endif
 </div>
 <!-- End Contentbar -->
 @endsection 
