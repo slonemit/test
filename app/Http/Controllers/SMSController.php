@@ -22,7 +22,7 @@ class SMSController extends Controller
         // $messages = json_decode($json,TRUE); //dd($messages);
         // $messages = $messages["Message"];
 
-        return view('sms.index', compact('messages'));
+        // return view('sms.index', compact('messages'));
     }
 
     public function callbackSms(Request $request){
