@@ -82,7 +82,6 @@ class AnnoncesController extends Controller
                 $annonce->image = "images/annonces/".$image;
                 $annonce->save();
             }
-            return \Redirect::back();
             return redirect()->route('annonces.show', $annonce->id);
         }
     }
