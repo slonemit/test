@@ -38,9 +38,8 @@ PLATEFORM B2B - Comptes
                 <div class="card-header"><h5 class="card-title">{{ $annonce->titre }}</h5></div>
                 <div class="card-body">
                     <p class="card-text">{{ 'Publié le : '.$annonce->date_pub }}</p>
-                    <p class="card-text">{{ substr($annonce->description, 100) . '...' }}</p>
+                    <p class="card-text">{{ substr($annonce->description, 0, 100) }} <a href="{{ route("annonces.show", $annonce->id) }}">...Voir Plus</a></p>
                     <p class="card-text">{{ $annonce->user_id >0?'Par : '.$annonce->user->name:"" }}</p>
-                    <div><a href="{{ route("annonces.show", $annonce->id) }}" class="btn btn-primary">Details</a></div>
                 </div>
             </div>
         </div>
