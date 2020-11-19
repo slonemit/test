@@ -15,7 +15,7 @@ class ComptesController extends Controller
      */
     public function index()
     {
-        $comptes = Compte::where('statut', 0)->get()->load("structure.grille", "personne");
+        $comptes = Compte::where('statut', 0)->get()->load("structure.grille", "user");
 
         return view('comptes.index', compact('comptes'));
     }

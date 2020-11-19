@@ -12,7 +12,7 @@ class Compte extends Model
         return $this->belongsTo('App\Models\Structure');
     }
 
-    public function personne(){
-        return $this->belongsTo('App\Models\Personne');
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

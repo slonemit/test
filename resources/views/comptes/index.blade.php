@@ -37,19 +37,27 @@ PLATEFORM B2B - Comptes
             <div class="card bg-light m-b-30">
                 @if ($compte->structure_id > 0)                    
                     <div class="card-header"><h5 class="card-title">{{ $compte->structure->nom. '-'.$compte->structure->form_jurid }}</h5></div>
+                    <div class="card-body">
+                        <p class="card-text">{{ 'Secteur : '.$compte->structure->grille->activite }}</p>
+                        <p class="card-text">{{ 'Adresse : '.$compte->structure->adresse }}</p>
+                        <p class="card-text">{{ 'E-mail : '.$compte->structure->email }}</p>
+                        <p class="card-text">{{ 'Télephone : '.$compte->structure->tel }}</p>
+                        <div class="custom-control custom-switch">
+                        <div><a href="{{ route("comptes.show", $compte->id) }}" class="btn btn-primary">Details</a></div>
+                        </div>
+                    </div>
                 @endif
                 @if ($compte->structure_id == 0)                    
-                    <div class="card-header"><h5 class="card-title">{{ $compte->personne->nom . ' '. $compte->personne->prenom  }}</h5></div>
-                @endif
-                <div class="card-body">
-                    <p class="card-text">{{ 'Secteur : '.$compte->structure->grille->activite }}</p>
-                    <p class="card-text">{{ 'Adresse : '.$compte->structure->adresse }}</p>
-                    <p class="card-text">{{ 'E-mail : '.$compte->structure->email }}</p>
-                    <p class="card-text">{{ 'Télephone : '.$compte->structure->tel }}</p>
-                    <div class="custom-control custom-switch">
-                    <div><a href="{{ route("comptes.show", $compte->id) }}" class="btn btn-primary">Details</a></div>
+                    <div class="card-header"><h5 class="card-title">{{ $compte->user->name  }}</h5></div>
+                    <div class="card-body">
+                        <p class="card-text">{{ 'Ville : '.$compte->user->personne->ville }}</p>
+                        <p class="card-text">{{ 'Date de naissance : '.$compte->user->personne->datenaiss }}</p>
+                        <p class="card-text">{{ 'Télephone : '.$compte->user->personne->tel }}</p>
+                        <div class="custom-control custom-switch">
+                        <div><a href="{{ route("comptes.show", $compte->id) }}" class="btn btn-primary">Details</a></div>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
         @endforeach

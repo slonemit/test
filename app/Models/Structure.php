@@ -12,7 +12,7 @@ class Structure extends Model
         return $this->belongsTo('App\Models\Compte');
     }
     public function grille(){
-        return $this->belongsTo('App\Models\grille');
+        return $this->belongsTo('App\Models\Grille');
     }
     public function produits(){
         return $this->hasMany('App\Models\Produit');

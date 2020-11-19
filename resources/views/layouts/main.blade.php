@@ -15,8 +15,8 @@
         @yield('style')
         <link href="{{ asset('assets/plugins/switchery/switchery.min.css') }}" rel="stylesheet" type="text/css">
 
-        <link href="{{ time() > '18:00:00'?asset('assets/css/bootstrap.min.css'):asset('assets/css_light/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ time() > '18:00:00'?asset('assets/css/style.css'):asset('assets/css_light/style.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ time() < '18:00:00'?asset('assets/css/bootstrap.min.css'):asset('assets/css_light/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ time() < '18:00:00'?asset('assets/css/style.css'):asset('assets/css_light/style.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
         <!-- End CSS -->
