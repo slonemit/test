@@ -15,7 +15,7 @@ Theta - Single Product
             <h4 class="page-title">Mon profil</h4>
             <div class="breadcrumb-list">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{  url('/') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">eCommerce</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Mon profil</li>
                 </ol>
@@ -24,7 +24,6 @@ Theta - Single Product
         <div class="col-md-4 col-lg-4">
             <div class="widgetbar">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#exampleStandardModal">Prendre Rendez-vous</button>
-
             </div>
             <div class="modal fade" id="exampleStandardModal" tabindex="-1" role="dialog" aria-labelledby="exampleStandardModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -79,7 +78,7 @@ Theta - Single Product
         <div class="col-lg-6 col-xl-5">
             <div class="product-slider-box product-box-for">
                 <div class="product-preview">
-                <img src="{{ asset("assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
+                <img style="max-height: 400px" src="{{ asset("assets/images/ecommerce/product_img_01.jpg") }}" class="img-fluid" alt="Product">
                 <p><span class="badge badge-success font-14">25% off</span></p>
                 </div>
             </div>

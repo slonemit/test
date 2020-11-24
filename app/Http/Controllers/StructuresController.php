@@ -146,7 +146,10 @@ class StructuresController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $structure = Structure::find($id);
+
+        $this->authorize('update', $structure);
 
         $structure->description = $request['description'];
         $structure->experience = $request['experience'];

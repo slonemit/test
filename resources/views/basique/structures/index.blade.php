@@ -34,7 +34,6 @@ PLATFORM B2B
                 </div>
                 <div class="card-body">
                     <p>{{ 'E-mail : '.$structure->email }}</p>
-                    <p>{{ 'Téléphone : '.$structure->tel }}</p>
                     <p>{{ 'Adresse : '.$structure->adresse }}</p>
                     <p>{{ $structure->description }}</p>
                 </div>
