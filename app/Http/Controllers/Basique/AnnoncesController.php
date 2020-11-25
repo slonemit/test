@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Basique;
 
 use App\Models\Compte;
 use App\Models\Annonce;
+use App\Models\AcheterPack;
 use App\Models\Commentaire;
 use App\Models\CategAnnonce;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class AnnoncesController extends Controller
     {
         $annonces = Annonce::orderBy('created_at', 'desc')->where('statut_ann', 1)->get()->load('user');
         $categ = CategAnnonce::get();
+        $pubs = AcheterPack::where([['date_achat', '<=', now()],['date_fin', '>=', now()]])->get();
 
-        return view("basique.annonces.index", compact('annonces', 'categ'));
+        return view("basique.annonces.index", compact('annonces', 'categ', 'pubs'));
     }
 
     /**

@@ -109,18 +109,24 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    @foreach($categ as $category)
-                    @if($loop->first)
-                    <div class="custom-control custom-checkbox">
-                        <input type="radio" name="categ_annonce_id" value="0" class="custom-control-input" id="all" checked="">
-                        <label class="custom-control-label" for="all">All</label>
-                    </div>
-                    @endif
-                    <div class="custom-control custom-checkbox">
-                        <input type="radio" name="categ_annonce_id" class="custom-control-input" value="{{ $category->id }}" id="{{ $category->categ_lib }}">
-                        <label class="custom-control-label" for="{{ $category->categ_lib }}">{{ $category->categ_lib }}</label>
-                    </div>
-                    @endforeach
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($pubs as $pub)
+                                @if ($pub->image)                                
+                                <div class="carousel-item {{ $loop->first?' active':'' }}">
+                                    <img class="d-block w-100" src="{{ asset($pub->image) }}">
+                                </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
         </div>
