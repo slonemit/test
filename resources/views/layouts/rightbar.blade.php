@@ -41,7 +41,7 @@
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item">
                                 <div class="logobar">
-                                    <a href="{{url('/')}}" class="logo logo-large"><img src="{{ asset("assets/images/logo.svg") }}" class="img-fluid" alt="logo"></a>
+                                    <a href="{{url('/')}}" class="logo logo-large"><img src="{{ asset("lona.png") }}" class="img-fluid" alt="logo"></a>
                                 </div>
                             </li>
                             <li class="list-inline-item">

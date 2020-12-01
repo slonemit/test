@@ -128,7 +128,7 @@
                       <span class="sr-only">Next</span>
                     </a>
                 </div>
-            </div>
+            </div>  
         </div>
         <!-- End col -->
     </div>

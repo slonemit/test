@@ -21,7 +21,7 @@ Theta - Single Product
                 </ol>
             </div>
         </div>
-        @if($annonce->statut_ann == 0)
+        @if($annonce->statut_ann == 0 && Auth::user()->name == 'CCIAM')
             <div class="col-md-4 col-lg-4">
                 <div class="widgetbar">
                     <form action="{{ route("annonces.update", $annonce->id) }}" method="post">
@@ -68,9 +68,11 @@ Theta - Single Product
                                 <p class="text-primary font-26 f-w-7 my-3">{{ $annonce->cout }} <sup class="font-16">FCFA</sup></p>
                             @endif
                             <p class="mb-4">{{ $annonce->description }}</p>
+                            @if ($annonce->user_id != Auth::id())
                             <div class="button-list mt-5 mb-5">
                                 <button class="btn btn-info font-17" data-toggle="modal" data-target="#exampleStandardModal">MeTo <i class="feather icon-git-branch"></i></button>
                             </div>
+                            @endif
                             <div class="button-list">
                                 <h6 class="mb-3">Partager</h6>
                                 <a href="#" class="btn btn-primary-rgba font-18"><i class="feather icon-facebook"></i></a>
