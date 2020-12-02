@@ -42,7 +42,8 @@ class PackpubsController extends Controller
     {
         $pack = Pack::create([
             'libelle_pack'      => $request['libelle_pack'],
-            'montant'           => $request['montant']
+            'montant'           => $request['montant'],
+            'jour'           => $request['jour']
         ]);
 
         if($pack){

@@ -20,9 +20,9 @@ PLATFORM B2B
             </div>
         </div>
         <div class="col-md-4 col-lg-4">
-            <div class="widgetbar">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#packSold">Acheter un pack</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleStandardModal">Créer un pack</button>
+            <div class="row widgetbar">
+                <div class="col-md-2"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#packSold">Acheter un pack</button></div>
+                <div class="col-md-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleStandardModal">Créer un pack</button></div>
             </div>                        
         </div>
     </div>
@@ -124,7 +124,7 @@ PLATFORM B2B
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleStandardModalLabel">Création d'un salon</h5>
+                <h5 class="modal-title" id="exampleStandardModalLabel">Création d'un pack</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
             </div>
@@ -135,6 +135,12 @@ PLATFORM B2B
                     <div class="form-group col-md-12">
                         <label for="inputCity">Libelle</label>
                         <input class="form-control" type="text" name="libelle_pack">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputCity">Nombre de jours</label>
+                        <input class="form-control" type="text" name="jour">
                     </div>
                 </div>
                 <div class="form-row">

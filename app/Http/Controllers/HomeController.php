@@ -27,9 +27,15 @@ class HomeController extends Controller
     {
         $user_id = Auth::id(); //dd($user_id);
 
-        $compte = Compte::where('user_id', $user_id)->get()->first(); //dd($user_id, $compte);
+        $compte = Compte::where('user_id', $user_id)->get()->first();
 
         if($compte){
+
+            // if($compte->statut === 0){
+            //     Auth::logout();
+            //     \Session::flush();
+            // }
+
             if($compte->typecompte_id == 1){
                 return redirect()->route('news.index');
             }
