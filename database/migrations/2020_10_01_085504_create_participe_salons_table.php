@@ -14,12 +14,12 @@ class CreateParticipeSalonsTable extends Migration
     public function up()
     {
         Schema::create('participe_salons', function (Blueprint $table) {
+            $table->id();
             $table->integer("user_id");
             $table->integer("salon_id");
             $table->boolean("moderateur");
             $table->integer("statut");
             $table->timestamps();
-            $table->primary(["user_id", "salon_id"]);
         });
     }
 
