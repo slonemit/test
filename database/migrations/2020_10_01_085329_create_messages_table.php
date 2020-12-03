@@ -17,7 +17,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->integer("meeting_id");
             $table->dateTime("date_message");
-            $table->integer("statut-mess");
+            $table->integer("statut_mess");
             $table->text("content_mess");
             $table->timestamps();
         });

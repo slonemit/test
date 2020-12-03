@@ -240,7 +240,8 @@ __webpack_require__.r(__webpack_exports__);
 
     if (msg.length > 0) {
       for (var i in msg) {
-        this.chat_box = msg[i];
+        var first_meeting = users[0].meeting_id;
+        this.chat_box = msg[first_meeting];
         break;
       } // TODO
 
@@ -265,7 +266,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -391,9 +391,17 @@ __webpack_require__.r(__webpack_exports__);
         return response.json();
       }).then(function (response) {
         if (response.code === 200) {
-          _this.chat_box.push(response.message);
+          if (_this.chat_box === undefined) {
+            // S'il n'y avait pas encore de messages dans la variable chat_box
+            var new_chat_box = [];
+            new_chat_box.push(response.message);
+            _this.chat_box = new_chat_box;
+            _this.content_message = '';
+          } else {
+            _this.chat_box.push(response.message);
 
-          _this.content_message = '';
+            _this.content_message = '';
+          }
         }
       });
     }
@@ -19935,16 +19943,22 @@ var render = function() {
                             : " chat-message-left"
                       },
                       [
-                        _c("div", { staticClass: "chat-message-text" }, [
-                          _c("span", [_vm._v(_vm._s(chat.content_mess))])
-                        ]),
+                        chat.statut_mess != -1
+                          ? _c("div", { staticClass: "chat-message-text" }, [
+                              _c("span", [_vm._v(_vm._s(chat.content_mess))])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("div", { staticClass: "chat-message-meta" }, [
-                          _c("span", [
-                            _vm._v(_vm._s(chat.date_message)),
-                            _c("i", { staticClass: "feather icon-check ml-2" })
-                          ])
-                        ])
+                        chat.statut_mess != -1
+                          ? _c("div", { staticClass: "chat-message-meta" }, [
+                              _c("span", [
+                                _vm._v(_vm._s(chat.date_message)),
+                                _c("i", {
+                                  staticClass: "feather icon-check ml-2"
+                                })
+                              ])
+                            ])
+                          : _vm._e()
                       ]
                     )
                   })
@@ -20145,7 +20159,7 @@ var render = function() {
                           staticClass: "align-self-center rounded-circle",
                           attrs: {
                             src: "chats/assets/images/users/girl.svg",
-                            alt: "Generic placeholder image"
+                            alt: "image"
                           }
                         }),
                         _vm._v(" "),
@@ -20183,16 +20197,14 @@ var render = function() {
                       staticClass: "align-self-center mr-3 rounded-circle",
                       attrs: {
                         src: "chats/assets/images/users/girl.svg",
-                        alt: "Generic placeholder image"
+                        alt: "image"
                       }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "media-body" }, [
                       _c("h5", { staticClass: "font-18" }, [
                         _vm._v(_vm._s(_vm.salon_name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "mb-0" }, [_vm._v("typing...")])
+                      ])
                     ])
                   ])
                 ])
@@ -20216,16 +20228,22 @@ var render = function() {
                             : " chat-message-left"
                       },
                       [
-                        _c("div", { staticClass: "chat-message-text" }, [
-                          _c("span", [_vm._v(_vm._s(chat.content_mess))])
-                        ]),
+                        chat.statut_mess != -1
+                          ? _c("div", { staticClass: "chat-message-text" }, [
+                              _c("span", [_vm._v(_vm._s(chat.content_mess))])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("div", { staticClass: "chat-message-meta" }, [
-                          _c("span", [
-                            _vm._v(_vm._s(chat.date_message)),
-                            _c("i", { staticClass: "feather icon-check ml-2" })
-                          ])
-                        ])
+                        chat.statut_mess != -1
+                          ? _c("div", { staticClass: "chat-message-meta" }, [
+                              _c("span", [
+                                _vm._v(_vm._s(chat.date_message)),
+                                _c("i", {
+                                  staticClass: "feather icon-check ml-2"
+                                })
+                              ])
+                            ])
+                          : _vm._e()
                       ]
                     )
                   })
@@ -20256,22 +20274,6 @@ var render = function() {
                         },
                         domProps: { value: _vm.content_message },
                         on: {
-                          keyup: function($event) {
-                            if (
-                              !$event.type.indexOf("key") &&
-                              _vm._k(
-                                $event.keyCode,
-                                "enter",
-                                13,
-                                $event.key,
-                                "Enter"
-                              )
-                            ) {
-                              return null
-                            }
-                            $event.preventDefault()
-                            return _vm.postMessage()
-                          },
                           input: function($event) {
                             if ($event.target.composing) {
                               return

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rdv;
-use App\Models\Meeting;
-use App\Models\ParticipeMeeting;
-use App\Models\Annonce;
 use App\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Rdv;
+use App\Models\Annonce;
+use App\Models\Meeting;
+use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Models\ParticipeMeeting;
+use Illuminate\Support\Facades\Auth;
 
 class RdvsController extends Controller
 {
@@ -179,6 +180,15 @@ class RdvsController extends Controller
                 $particite = ParticipeMeeting::create([
                     'user_id'   => Auth::id(),
                     'meeting_id'    => $meeting->id
+                ]);
+
+                $message = Message::create([
+                    'meeting_id'        => $meeting->id,
+                    'salon_id'          => 0,
+                    'user_id'           => Auth::id(),
+                    'date_message'      => now(),
+                    'statut-mess'       => -1,
+                    'content_mess'      => ' '
                 ]);
 
                 return redirect()->route('annonces.show', $annonce->id);

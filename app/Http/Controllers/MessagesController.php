@@ -16,7 +16,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        $messages = Message::get()->load('user');
+        $messages = Message::where('salon_id', 0)->get()->load('user');
         $messages = $messages->groupBy('meeting_id');
         $messages = $messages->toArray();
 
@@ -76,7 +76,7 @@ class MessagesController extends Controller
             'user_id'           => Auth::id(),
             'content_mess'        => $request['content_mess'],
             'date_message'      => now(),
-            'statut-mess'       => 0
+            'statut_mess'       => 0
         ]);
 
         return response()->json([

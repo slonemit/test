@@ -18,7 +18,7 @@
                 <div class="chat-user-list">
                     <ul class="list-unstyled mb-0">
                         <li v-for="salon in salons" :key="salon.salon_id" @click="show_thread(salon)" class="media">
-                            <img class="align-self-center rounded-circle" src="chats/assets/images/users/girl.svg" alt="Generic placeholder image">
+                            <img class="align-self-center rounded-circle" src="chats/assets/images/users/girl.svg" alt="image">
                             <div class="media-body">
                                 <h5>{{ salon.salon.libelle }}<span class="badge badge-success ml-2">1</span> <span class="timing">Jan 22</span></h5>
                                 <p>Admin</p>
@@ -35,10 +35,9 @@
                 <div class="chat-head">
                     <ul class="list-unstyled mb-0">
                         <li class="media">
-                            <img class="align-self-center mr-3 rounded-circle" src="chats/assets/images/users/girl.svg" alt="Generic placeholder image">
+                            <img class="align-self-center mr-3 rounded-circle" src="chats/assets/images/users/girl.svg" alt="image">
                             <div class="media-body">
                                 <h5 class="font-18">{{ salon_name }}</h5>
-                                <p class="mb-0">typing...</p>
                             </div>
                         </li>
                     </ul>
@@ -48,10 +47,10 @@
                         <span class="badge badge-secondary">Today</span>
                     </div>
                     <div v-for="chat in chat_box" :key="chat.id" class="chat-message " :class="user_id == chat.user_id? ' chat-message-right':' chat-message-left'">
-                        <div class="chat-message-text">
+                        <div v-if="chat.statut_mess != -1" class="chat-message-text">
                             <span>{{ chat.content_mess }}</span>
                         </div>
-                        <div class="chat-message-meta">
+                        <div v-if="chat.statut_mess != -1" class="chat-message-meta">
                             <span>{{ chat.date_message }}<i class="feather icon-check ml-2"></i></span>
                         </div>
                     </div>
@@ -63,7 +62,7 @@
                                 <div class="input-group-prepend">
                                     <button class="btn btn-secondary-rgba" type="button" id="button-addonmic"><i class="feather icon-mic"></i></button>
                                 </div>
-                                <input @keyup.enter.prevent="postMessage()" v-model="content_message" type="text" class="form-control" placeholder="Type a message..." aria-label="Text">
+                                <input v-model="content_message" type="text" class="form-control" placeholder="Type a message..." aria-label="Text">
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary-rgba" type="submit" id="button-addonlink"><i class="feather icon-link"></i></button>
                                     <button @click="postMessage()" class="btn btn-primary-rgba" type="button" id="button-addonsend"><i class="feather icon-send"></i></button>
@@ -93,14 +92,14 @@ export default {
     },
     methods: {
         show_thread(salon) {
-
             let msg = this.messages
 
             for (const i in msg) {
-                if (salon.salon_id == i) {
+                if (salon.salon_id == i)  {
                     this.salon_name = salon.salon.libelle
                     this.salon_id = salon.salon_id
                     this.chat_box = msg[i]
+                    
                     break
                 }
             }
@@ -110,7 +109,7 @@ export default {
             const url = 'http://b2b.test/chats'
             const data = {
                 content_mess: this.content_message,
-                salon_id: this.salon_id
+                salon_id: this.salon_id 
             }
             const option = {
                 method: 'POST',
@@ -126,8 +125,18 @@ export default {
                 .then(response => {
 
                     if (response.code === 200) {
-                        this.chat_box.push(response.message)
-                        this.content_message = ''
+                        if(this.chat_box === undefined){
+
+                            // S'il n'y avait pas encore de messages dans la variable chat_box
+
+                            let new_chat_box = []
+                            new_chat_box.push(response.message)
+                            this.chat_box = new_chat_box
+                            this.content_message = ''
+                        }else{
+                            this.chat_box.push(response.message)
+                            this.content_message = ''
+                        }
                     }
                 })
         }

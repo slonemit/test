@@ -47,10 +47,10 @@
                         <span class="badge badge-secondary">Today</span>
                     </div>
                     <div v-for="chat in chat_box" :key="chat.id" class="chat-message " :class="user_id == chat.user_id? ' chat-message-right':' chat-message-left'">
-                        <div class="chat-message-text">
+                        <div v-if="chat.statut_mess != -1" class="chat-message-text">
                             <span>{{ chat.content_mess }}</span>
                         </div>
-                        <div class="chat-message-meta">
+                        <div v-if="chat.statut_mess != -1" class="chat-message-meta">
                             <span>{{ chat.date_message }}<i class="feather icon-check ml-2"></i></span>
                         </div>
                     </div>
@@ -146,7 +146,8 @@ export default {
 
         if(msg.length > 0){
             for (const i in msg) {
-                this.chat_box = msg[i]
+                let first_meeting = users[0].meeting_id
+                this.chat_box = msg[first_meeting]
 
                 break
             }

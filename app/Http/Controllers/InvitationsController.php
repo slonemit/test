@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Invitation;
-use App\Models\ParticipeSalon;
+use App\Models\Message;
 use App\Models\Personne;
+use App\Models\Invitation;
 use Illuminate\Http\Request;
+use App\Models\ParticipeSalon;
 use Illuminate\Support\Facades\Auth;
 
 class InvitationsController extends Controller
@@ -41,6 +42,16 @@ class InvitationsController extends Controller
         ]);
 
         if($invitation){
+
+            Message::create([
+                'meeting_id'        => 0,
+                'salon_id'          => $request->input('salon_id'),
+                'user_id'           => Auth::id(),
+                'date_message'      => now(),
+                'statut_mess'       => -1,
+                'content_mess'      => ' '
+            ]);
+
             return redirect()->route("salons.show", $request->input('salon_id'));
         }
 
