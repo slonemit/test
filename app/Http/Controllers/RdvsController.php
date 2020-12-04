@@ -187,7 +187,7 @@ class RdvsController extends Controller
                     'salon_id'          => 0,
                     'user_id'           => Auth::id(),
                     'date_message'      => now(),
-                    'statut-mess'       => -1,
+                    'statut_mess'       => -1,
                     'content_mess'      => ' '
                 ]);
 

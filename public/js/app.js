@@ -238,16 +238,10 @@ __webpack_require__.r(__webpack_exports__);
     var msg = this.messages;
     var users = this.participants;
 
-    if (msg.length > 0) {
-      for (var i in msg) {
-        var first_meeting = users[0].meeting_id;
-        this.chat_box = msg[first_meeting];
-        break;
-      } // TODO
-
-
+    if (users[0] !== undefined) {
       this.meeting_name = users[0].user.name;
       this.meeting_id = users[0].meeting_id;
+      this.chat_box = msg[this.meeting_id];
     }
   },
   mounted: function mounted() {

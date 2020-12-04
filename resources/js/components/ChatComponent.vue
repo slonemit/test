@@ -92,7 +92,6 @@ export default {
     },
     methods: {
         show_thread(participant) {
-
             let msg = this.messages
 
             for (const i in msg) {
@@ -144,17 +143,10 @@ export default {
         let msg = this.messages
         let users = this.participants
 
-        if(msg.length > 0){
-            for (const i in msg) {
-                let first_meeting = users[0].meeting_id
-                this.chat_box = msg[first_meeting]
-
-                break
-            }
-
-            // TODO
+        if(users[0] !== undefined){
             this.meeting_name = users[0].user.name
             this.meeting_id = users[0].meeting_id
+            this.chat_box = msg[this.meeting_id]
         }
     },
     mounted() {
